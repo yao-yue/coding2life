@@ -1,0 +1,126 @@
+* {
+    margin:0;
+    padding:0;
+}
+
+body {
+    background:#464646;
+}
+
+
+.m-load {
+    width:30px;
+    height:30px;
+    background-color: red;
+    left: 600px;
+    margin:0px auto;
+    background:url('load.png') center center no-repeat;
+}
+
+/** 加载动画的静态样式 **/
+.m-load2 {
+    position: relative;
+    width: 52px;
+    height: 52px;
+    margin: 0 auto;
+    border-radius: 52px;
+    border: 2px solid #fff;
+    overflow: hidden;
+}
+
+.m-load2 .item {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    width: 20px;
+    height: 100%;
+    margin-left: -10px;
+}
+
+.m-load2 .item:nth-child(2) {
+    transform: rotate(45deg);
+}
+
+.m-load2 .item:nth-child(3) {
+    transform: rotate(90deg);
+}
+
+.m-load2 .item:nth-child(4) {
+    transform: rotate(135deg);
+    clip: rect(-26px, 18px, 26px, -18px);
+}
+
+.m-load2 .item:nth-child(5) {
+    transform: rotate(135deg);
+    clip: rect(26px, 37px, 78px, 2px);
+}
+
+.m-load2 .item:before,
+.m-load2 .item:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 18px;
+    height: 100%;
+}
+
+.m-load2 .item:before {
+    bottom: 52%;
+    border-left: 2px solid #fff;
+    transform-origin: left bottom;
+    transform: translate(100%, 0) rotate(-45deg);
+}
+
+.m-load2 .item:after {
+    top: 52%;
+    border-right: 2px solid #fff;
+    transform-origin: right top;
+    transform: translate(-100%, 0) rotate(-45deg);
+}
+
+.m-load2 .item:nth-child(1):before {
+    background: #48ec53;
+}
+.m-load2 .item:nth-child(1):after {
+    background: #f75e5a;
+}
+.m-load2 .item:nth-child(2):before {
+    background: #a6ea4b;
+}
+.m-load2 .item:nth-child(2):after {
+    background: #724dee;
+}
+.m-load2 .item:nth-child(3):before {
+    background: #e8d84b;
+}
+.m-load2 .item:nth-child(3):after {
+    background: #44abec;
+}
+.m-load2 .item:nth-child(4):before {
+    background: #fdc103;
+}
+.m-load2 .item:nth-child(5):after {
+    background: #51ddeb;
+}
+.m-load2 .point {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 18px;
+    height: 18px;
+    margin: -9px 0 0 -9px;
+    border-radius: 18px;
+    background: #464646;
+}
+
+.m-load2 {
+    animation: load 1.8s linear infinite;
+    }
+
+/** 加载动画 **/
+@keyframes load {
+100% {
+        transform: rotate(360deg);
+    }
+}
+
