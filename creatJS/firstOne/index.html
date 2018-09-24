@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>我的第一个CreateJS</title>
+    <script src="//cdn.bootcss.com/EaselJS/0.8.0/easeljs.min.js" charset="utf-8"></script>
+</head>
+
+<body onload="init();">
+    <canvas id="demoCanvas" width="500" height="300"></canvas>
+    <div class="say">what so much cool!<br> There are more funning is waiting you!</div>
+</body>
+<script>
+    function init() {
+        var stage = new createjs.Stage("demoCanvas");      //创建一个舞台实例，用于展现显示对象和视觉容器
+        var circle = new createjs.Shape();
+        circle.graphics.beginFill("DeepSkyBlue").drawCircle(0, 0, 50);
+        circle.x = 100;
+        circle.y = 100;
+        stage.addChild(circle);                             //将这个圆添加在我们舞台
+        stage.update();                                    //添加更新显示到我们舞台
+    }
+</script>
+
+
+</html>

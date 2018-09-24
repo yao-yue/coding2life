@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>移动的螃蟹</title>
+    <!-- 一些小动画或小游戏，只用easejs也能实现，因为核心库已经涵盖了简单图片的预加载功能 -->
+    <script src="https://code.createjs.com/1.0.0/easeljs.min.js"></script>
+</head>
+<body onload="init()">
+    <canvas id="canvas" width="1000" height="800" style="border: black solid 1px"></canvas>
+</body>
+<script>
+    var stage;
+    function init() {
+        stage = new createjs.Stage(document.getElementById('canvas'));
+        createjs.Ticker.addEventListener("tick", handleTick);        //监听tick事件，handleTick函数书实现舞台更新
+        createjs.Ticker.setFPS(60);                                 //tick 更新舞台的操作
+        start();
+    }
+    function handleTick(e) {
+        stage.update();
+    }
+    function start() {
+        drawCrabs();
+    }
+    function drawCrabs() {
+        var imgPath = "./images/haidiyuleipng-002.png";
+        Crab1 = new createjs.Bitmap(imgPath);
+        Crab2 = new createjs.Bitmap(imgPath);
+        Crab3 = new createjs.Bitmap(imgPath);
+        Crab2.x = 300;
+        Crab3.x = 600;
+        stage.addChild(Crab1,Crab2,Crab3);                    //把螃蟹加入到画板
+        stage.update();
+        setTimeout(moveCrab, 1000);
+    }
+    function moveCrab() {
+        Crab2.y += 200;
+        Crab3.y += 400;
+    }
+</script>
+</html>

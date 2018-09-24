@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>running_man</title>
+    <script src="https://code.createjs.com/1.0.0/easeljs.min.js"></script>
+    <script src="https://code.createjs.com/1.0.0/preloadjs.min.js"></script>
+    <!-- <script src="Runner.js"></script>
+    <script src="SimpleButton.js"></script>
+    <script src="Proloader.js"></script> -->
+    <!-- <script src="runningMan.js"></script> -->
+</head>
+<body onload="preload()">
+    <canvas id="canvas" width="800" height="600" style="border: black solid 1px; background-color:#add8e6"></canvas>
+</body>
+<script>
+    var stage, queue, preloader, spritesheet, runner;
+function preload() {
+    queue = new createjs.LoadQueue();
+    queue.loadManifest([
+        {id:"runner", src:"./images/spritesheet_grant.png"}
+    ],false);
+    init();
+}
+function init() {
+    stage = new createjs.Stage(document.getElementById('canvas'));
+    createjs.Ticker.on('tick', stage);
+    stage.enableMouseOver();
+    preload = new ui.Preloader('#FFF', '#000');
+    preloader.x = (stage.canvas.width/2) - (preloader.width/2);
+    preloader.y = (stage.canvas.height/2) - (preloader.height/2);
+    stage.addChild(preloader);
+    queue.addEventListener('complete', initGame);
+    queue.addEventListener('progress',onFileProgress);
+    queue.load();
+}
+function onFileProgress(e) {
+    preloader.update(e.progress);
+}
+function initGame() {
+    stage.removeChild(preloader);
+    preloader = null;
+    spritesheet = new createjs.SpriteSheet({
+        "images":[queue.getResult("runner")],
+        "frames":{"regX":0, "height":292, "count":64, "regY":0, "width":165},
+        "animations":{"idle":[60], "run":[0,25], "jump":[31,60,"idle"]}
+    });
+    buildRunner();
+    buildButtons();
+}
+function buildRunner() {
+    runner = new sprites.Runner(spritesheet);
+    runner.y = 100;
+    stage.addChild(runner);
+}
+function buildButtons() {
+    var jumpBtn = new ui.SimpleButton("JUMP");
+    var runBtn = new ui.SimpleButton("RUN");
+    var idleBtn = new ui.SimpleButton("IDLE");
+    jumpBtn.on("click", function(e){
+        runner.jump();
+    });
+    runBtn.on("click", function(e){
+        runner.run();
+    });
+    idleBtn.on("click", function(e){
+        runner.stand();
+    });
+    idleBtn.x = runBtn.x + runBtn.width + 10;
+    stage.addChild(jumpBtn,runBtn,idleBtn);
+}
+(function() {
+    window.sprites = window.sprites || {};
+    var Runner = function(spritesheet) {
+        this.initialize(spritesheet);
+    }
+    var p = Runner.prototype = new createjs.Sprite();
+    p.Sprite_initialize = p.initialize;
+    p.speed = 0;
+    p.initialize = function(spritesheet) {
+        this.Sprite_initialize(spritesheet, 'idle');
+        this.on('tick', function(e) {
+            this.x += this.speed;
+            if(this.x > stage.canvas.width) {
+                this.x = -this.getBounds().width;
+            }
+        })
+    }
+    p.run = function() {
+        if(this.currentAnimation === 'idle') {
+            this.gotoAndPlay('run');
+            this.speed = 10;
+        }
+    }
+    p.jump = function() {
+        if(this.currentAnimation != 'jump') {
+            this.gotoAndPlay('jump');
+            this.on('animationend', function(e) {
+                if(this.speed >0) {
+                    this.gotoAndPlay('run');
+                }
+            })
+        }
+    }
+    p.stand = function() {
+        if(this.currentAnimation === 'run') {
+            this.gotoAndPlay('idle');
+            this.speed = 0;
+        }
+    }
+    window.sprites.Runner = Runner;
+}());
+</script>
+
+</html>

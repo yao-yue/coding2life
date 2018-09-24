@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>createJS全特效爬行螃蟹</title>
+    <script src="https://code.createjs.com/1.0.0/easeljs.min.js"></script>
+    <script src="https://code.createjs.com/1.0.0/tweenjs.min.js"></script>
+    <script src="https://code.createjs.com/1.0.0/soundjs.min.js"></script>
+    <script src="https://code.createjs.com/1.0.0/preloadjs.min.js"></script>
+</head>
+<body onload="init()">
+    <canvas id="canvas" width="1000" height="600" style="border: black solid 1px"></canvas>   
+</body>
+    <script>
+        var stage;
+        var queue;
+        function init() {
+            queue = new createjs.LoadQueue();
+            queue.installPlugin(createjs.Sound);
+            queue.addEventListener("complete", loadComplete);
+            queue.loadManifest([
+                {id:"Crab", src:"./images/haidiyuleipng-002.png"},
+                {id:"move", src:"./sounds/1090.mp3"},
+                {id:"dive", src:"./sounds/10609.mp3"}
+            ]);
+        }
+        function loadComplete() {
+            setupStage();
+            buildCrabs();
+        }
+        function setupStage() {
+            stage = new createjs.Stage(document.getElementById('canvas'));
+            createjs.Ticker.setFPS(60);
+            createjs.Ticker.addEventListener("tick", function() {
+                stage.update();
+            });
+        }
+        function buildCrabs() {
+            var img = queue.getResult("Crab");
+            var i, sound, Crab;
+            for(i = 0; i < 3; i++){
+                Crab = new createjs.Bitmap(img);
+                Crab.x = i*300;
+                stage.addChild(Crab);
+                createjs.Tween.get(Crab).wait(i*1000).to({y:200}, 1000, createjs.Ease.quadOut).call(CrabComplete);
+                sound = createjs.Sound.play('move', createjs.Sound.INTERRUPT_NONE, i*1000);
+            }
+        }
+        function CrabComplete() {
+            stage.removeChild(this);
+            if(!stage.getNumChildren()) {
+                createjs.Sound.play('dive');
+                var text = new createjs.Text("Three vertical walk crabs \, hah ",
+                "36px Arial", "#777");
+                // text.textAlign = 'center';               //以自身的位置居中
+                // text.x = stage.canvas.width / 2;       
+                bounds = text.getBounds();
+                text.x = stage.canvas.width - bounds.width >> 1;
+                text.y = stage.canvas.height - bounds.height >> 1;  
+                stage.addChild(text);
+            }
+        }
+        function handleTick(e) {
+            stage.update();
+        }
+    </script>
+</html>
