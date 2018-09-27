@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>simple-runner</title>
+    <script src="https://code.createjs.com/1.0.0/easeljs.min.js"></script>
+</head>
+<body>
+    <canvas id="canvas" width="1000" height="400" style="border: black solid 1px"></canvas>
+</body>
+<script>
+    var stage = new createjs.Stage(document.getElementById('canvas'));
+    var _runner = new createjs.SpriteSheet({
+        "images" : ["./spritesheet_grant.png"],
+        "frames" : {
+            "height" : 292,
+            "width" : 165,
+            "count" : 64
+        },
+        "animations" : {
+            "run" : [0, 26, "jump"],
+            "jump" : [26, 63, "run"]
+        }
+    });
+    var runner = new createjs.Sprite(_runner, "run");
+    runner.x = 100;
+    runner.y = 100;
+    stage.addChild(runner);
+    createjs.Ticker.setFPS(60);
+    createjs.Ticker.addEventListener("tick", stage);
+</script>
+</html>
