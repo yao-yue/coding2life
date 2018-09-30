@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>使用Tween包实现中文站小案例</title>
+    <script src="https://code.createjs.com/1.0.0/tweenjs.min.js"></script>
+    <script src="https://code.createjs.com/1.0.0/easeljs.min.js"></script>
+</head>
+<body>
+    <canvas id="canvas" width="1000" height="600" style="border: black solid 1px"></canvas> 
+</body>
+<script>
+    const circleCount = 25;
+    var stage = new createjs.Stage(document.getElementById('canvas'));
+    var tweens = [];
+    for(var i = 0; i < circleCount; i++){
+        var circle = new createjs.Shape();
+        circle.graphics.setStrokeStyle(15);
+        circle.graphics.beginStroke("#113355");
+
+        circle.graphics.drawCircle(0, 0, (i+1)*4);         //设置颜色和各个圆的初始位置
+        circle.compositeOperation = "lighter";              //把圆圈显示得更亮一些
+        // 创建每个圆圈动画从（300,200）移动到(0.5+i*0.04)*1500,动画的效果为backInOut
+        var tween = createjs.Tween.get(circle).to({x:300, y:200}, (0.5+i*0.04)*1500, createjs.Ease.backInOut.call(tweenComplete));
+        tweens.push({tween:tween, ref:circle});             //把效果放入tweens对象中
+        stage.addChild(circle);   
+    }
+    activeCount = circleCount;
+    stage.addEventListener("stagemouseup", handleMouseup);
+    createjs.Ticker.addEventListener("tick", stage);
+    createjs.Ticker.setFPS(60);                            //设置画面刷新速度，使画面更流畅一些
+    function handleMouseup(e) {
+        for(var i = 0; i < circleCount; i++){
+            var ref = tweens[i].ref;
+            createjs.Tween.get(ref, {override:true}).to({x:stage.mouseX, y:stage.mouseY}, (0.5+i*0.04)*1500, createjs.Ease.bounceOut).call(tweenComplete);
+        }
+        activeCount = circleCount;
+    }
+    function tweenComplete() {
+        activeCount--;
+    }
+</script>
+</html>
