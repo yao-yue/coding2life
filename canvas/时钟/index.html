@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>时钟</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        html,body {
+            height: 100%;
+            overflow: hidden;
+            background-color: pink;
+        }
+        #clock {
+            background-color: #bfc;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate3d(-50%, -50%, 0 );
+            
+        }
+    </style>
+</head>
+<body>
+    <canvas id="clock" width="400" height="400" ></canvas>
+</body>
+<script>
+    window.onload = function(){
+        var clock = document.querySelector("#clock");
+        if(clock.getContext) {
+            var ctx = clock.getContext("2d");
+            move();
+        setInterval(function() {
+            ctx.clearRect(0, 0 , clock.width, clock.height);
+            move();
+        }, 1000);
+        move();
+        function move() {
+             //全局设置
+             ctx.save();
+            ctx.lineWidth = 8;
+            ctx.strokeStyle = "black";
+            ctx.lineCap = "round";
+            ctx.translate(200,200);
+            ctx.font = '16px copperplate';
+            ctx.fillText("TISSOT", -24, -60);
+            ctx.rotate(-90*Math.PI/180);
+            
+            ctx.beginPath();
+
+            //获得时间
+            var date = new Date();
+            var s = date.getSeconds();
+            var m = date.getMinutes() + s/60;
+            var h = date.getHours() + m/60;
+            h = h > 12 ? h-12 : h;
+
+            // 外层空心圆盘
+            ctx.save();
+            ctx.lineWidth = 6;
+            ctx.strokeStyle = "#325FA2";
+            ctx.beginPath();
+            ctx.arc(0, 0, 140, 0, 360*Math.PI/180);
+            ctx.stroke();
+            ctx.restore();
+            
+            
+            //时针刻度
+            ctx.save();
+            ctx.lineWidth= 3;
+            for( var i = 0; i < 12 ; i++) {
+                ctx.rotate(30*Math.PI/180);
+                ctx.beginPath();
+                ctx.moveTo(100, 0);
+                ctx.lineTo(120,0);
+                ctx.stroke();
+            }
+            ctx.restore();
+            
+            //分针刻度
+            ctx.save();
+            ctx.lineWidth= 1;        
+            for( var i = 0; i < 60 ; i++) {
+                ctx.rotate(6*Math.PI/180); 
+                if((i+1)%5 != 0) {
+                    ctx.beginPath();
+                    ctx.moveTo(115, 0);
+                    ctx.lineTo(120,0);
+                    ctx.stroke();
+                }
+            }
+            ctx.restore();
+
+
+            
+            //时针
+            ctx.save();
+            ctx.lineWidth = 6;
+            ctx.rotate(h*30*Math.PI/180);
+            ctx.beginPath();
+            ctx.moveTo(-20, 0);
+            ctx.lineTo(80, 0);
+            ctx.stroke();
+            ctx.restore(); 
+
+            //分针
+            ctx.save();
+            ctx.lineWidth = 3;
+            ctx.rotate(m*6*Math.PI/180);
+            ctx.beginPath();
+            ctx.moveTo(-28, 0);
+            ctx.lineTo(110, 0);
+            ctx.stroke();
+            ctx.restore();  
+
+            //秒针
+            ctx.save();
+            ctx.lineWidth = 1;
+            ctx.strokeStyle = "#d40000";
+            ctx.fillStyle = "#d40000";
+            ctx.rotate(s*6*Math.PI/180);
+            ctx.beginPath();
+            ctx.moveTo(-30, 0);
+            ctx.lineTo(75, 0);
+            ctx.stroke();
+                //表座
+                ctx.beginPath();
+                ctx.arc(0, 0, 4, 0, 360*Math.PI/180);
+                ctx.fill();
+                // 秒针头
+                ctx.beginPath();
+                ctx.moveTo(100, 0);
+                ctx.lineTo(80, 2);
+                ctx.lineTo(75, 0);
+                ctx.lineTo(80, -2);
+                ctx.lineTo(100, 0);
+                ctx.stroke();
+                //秒针尾
+                ctx.beginPath();
+                ctx.arc(-32, 0, 3, 0, 360*Math.PI/180);
+                ctx.stroke();
+            ctx.restore();
+
+            ctx.restore();
+        }
+        
+           
+        }
+    }
+</script>
+</html>
