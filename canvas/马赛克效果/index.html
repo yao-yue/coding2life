@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>绘制签名</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        html,body {
+            height: 100%;
+            overflow: hidden;
+        }
+        #test {
+            position: absolute;
+            background-color: #ffffff;
+            border: 1px black solid;
+            left: 50%;
+            top: 50%;
+            transform: translate3d(-50%, -50%, 0);
+        }
+    </style>
+</head>
+<body>
+    <canvas id="test" width="600" height="400"></canvas>
+</body>
+    <script>
+        window.onload = function() {
+            var canvas = document.querySelector("#test");
+            if(canvas.getContext) {
+                var ctx = canvas.getContext("2d");
+
+                var img = new Image();
+                img.src = "tomcat.jpg";
+                img.onload = function() {
+                    draw();
+                }
+                function draw() {
+                    ctx.drawImage(img, 0, 0);
+
+                    var oldImagedata = ctx.getImageData(0, 0, img.width, img.height);
+                    var newImagedata = ctx.getImageData(0, 0, img.width, img.height);
+                    //马赛克
+                    // 1.选取一个马赛克矩形
+                    // 2.从马赛克矩形中随机抽出一个像素点的信息（rgba）
+                    // 3.把整个马赛克矩形的像素点信息统一调成随机抽出的那个
+                    var size = 5;
+                    for(var i = 0; i < oldImagedata.width/size; i++) {
+                        for(var j = 0; j < oldImagedata.width/size; j++) {
+                            //(i j)每一个马赛克矩形的坐标   
+                            //如果是（0,0）  (0,0)~(4,4)   
+                            //如果是（0,1）  (0,5)~(4,9)
+                            //如果是（1,0）  (5,9)~(9,4)
+                            //如果是（1，1） (5,5)~(9,9)
+                            var color = getPxInfo(oldImagedata, i * size +Math.floor(Math.random() * size), j* size +  Math.floor(Math.random() * size));
+                            
+                            for(var a = 0; a < size; a++) {
+                                for(var b = 0; b < size; b++) {
+                                    setPxInfo(imgdata, i * size + a , j * size + b, color); 
+                                }
+                            }
+                        }
+                    }
+                    ctx.putImageData(newImagedata, img.width, 0);
+                }
+                function getPxInfo(imgdata, x, y) {
+                    var color = [];
+                    var data = imgdata.data;
+                    var w = imgdata.width;
+                    var h = imgdata.height;
+
+                    color[0] = data[(y * w + x) * 4];
+                    color[1] = data[(y * w + x) * 4 + 1];
+                    color[2] = data[(y * w + x) * 4 + 2];
+                    color[3] = data[(y * w + x) * 4 + 3];
+                    return color;
+                }
+                function setPxInfo(imgdata, x, y, color) {
+                    var data = imgdata.data;
+                    var w = imgdata.width;
+                    var h = imgdata.height;
+
+                    data[(y * w + x) * 4] = color[0];
+                    data[(y * w + x) * 4 + 1] = color[1];
+                    data[(y * w + x) * 4 + 2] = color[2];
+                    data[(y * w + x) * 4 + 3] = color[3];
+                }
+            }
+            
+        }
+    </script>
+</html>
