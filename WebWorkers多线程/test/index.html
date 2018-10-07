@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>测试多线程</title>
+    <link rel="stylesheet" href="worker.js">
+</head>
+<body>
+    斐波那契（Fibonacci ）数列计算
+    <input type="text" placeholder="数值"  id="number">
+        <button id="btn">计算</button>
+</body>
+    <script>
+        var input = document.getElementById('number');
+        document.getElementById('btn').onclick = function () {
+            var number = input.value;
+
+            // 创建一个worker对象
+            var worker = new Worker('worker.js');
+
+            // 绑定接收信息的监听
+            worker.onmessage = function (event) {
+                console.log('主线程接受分线程返回的数据：' + event.data);
+                alert(event.data);
+            }
+            
+            //向分线程发送消息
+            worker.postMessage(number);
+            console.log('主线程向分线程发送数据：' + number);
+        }
+    </script>
+</html>
