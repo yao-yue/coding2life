@@ -9,7 +9,7 @@ Page({
     longitude: 116.397390,
     latitude: 39.908860,
     markers: [],
-    topText:'🍊单车改良版 by 行无忌',
+    topText:'greenCar',
     scale: 18,
     lastLongitude:0,
     lastLatitude: 0,
