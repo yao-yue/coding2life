@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>梦想试衣间</title>
+    <style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    body,
+    .container {
+        height: 100%;
+        width: 100%;
+        overflow: hidden;
+        background-color: #b1b1b1;
+        box-sizing: border-box;
+    }
+    .login-box {
+        position: absolute;
+        box-sizing: border-box;
+        height: 400px;
+        width: 300px;
+        background-color: #ffffff;
+        border-radius: 10px;
+        box-shadow: 10px 10px 10px 5px #888888;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        left: 200px;
+        top: 150px;
+
+    }
+    .logo-img {
+        width: 300px;
+        height: 180px;
+        /* background-color: pink; */
+    }
+    .logo-img #logo {
+        height: 180px;
+        margin-left: 60px;
+    }
+    input {
+        padding-left: 6px;
+        display: inline-block;
+        height: 40px;
+        width: 95%;
+        margin-left: 2px;
+        border-radius: 5px;
+        margin-bottom: 10px;
+        font-size: 16px;
+       
+        -webkit-appearance: none;
+        /* outline:#00ff00 dotted thick;           */
+        border: 1px gray solid;
+        border-bottom: 3px gray solid;
+        background-color: transparent;
+    }
+    input:active {
+        border: blue;
+    }
+    .login-btn,
+    .sign-btn {
+        position: absolute;
+        background-color: #b1b1b1;
+        height: 40px;
+        width: 98%;
+        font-size: 18px;
+        color: #ffffff;
+        line-height: 40px;
+        margin-left: 3px;
+        text-align: center;
+        border-radius: 8px;
+    }
+    .login-btn {
+        bottom: 60px;
+    }
+    .sign-btn {
+        bottom: 16px;
+    }
+    .login-btn:hover,
+    .sign-btn:hover {
+        background-color: gray;
+    }
+    .login-btn:active,
+    .sign-btn:active {
+        background-color: #303030;
+    }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="login-box">
+            <div class="logo-img">
+                <img id="logo" src="./images/ui/logo.png" alt="">
+            </div>
+            <form action="">
+                <input type="text" placeholder="用户名">
+                <input type="text" placeholder="密码">
+            </form>
+           
+            <div class="login-btn">我要登录</div>
+            <div class="sign-btn">我要注册</div>
+        </div>
+    </div>
+
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>注册页面</title>
+    <style>
+     * {
+        margin: 0;
+        padding: 0;
+    }
+    body,
+    .sign-container {
+        height: 100%;
+        width: 100%;
+        overflow: hidden;
+        background-color: #b1b1b1;
+        box-sizing: border-box;
+    }
+    .sign-box {
+        width: 300px;
+        position: absolute;
+        box-sizing: border-box;
+        background-color: #ffffff;
+        border-radius: 10px;
+        box-shadow: 10px 10px 10px 5px #888888;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        left: 40%;
+        top: 20%;
+        transform: translate3d(-50%, -50%);
+    }
+    .sign-box-header {
+        height: 40px;
+        background-color: #303030;
+        color: #ffffff;
+        font-size: 16px;
+        line-height: 40px;
+        text-align: center;
+    }
+    .enter-form {
+        margin-left: 20px;
+        margin-top: 6px;
+        font-size: 18px;
+        padding: 0 10px;
+    }
+    .enter-form > span {
+        height: 30px;
+        display: inline-block;
+    }
+    .enter-form >span:nth-last-of-type(1) {
+        margin-top: 6px;
+    }
+    .enter-form > span > label {
+        margin-left: 32px;
+    }
+    .enter-form > span >input {
+        font-size: 22px;
+        width: 60%;
+        border: 1px solid gray;
+        border-radius: 2px;
+        margin-top: 10px;
+    }
+    #select-bar {
+        display: inline-block;
+        height: 30px;
+        width: 96%;
+        margin-left: 6px;
+        line-height: 30px;
+        text-align: center;
+        font-size: 16px;
+        background-color: #707070;
+        border-radius: 6px;
+        color: #ffffff;
+        position: relative;
+    }
+    #select-bar::after {
+        content: "";
+        position: absolute;
+        width: 200%;
+        height: 1%;
+        top: 36px;
+        left: 0;
+        border-bottom: 1px solid #303030;
+        transform: scale(0.5);
+        transform-origin: 0 0;
+    }
+    .avatar {
+        box-sizing: border-box;
+        height: 160px;
+        padding: 10px 20px 0;
+        margin-top: 10px;
+        text-align: center;
+    }
+    .avatar-hidden {
+        display: none;
+    }
+    .avatar > img {
+        display: inline-block;
+        background-color: yellow;
+        height: 90%;
+        width: 40%;
+        border-radius: 6px;
+    }
+    .avatar > img:nth-child(1) {
+        margin-right: 10px;
+    }
+    .avatar > img:hover {
+        border-top: 1px solid #ffffff;
+        border-left: 1px solid #ffffff;
+        box-shadow: 4px 4px  5px #888888;
+    }
+    .imgTap {
+        border-top: 2px solid gray;
+        border-left: 2px solid gray;
+        border-bottom: 1px solid #ffffff;
+        border-right: 1px solid #ffffff;
+    }
+    .btn-box {
+        margin-top: 16px;
+        height: 40px;
+        float: left;
+        padding: 0 16%;
+    }
+    .btn-box > span {
+        display: inline-block;
+        text-align: center;
+        width: 80px;
+        height: 30px;
+        line-height: 30px;
+        border-radius: 6px;
+        color: #ffffff;
+        font-weight: 400;
+        font-size: 12px;
+        background-color: #606060;
+    }
+    .btn-box #goback {
+        float: right; 
+    }
+    </style>
+</head>
+<body>
+    <div class="sign-container">
+        <div class="sign-box">
+            <div class="sign-box-header"><span>注册</span></div>
+                <form action="" class="enter-form">
+                        <span>用户名称: <input type="text" name="" id=""></span>
+                        <span>用户实名: <input type="text" name="" id=""></span>
+                        <span>密&emsp;&emsp;码: <input type="text" name="" id=""></span>
+                        <span>密码确认: <input type="text" name="" id=""></span>
+                        <span>性&emsp;&emsp;别:
+                                <label><input name="sex" type="radio" value="" />男</label> 
+                                <label><input name="sex" type="radio" value="" />女</label>
+                        </span>
+                </form>
+            <span id="select-bar">模型选择</span>
+            <div class="avatar">
+                <img src="" alt="" class="imgTap">
+                <img src="" alt="" class="avatar2">
+            </div>
+            <div class="btn-box">
+                <span >点击注册</span>
+                <span id="goback">返回登录</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
