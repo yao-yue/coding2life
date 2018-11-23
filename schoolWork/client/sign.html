@@ -151,12 +151,12 @@
                         <span>密&emsp;&emsp;码: <input type="text" name="" id=""></span>
                         <span>密码确认: <input type="text" name="" id=""></span>
                         <span>性&emsp;&emsp;别:
-                                <label><input name="sex" type="radio" value="" />男</label> 
-                                <label><input name="sex" type="radio" value="" />女</label>
+                                <label><input name="sex" type="radio" value="man" />男</label> 
+                                <label><input name="sex" type="radio" value="women" />女</label>
                         </span>
                 </form>
             <span id="select-bar">模型选择</span>
-            <div class="avatar">
+            <div class="avatar avatar-hidden">
                 <img src="" alt="" class="imgTap">
                 <img src="" alt="" class="avatar2">
             </div>
@@ -166,5 +166,15 @@
             </div>
         </div>
     </div>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        let imgList = ['./images/data/mheadA.png','./images/data/mheadB.png','./images/data/wheadA.png','./images/data/wheadA.png']
+        $(document).ready(function () {
+            $(".enter-form>span>label").click(function () {
+                $(".avatar").removeClass("avatar-hidden");
+            });
+            $('.enter-form > span > laber > input:radio[name="sex"]:checked').attr()
+        });
+    </script>
 </body>
 </html>
