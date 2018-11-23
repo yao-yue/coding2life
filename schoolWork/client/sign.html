@@ -31,6 +31,7 @@
         left: 40%;
         top: 20%;
         transform: translate3d(-50%, -50%);
+        background-color: #d8d8d8;
     }
     .sign-box-header {
         height: 40px;
@@ -99,10 +100,10 @@
     }
     .avatar > img {
         display: inline-block;
-        background-color: yellow;
         height: 90%;
         width: 40%;
-        border-radius: 6px;
+        border-radius: 6px;    
+        background-size: cover;
     }
     .avatar > img:nth-child(1) {
         margin-right: 10px;
@@ -118,6 +119,7 @@
         border-bottom: 1px solid #ffffff;
         border-right: 1px solid #ffffff;
     }
+ 
     .btn-box {
         margin-top: 16px;
         height: 40px;
@@ -157,7 +159,7 @@
                 </form>
             <span id="select-bar">模型选择</span>
             <div class="avatar avatar-hidden">
-                <img src="" alt="" class="imgTap">
+                <img src="" alt="" class="avatar1" >
                 <img src="" alt="" class="avatar2">
             </div>
             <div class="btn-box">
@@ -168,12 +170,32 @@
     </div>
     <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
     <script>
-        let imgList = ['./images/data/mheadA.png','./images/data/mheadB.png','./images/data/wheadA.png','./images/data/wheadA.png']
+        let imgList = ['./images/data/model/mheadA.png','./images/data/model/mheadB.png','./images/data/model/wheadA.png','./images/data/model/wheadB.png']
         $(document).ready(function () {
             $(".enter-form>span>label").click(function () {
                 $(".avatar").removeClass("avatar-hidden");
             });
-            $('.enter-form > span > laber > input:radio[name="sex"]:checked').attr()
+            const IMG1 = '.avatar>img:nth-child(1)';
+            const IMG2 = '.avatar>img:nth-child(2)';
+            $(".enter-form > span > label > input").click(function () {
+                let a = $('.enter-form > span > label ').find('input:radio[name="sex"]:checked').val();
+                if(a=='man') {
+                    $(IMG1).attr('src',imgList[0]);
+                    $(IMG2).attr('src',imgList[1]);
+                }
+                else if (a=='women') {
+                    $(IMG1).attr('src',imgList[2]);
+                    $(IMG2).attr('src',imgList[3]);
+                }
+            });
+            $(IMG1).click(() => {
+                $(IMG2).removeClass('imgTap');
+                $(IMG1).addClass('imgTap'); 
+            })
+            $(IMG2).click(() => {
+                $(IMG1).removeClass('imgTap');
+                $(IMG2).addClass('imgTap');   
+            })
         });
     </script>
 </body>

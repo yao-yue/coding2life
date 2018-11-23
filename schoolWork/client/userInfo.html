@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>用户信息页面</title>
     <style>
-     * {
+        * {
         margin: 0;
         padding: 0;
     }
@@ -17,11 +18,12 @@
         overflow: hidden;
         background-color: #b1b1b1;
         box-sizing: border-box;
+        min-width: 600px;
     }
-    .left-nav {
-        width: 20%;
+    .userInfo-container .left-nav {
+        width: 120px;
         height: 100%;
-        background-color: #303030;
+        background-color: #ffffff;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -32,10 +34,19 @@
         color: #ffffff;
         display: flex;
         flex-direction: column;
+        margin-bottom: 2px;
+        background: #303030;
+        height: 120px;
+    }
+    .nav-item:hover {  
+        background-color: #b1b1b1;
+    }
+    .item-active {
+        background: rgb(111, 111, 235);
     }
     .nav-item > img {
-        width: 60%;
-        padding: 16px 16px 0;
+        width: 30%;
+        padding: 30px 40px 10px;
     }
     .userInfo-box {
         width: 360px;
@@ -50,6 +61,9 @@
         left: 40%;
         top: 10%;
         transform: translate3d(-50%, -50%);
+    }
+    .userInfo-box-hidden {
+        display: none;
     }
     .userInfo-box-header {
         height: 40px;
@@ -118,12 +132,8 @@
         margin-top: 10px;
         text-align: center;
     }
-    .avatar-hidden {
-        display: none;
-    }
     .avatar > img {
         display: inline-block;
-        background-color: yellow;
         height: 90%;
         width: 40%;
         border-radius: 6px;
@@ -165,6 +175,7 @@
     }
     </style>
 </head>
+
 <body>
     <div class="userInfo-container">
         <div class="left-nav">
@@ -175,32 +186,84 @@
             <div class="nav-item"><img src="./images/ui/mySuits.png" alt=""><span>我的衣柜</span></div>
             <div class="nav-item"><img src="./images/ui/exit.png" alt=""><span>退出</span></div>
         </div>
-        <div class="userInfo-box">
+        <div class="userInfo-box userInfo-box-hidden">
             <div class="userInfo-box-header"><span>用户信息</span></div>
-                <form action="" class="enter-form">
-                        <span>用户名称: <input type="text" name="" id=""></span>
-                        <span>用户实名: <input type="text" name="" id=""></span>
-                        <span>密&emsp;&emsp;码: <input type="text" name="" id="">
-                            <p>*如密码不需修改则不用填写</p>
-                        </span>
-                        <span>密码确认: <input type="text" name="" id="">
-                            <p>*如密码不需修改则不用填写</p>
-                        </span>
-                        <span>性&emsp;&emsp;别:
-                                <label><input name="sex" type="radio" value="" />男</label> 
-                                <label><input name="sex" type="radio" value="" />女</label>
-                        </span>
-                </form>
+            <form action="" class="enter-form">
+                <span>用户名称: <input type="text" name="" id=""></span>
+                <span>用户实名: <input type="text" name="" id=""></span>
+                <span>密&emsp;&emsp;码: <input type="text" name="" id="">
+                    <p>*如密码不需修改则不用填写</p>
+                </span>
+                <span>密码确认: <input type="text" name="" id="">
+                    <p>*如密码不需修改则不用填写</p>
+                </span>
+                <span>性&emsp;&emsp;别:
+                    <label><input name="sex" type="radio" value="man" checked />男</label>
+                    <label><input name="sex" type="radio" value="women" />女</label>
+                </span>
+            </form>
             <span id="select-bar">模型选择</span>
-            <div class="avatar">
-                <img src="" alt="" class="imgTap">
-                <img src="" alt="" class="avatar2">
+            <div class="avatar ">
+                <img src="" alt="" class="">
+                <img src="" alt="" class="">
             </div>
             <div class="btn-box">
-                <span >点击注册</span>
+                <span>点击注册</span>
                 <span id="goback">返回登录</span>
             </div>
         </div>
     </div>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        let imgList = ['./images/data/model/mheadA.png', './images/data/model/mheadB.png', './images/data/model/wheadA.png', './images/data/model/wheadB.png']
+        $(document).ready(function () {
+            const IMG1 = '.avatar>img:nth-child(1)';
+            const IMG2 = '.avatar>img:nth-child(2)';
+            let a = $('.enter-form > span > label ').find('input:radio[name="sex"]:checked').val();
+            if (a == 'man') {
+                $(IMG1).attr('src', imgList[0]);
+                $(IMG2).attr('src', imgList[1]);
+            }
+            else if (a == 'women') {
+                $(IMG1).attr('src', imgList[2]);
+                $(IMG2).attr('src', imgList[3]);
+            }
+            $(".enter-form > span > label > input").click(function () {
+                let a = $('.enter-form > span > label ').find('input:radio[name="sex"]:checked').val();
+                if (a == 'man') {
+                    $(IMG1).attr('src', imgList[0]);
+                    $(IMG2).attr('src', imgList[1]);
+                }
+                else if (a == 'women') {
+                    $(IMG1).attr('src', imgList[2]);
+                    $(IMG2).attr('src', imgList[3]);
+                }
+            });
+            $(IMG1).click(() => {
+                $(IMG2).removeClass('imgTap');
+                $(IMG1).addClass('imgTap');
+            })
+            $(IMG2).click(() => {
+                $(IMG1).removeClass('imgTap');
+                $(IMG2).addClass('imgTap');
+            })
+            for (let i = 1; i <= 6; i++) {
+                $(`.left-nav .nav-item:nth-of-type(${i})`).click(() => {
+                    $('.left-nav .nav-item').each((i,item) => {
+                        $(item).css('background-color','#303030').removeClass('item-active');
+                    }) 
+                    $(`.left-nav .nav-item:nth-of-type(${i})`).css('background-color','rgb(111, 111, 235)').addClass('item-active');
+
+                     if($('.left-nav .nav-item:first-of-type').attr('class').indexOf('item-active') > -1) {
+                $('.userInfo-box').removeClass('userInfo-box-hidden')
+                }
+                else {
+                    $('.userInfo-box').addClass('userInfo-box-hidden')
+                }
+                })
+            }        
+        });
+    </script>
 </body>
+
 </html>
