@@ -52,7 +52,7 @@
         width: 360px;
         position: absolute;
         box-sizing: border-box;
-        background-color: #ffffff;
+        background-color: #dbb4b4;
         border-radius: 10px;
         box-shadow: 10px 10px 10px 5px #888888;
         display: flex;
@@ -158,25 +158,45 @@
         float: left;
         padding: 0 16%;
     }
-    .btn-box > span {
+    .btn-box > button {
         display: inline-block;
         text-align: center;
-        width: 80px;
-        height: 30px;
-        line-height: 30px;
+        margin-left: 66px;
+        width: 100px;
+        height: 32px;
+        line-height: 32px;
         border-radius: 6px;
         color: #ffffff;
         font-weight: 400;
         font-size: 12px;
         background-color: #606060;
     }
-    .btn-box #goback {
-        float: right; 
+
+    .userList-wrapper {
+        position: absolute;
+        top: 20%;
+        left: 30%;
+        transform: translate3d(-50%, -50%);
+    }
+    .userList-wrapper-hidden {
+        display: none;
+    }
+    .userList-wrapper > table > thead> tr >td {
+        display: inline-block;
+        padding: 0 8px;
+        font-size: 20px;
+        color: #ffffff;
+        background-color: #303030;
+        border-radius: 6px;
+        height: 40px;
+        line-height: 40px;
+        margin-left: 4px;
     }
     </style>
 </head>
 
 <body>
+    <!-- 第一部分 用户信息 -->
     <div class="userInfo-container">
         <div class="left-nav">
             <div class="nav-item"><img src="./images/ui/self.png" alt=""><span>用户信息</span></div>
@@ -208,11 +228,37 @@
                 <img src="" alt="" class="">
             </div>
             <div class="btn-box">
-                <span>点击注册</span>
-                <span id="goback">返回登录</span>
+                <button type="submit">保存信息</button>
             </div>
         </div>
     </div>
+
+    <!-- 第二部分 用户列表 -->
+    <div class="userList-wrapper userList-wrapper-hidden">
+        <table>
+            <thead>
+                <tr>
+                    <td>id</td>
+                    <td>用户名称</td>
+                    <td>用户实名</td>
+                    <td>性别</td>
+                    <td>模型选择</td>
+                    <td>是否管理员</td>
+                    <td>操作</td>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- 这里存放数据用户列表数据 -->
+            </tbody>
+        </table>
+    </div>
+
+
+
+
+
+
+
     <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
     <script>
         let imgList = ['./images/data/model/mheadA.png', './images/data/model/mheadB.png', './images/data/model/wheadA.png', './images/data/model/wheadB.png']
@@ -249,19 +295,27 @@
             })
             for (let i = 1; i <= 6; i++) {
                 $(`.left-nav .nav-item:nth-of-type(${i})`).click(() => {
-                    $('.left-nav .nav-item').each((i,item) => {
-                        $(item).css('background-color','#303030').removeClass('item-active');
-                    }) 
-                    $(`.left-nav .nav-item:nth-of-type(${i})`).css('background-color','rgb(111, 111, 235)').addClass('item-active');
-
-                     if($('.left-nav .nav-item:first-of-type').attr('class').indexOf('item-active') > -1) {
-                $('.userInfo-box').removeClass('userInfo-box-hidden')
-                }
-                else {
-                    $('.userInfo-box').addClass('userInfo-box-hidden')
-                }
+                    $('.left-nav .nav-item').each((i, item) => {
+                        $(item).css('background-color', '#303030').removeClass('item-active');
+                    })
+                    $(`.left-nav .nav-item:nth-of-type(${i})`).css('background-color', 'rgb(111, 111, 235)').addClass('item-active');
+                    
+                    let itemList = ['.userInfo-box','.userList-wrapper']
+                    let hiddenList = ['userInfo-box-hidden','userList-wrapper-hidden']
+                    if ($(`.left-nav .nav-item:nth-of-type(1)`).attr('class').indexOf('item-active') > -1) {
+                            $(itemList[0]).removeClass(hiddenList[0]);
+                    }
+                    else {
+                        $(itemList[0]).addClass(hiddenList[0])
+                    }
+                    if ($(`.left-nav .nav-item:nth-of-type(2)`).attr('class').indexOf('item-active') > -1) {
+                            $(itemList[1]).removeClass(hiddenList[1]);
+                    }
+                    else {
+                        $(itemList[1]).addClass(hiddenList[1])
+                    }
                 })
-            }        
+            }
         });
     </script>
 </body>

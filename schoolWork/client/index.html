@@ -98,7 +98,7 @@
             <div class="logo-img">
                 <img id="logo" src="./images/ui/logo.png" alt="">
             </div>
-            <form action="">
+            <form action="" method="POST" id="indexForm">
                 <input type="text" placeholder="用户名" required>
                 <input type="text" placeholder="密码" required>
             </form>
@@ -114,6 +114,12 @@
             $("button").click(function () {
                 $("h1,h2,p").toggleClass("blue");
             });
+            $('.sign-btn').click(()=> {
+                window.location.href='sign.html'; 
+            })
+            $('.login-btn').click(() => {
+                window.location.href='userInfo.html';
+            })
         });
     </script>
 </body>
