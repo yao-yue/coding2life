@@ -1,0 +1,27 @@
+/* pages/subleaseAuditStatus/index.wxss */
+.container{
+  width: 100%;
+}
+.audit{
+  margin-top: 130rpx;
+  text-align: center;
+}
+.audit image{
+  width: 184rpx;
+  height: 184rpx;
+}
+.tip{
+  color: #333;
+  font-size: 32rpx;
+  margin-top: 30rpx;
+}
+.btn{
+  width: 400rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  margin: 30rpx auto;
+  text-align: center;
+  color: #fff;
+  font-size: 34rpx;
+  border-radius: 40rpx;
+}

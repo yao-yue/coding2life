@@ -1,0 +1,68 @@
+/* pages/map/index.wxss */
+.map-container{
+  height: 98%;
+  background-color: #fff;
+  padding-top: 2%;
+}
+
+.map-search{
+    position: relative;
+    width: 688rpx;
+    height: 70rpx;
+    margin: 0 auto;
+}
+
+.map-search .search{
+  position: absolute;
+  top: 20rpx;
+  left: 20rpx;
+  width: 33rpx;
+  height: 33rpx;
+}
+
+.map-search .delete{
+    position: absolute;
+    top: 15rpx;
+    right: 21rpx;
+    width: 41rpx;
+    height: 41rpx;
+}
+
+.map-container input{
+  height: 70rpx;
+  width: 549rpx;
+  border-radius: 35rpx;
+  background-color: #e9e9e9;
+  padding-left: 69rpx;
+  padding-right: 70rpx;
+  font-size: 32rpx;
+  color: #333;
+}
+
+.map-container input:before{
+  content: '';
+  width: 33rpx;
+  height: 33rpx; 
+}
+
+.address-content .address-item{
+  padding-left: 31rpx;
+  background-color: #fff;
+}
+
+.address-content .address-list{
+  border-bottom: 1rpx solid #e5e5e5;
+  padding: 19rpx 0 20rpx 72rpx;
+  font-size: 32rpx;
+  color: #333;
+}
+
+.address-content .address-item:active{
+  background-color: #e1e1e1;
+}
+
+.address-content .address-list .address{
+  font-size: 28rpx;
+  color: #999;
+  margin-top: 10rpx;
+}

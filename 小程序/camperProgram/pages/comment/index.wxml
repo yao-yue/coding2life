@@ -1,0 +1,21 @@
+<!--pages/comment/index.wxml-->
+<view class='container'>
+    <view class='comment-list'>
+        <!-- comment item  begin-->
+        <view class='comment-item'>
+            <textarea maxlength="200" bindinput='textareaTxt' data-index='{{index}}' placeholder='请留下您的评语'></textarea>
+            <view class="image-list">
+              <view wx:for="{{imagesList}}"  wx:key="{{item.fileId}}" class="image-info">
+                <image mode="aspectFill"  src="{{item.fileUrl}}"></image> 
+                <view  data-index="{{index}}" bindtap="deleteImage" class="delete">-</view>
+              </view>
+              <view wx:if="{{imagesList.length<9}}" class="add-image" bindtap="addImage">
+                <image src='../../images/upload.png' class='add'></image>
+              </view>
+            </view>
+        </view>
+    </view>
+    <view class='footer-submit bgColor' bindtap='submitList'>提交</view>
+    <import src="../../component/dialog/index.wxml" />
+    <template wx:if="{{dialogText}}" is="dialog" data="{{text:dialogText}}" />
+</view>

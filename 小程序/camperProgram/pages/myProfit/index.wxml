@@ -1,0 +1,32 @@
+<!--pages/myProfit/index.wxml-->
+<view class='container'>
+  <view class='top'>
+    <view class='top_title'>昨日收益(元）</view>
+    <view class='top_num'>{{yesterdayPoints}}</view>
+    <view class='top_total'>总收益：{{totalPoints}}</view>
+  </view>
+  <view class='tab_list'>
+    <view class='tab_item' wx:for='{{list}}' wx:key='{{item.name}}'>
+        <view class='{{item.active?"open":"close"}} tab_item_key'  bindtap='collapseTab' data-index='{{index}}'>
+          <view class='name'><image src='{{item.icon}}'></image>{{item.name}}</view>
+          <view class='num'>+{{item.value}}</view>
+        </view>
+        <view class='tab_item_value' hidden='{{item.active || item.record.length == 0}}'>
+            <view class='item' wx:for='{{item.record}}' wx:for-item='recordItem' wx:key='{{recordItem.status}}'>
+              <view class='item_header'>
+                <view class='item_header_l'>{{recordItem.operateMemo}}</view>
+                <view class='item_header_r'>{{recordItem.operateType == 'in'?'+':'-'}}{{recordItem.operateBalance}}</view>
+              </view>
+              <view class='item_footer'>
+                <view class='item_footer_l'>{{recordItem.seqId}}</view>
+                <view class='item_footer_r'>{{recordItem.gmtCreated}}</view>
+              </view>
+            </view>
+            <view class='load_more' bindtap='loadMore' data-index='{{index}}' 
+                data-type='{{item.pointType}}' data-page='{{item.pageIndex}}'>
+              {{item.noMoreShow?'没有更多数据了':'点击加载更多...'}}    
+            </view>
+        </view>
+    </view>
+  </view>
+</view>

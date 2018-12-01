@@ -1,0 +1,21 @@
+<!--pages/changePassword/index.wxml-->
+<view class="container">
+  <view class="myself-item">
+    <view class="item-list">
+      <text>原密码：</text>
+      <input placeholder='请输入原密码'  type='password' maxlength="18" bindinput='pwdBind' placeholder-style='text-align:right'> </input>
+    </view>
+    <view class="item-list">
+      <text>新密码：</text>
+      <input placeholder='请输入6-18位新密码' type='password' maxlength="18"  bindinput='pwdBind1' placeholder-style='text-align:right'> </input>
+    </view>
+    <view bindtap='linkToPage' class="item-list"  >
+      <text>确认新密码：</text>
+      <input placeholder='请再次输入6-18位新密码' type='password'  maxlength="18" bindinput='pwdBind2'  placeholder-style='text-align:right'> </input>
+    </view>
+  </view>
+  <view class='footer-submit bgColor' bindtap='submit'>提交</view>
+  <import src="../../component/dialog/index.wxml" />
+  <template wx:if="{{dialogText}}" is="dialog" data="{{text:dialogText}}" />
+</view>
+

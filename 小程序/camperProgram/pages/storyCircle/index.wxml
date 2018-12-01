@@ -1,0 +1,60 @@
+<!--pages/storyCircle/index.wxml-->
+<view class='container'>
+  <view class='refresh'>正在刷新中..</view>
+  <view class='tab_list'>
+    <view wx:for='{{tabList}}' wx:key='{{item.name}}' class='{{item.isActive?"active":""}} tab_item' 
+          bindtap='switchTab' data-index='{{index}}'>
+          {{item.name}}
+          <form bindsubmit="formSubmit" report-submit='true' class='form_btn'>
+              <button formType="submit" plain='true'></button>
+          </form>
+    </view>
+  </view>
+  <view class='list' hidden='{{!msgType}}'>
+    <view class='item' wx:for='{{dataList}}' wx:key='{{item.id}}' bindtap='linkTo' data-id='{{item.id}}'  data-status='off'>
+      <!-- <form bindsubmit="formSubmit" report-submit='true' class='form_btn'>
+          <button formType="submit" plain='true'></button>
+      </form> -->
+      <view class='picture'>
+         <image src='{{item.coverImage}}' mode='aspectFill'></image>
+         <view class='tag'>{{item.msgTypeName}}</view>
+      </view>
+      <view class='detail'>
+        <view class='position'>{{item.msgCity}}</view> 
+        <view class='intro'> {{item.msgTitle}}</view>
+      </view>
+      <view class='user'>
+        <image src='{{item.headImage?item.headImage:"../../images/moren.png"}}' mode='aspectFill' class='avatar'></image>
+        <view class='num'>{{item.hitCount}}<image src='../../images/thumb.png' mode='aspectFit' class='thumb'></image></view>
+        <view class='num'>{{item.replyCount}}<image src='../../images/comment.png' mode='aspectFit' class='comment'></image></view>
+      </view>
+    </view>
+  </view>
+  <view class='travel_list' hidden='{{msgType}}'>
+    <view class='travel_item' wx:for='{{dataList}}' wx:key='{{item.id}}' bindtap='linkTo' data-id='{{item.id}}'  data-status='on'>
+      <image src='{{item.coverImage}}' mode='aspectFill'></image>
+      <view class='item_tag'>{{item.msgTitle}}</view>
+      <form bindsubmit="formSubmit" report-submit='true' class='form_btn'>
+        <button formType="submit" plain='true'></button>
+      </form>
+    </view>
+  </view>
+  <view class='no-more' wx:if='{{noMoreShow}}'><text>没有更多数据了</text></view>
+  <view class='no-more index_no_more' wx:if='{{!dataList.length}}'>
+    <image src='../../images/logo.png'></image>
+    <view class='no-data'>暂时还没有数据哦~~</view>
+  </view> 
+  
+  <view class='edit_btn'>
+     <view class='edit' catchtap='linkToEdit'>
+        <image src='../../images/pen.png' mode='aspectFit'></image>
+        写故事
+        <form bindsubmit="formSubmit" report-submit='true' class='form_btn'>
+              <button formType="submit" plain='true'></button>
+        </form>
+     </view>
+  </view>
+  <view class='search_btn'  catchtap='linkToSearch'>
+    <image src='../../images/search_story.png' mode='aspectFit'></image>
+  </view>
+</view>

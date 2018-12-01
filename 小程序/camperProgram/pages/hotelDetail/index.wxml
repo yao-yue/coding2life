@@ -1,0 +1,76 @@
+<!--pages/hotelDetail/index.wxml-->
+<import src="../../wxParse/wxParse.wxml" />
+<view class='container'>
+  <swiper indicator-dots="{{indicatorDots}}"  indicator-color="rgba(255,255,255,0.6)"  indicator-active-color="#fff"
+       autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+    <block wx:for="{{detailInfo.images}}" wx:key='{{item.fileUrl}}' >
+      <swiper-item>
+        <image  wx:if="{{item.fileUrl}}" src="{{item.fileUrl}}"/>
+      </swiper-item>
+    </block>
+  </swiper>
+  <view class='main'>
+    <view class='car_item'>
+      <view class='car_type'>{{detailInfo.hotelInfoDTO.provinceName}} · {{detailInfo.hotelInfoDTO.cityName}}</view>
+      <view class='car_name'>{{detailInfo.name}}</view>
+      <view class='car_attr'>
+        <view class='attr_item'>
+          <image src='../../images/hotel_icon_1.png'></image>
+          适合人数:{{detailInfo.peopleNum }}人
+        </view>
+        <view class='attr_item'>
+          <image src='../../images/hotel_icon_2.png'></image>
+          床铺:{{detailInfo.bedNum}}张
+        </view>
+      </view>
+    </view>
+    <view class='car_item'>
+      <view class='item_title'>位置</view>
+      <view class='item_content'>{{detailInfo.hotelInfoDTO.address}}</view>
+    </view>
+    <view class='car_item'>
+      <view class='item_title'>介绍</view>
+      <view class='item_text'>
+        <!-- <rich-text nodes='{{detailInfo.contents}}'></rich-text> -->
+        <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+      </view>
+    </view>
+    <view class='car_item'>
+      <view class='item_title'>评价</view>
+      <view class='no-comment' wx:if='{{!detailInfo.replys.length}}'>暂无评价</view>
+      <view class='comment_list'>
+          <view class='comment_item' wx:for='{{detailInfo.replys}}' wx:key='{{item.userId}}' wx:if='{{index == 0 || index == 1 || index == 2}}'>
+              <view class='user'>
+                <image  src="{{item.userCore.avatarUrl?item.userCore.avatarUrl:'../../images/moren.png'}}" class='avatar'/>
+                <view class='user_name'>{{item.userCore.nickname}}</view>
+                <view class='time'>{{item.gmtCreated}}</view>
+              </view>
+              <view class='comment_text'>
+                {{item.comments}}
+              </view>
+              <view class='picture_list'>
+                <view class='picture_item' wx:for='{{item.imageUrl}}'  wx:for-item = 'pictureItem' wx:key='{{pictureItem.fileUrl}}'>
+                  <image src="{{pictureItem.fileUrl}}"  mode='aspectFill'/>
+                </view>
+              </view>
+          </view>
+          <!-- <view class='all' wx:if='{{detailInfo.replys.length}}' bindtap='linkToComment'>阅读全部{{detailInfo.replys.length}}条评价</view> -->
+          <view class='all' wx:if='{{detailInfo.replyCount && detailInfo.replyCount >= 3}}' 
+              bindtap='linkToComment'>阅读全部{{detailInfo.replyCount}}条评价</view>
+      </view>
+    </view>
+  </view>
+
+  <!--footer  -->
+   <!-- <view class='footer'>
+    <view class='price'>
+      <text>￥{{detailInfo.price}}</text><text>每晚</text>
+      <view class='btn no_bg' data-mobile='{{detailInfo.hotelInfoDTO.mobile}}' bindtap='makeCall'>咨询</view>
+      <view class='btn btn_bg' bindtap='linkToConfirm'>立即预订</view>
+    </view>
+  </view>  -->
+  <!-- footer  -->
+
+  
+</view>
+

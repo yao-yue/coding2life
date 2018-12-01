@@ -1,0 +1,19 @@
+<!--pages/pointDetail/index.wxml-->
+
+<view class='container'>
+<view class="detail-item" wx:for="{{detailList}}" wx:key="{{item.id}}">
+  <view class="detail-left">
+    <view class="source">{{item.busTypeDesc}}</view>
+    <view class="order-num">{{item.seqId}}</view>
+  </view>
+  <view class="detail-right">
+    <view class="change">{{item.operateType == 'in' ? '＋' : '-'}}{{item.operateBalance}}</view>
+    <view class="time">{{item.gmtModified}}</view>
+  </view>
+</view>
+<view class='no-more' wx:if='{{detailList.length == 0 }}'>
+        <image src='../../images/logo.png'></image>
+        <view class='no-data'>暂无积分明细</view>
+</view> 
+<view class='no-more' wx:if='{{noMoreShow}}'><text>没有更多数据了</text></view>
+</view>

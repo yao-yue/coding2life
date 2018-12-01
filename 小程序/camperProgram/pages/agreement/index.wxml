@@ -1,0 +1,12 @@
+<!--pages/agreement/index.wxml-->
+<import src="../../wxParse/wxParse.wxml" />
+<view class='container'>
+  <view class='content'>
+    <!-- <rich-text nodes='{{tip}}'></rich-text> -->
+    <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+  </view>
+  <!-- <view class='footer'>
+    <view class='tip'>*平台将收取转租租金80%将作为服务费</view>
+    <view class='btn bgColor' bindtap='getCheckStatus'>去转租收租金</view>
+  </view>  -->
+</view>

@@ -1,0 +1,86 @@
+/* pages/subleaseAuditSave/index.wxss */
+.container{
+  width: 100%;
+  padding-bottom:80rpx;
+}
+.input-list{
+  padding-left: 30rpx;
+}
+.input-item{
+  height: 100rpx;
+  border-bottom: 2rpx solid #dedede;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 30rpx;
+}
+.item-key{
+  width: 30%;
+  height: 100rpx;
+  line-height: 100rpx;
+  color: #333;
+}
+.item-key text{ color: #fc0000;}
+.item-value{
+  width: 60%;
+  text-align: right;
+  padding-right: 30rpx;
+}
+.item-value input{
+  height: 100rpx;
+  border: none;
+  color: #999;
+  font-size: 30rpx;
+}
+.upload-tip{
+  text-align: center;
+  font-size: 30rpx;
+  color: #999;
+  margin: 30rpx auto;
+}
+.upload-tip text{
+  color: #fc0000;
+}
+.upload-list{
+  margin-bottom:30rpx;
+}
+.upload-item{
+  width: 500rpx;
+  height: 270rpx;
+  margin: 0 auto 20rpx;
+  position: relative;
+}
+.upload-item .temp{
+   width: 100%;
+   height: 100%;
+}
+.cover{
+  position: absolute;
+   width: 100%;
+   height: 100%;
+   left: 0;
+   top: 0;
+   background-color: rgba(0, 0, 0, 0.2);
+}
+.icon{
+  position: absolute;
+  left: 10rpx;
+  top: 10rpx;
+  width: 46rpx;
+  height: 46rpx;
+  z-index: 9;
+}
+.upload-title{
+  margin-bottom: 36rpx;
+  text-align: center;
+  font-size: 38rpx;
+}
+.btn{
+  width: 330rpx;
+  margin: 0 auto;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  font-size: 34rpx;
+  border-radius: 40rpx;
+}

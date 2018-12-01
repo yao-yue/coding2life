@@ -1,0 +1,35 @@
+<!--pages/commentList/index.wxml-->
+<view class='container'>
+  <view class='main'>
+    <view class='tag_list'>
+      <view class='tag_item' wx:for='{{tagList}}' wx:key='{{index}}'>{{item}}</view>
+    </view>
+    <view class='comment_list'>
+      <view class='no-more index_no_more' wx:if='{{!dataList.length}}'>
+        <image src='../../images/logo.png'></image>
+        <view class='no-data'>暂无评价</view>
+      </view> 
+      <view class='comment_list'>
+          <view class='comment_item' wx:for='{{dataList}}' wx:key='{{item.userId}}'>
+              <view class='user'>
+                <image  src="{{item.userCore.avatarUrl?item.userCore.avatarUrl:'../../images/moren.png'}}" class='avatar'/>
+                <view class='user_name'>{{item.userCore.nickname}}</view>
+                <view class='time'>{{item.userCore.gmtCreated}}</view>
+              </view>
+              <view class='comment_text'>
+                {{item.comments}}
+              </view>
+              <view class='picture_list'>
+                <view class='picture_item' wx:for='{{item.images}}' wx:for-item="picItem" wx:for-index="picIndex"  wx:key='{{picItem.fileUrl}}'>
+                  <image src="{{picItem.fileUrl}}"   bindtap="previewImage" mode='aspectFill' 
+                      data-imageList="{{item.images}}" data-index="{{picIndex}}"/>
+                </view>
+              </view>
+          </view>
+      </view>
+    </view>
+    <view class='no-more' wx:if='{{noMoreShow}}'><text>没有更多数据了</text></view>
+  </view>
+</view>
+
+

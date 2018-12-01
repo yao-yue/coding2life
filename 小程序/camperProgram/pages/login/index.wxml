@@ -1,0 +1,37 @@
+<!--pages/login/index.wxml-->
+<view class='container'>
+  <image src='../../images/login.png' class='bg'></image>
+  <view class='main_wrap'>
+    <view class='main'>
+      <view class='title'>登录</view>
+      <view class='list'>
+        <view class='item'>
+          <input type='number' value='{{mobile}}' bindinput='mobileBind' placeholder="请输入手机号" 
+                maxlength='11' placeholder-class='placeholder'/>
+          <image src='../../images/account.png' class='account'></image>
+          <view class='empty' wx:if='{{mobile}}' bindtap='clearMobile'>
+            <image src='../../images/empty.png'></image>
+          </view>
+        </view>
+        <view class='item'>
+          <input type='password' value='{{password}}' bindinput='passwordBind' placeholder="请输入密码" 
+               maxlength='18' placeholder-class='placeholder'/>
+          <image src='../../images/pwd.png' class='pwd'></image>
+          <view class='empty' wx:if='{{password}}' bindtap='clearPassword'>
+            <image src='../../images/empty.png'></image>
+          </view>
+        </view>
+      </view>
+      <form bindsubmit="formSubmit" report-submit='true'>
+        <button formType="submit" class='btn' >登录</button>
+      </form>
+      <!-- <view class='btn' bindtap='login'>登录</view> -->
+      <view class='more'>
+        <view class='more_item' bindtap='linkTo' data-url='register'>注册</view>
+        <view class='more_item' bindtap='linkTo' data-url='resetMobile'>忘记密码？</view>
+      </view>
+    </view>
+  </view>
+   <import src="../../component/dialog/index.wxml" />
+  <template wx:if="{{dialogText}}" is="dialog" data="{{text:dialogText}}" />
+</view>

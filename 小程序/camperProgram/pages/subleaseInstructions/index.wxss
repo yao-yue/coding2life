@@ -1,0 +1,34 @@
+/* pages/subleaseInstructions/index.wxss */
+page{
+  /* min-height: 90%;  */
+  position: relative;
+  
+  /* padding-bottom: 100rpx; */
+
+}
+.content{
+  padding: 20rpx;
+}
+.footer{
+  position: fixed;
+  left:0;
+  bottom: 0;
+  width: 100%;
+  padding: 30rpx 0;
+  background-color: #fff;
+}
+.btn{ 
+  width: 690rpx;
+  margin: 0 auto;
+  height: 88rpx;
+  line-height: 88rpx;
+  text-align: center;
+  font-size: 34rpx;
+  border-radius: 10rpx;
+}
+.tip{
+  color: #f70e0e;
+  font-size: 24rpx;
+  margin-left: 40rpx;
+  margin-bottom: 30rpx;
+}

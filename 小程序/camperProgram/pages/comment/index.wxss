@@ -1,0 +1,102 @@
+
+page,.container{
+  height: 100%;
+  background-color: #fff;
+  overflow: hidden;
+}
+
+.container{
+  padding-left: 30rpx;
+}
+
+page{
+  background-color: #fff;
+}
+
+.wrap{
+  background-color: #fff;
+  padding: 41rpx 30rpx 0 27rpx;
+}
+
+.image-list{
+  display: -webkit-box;
+  display: box;
+  display: -moz-box;
+  /* 老版本 - 适配iOS 6-, Safari 3.1-6 */
+  display: -webkit-flex;
+  /* 新版本 - 适配Chrome */
+  display: flex;
+  flex-wrap: wrap;
+  -webkit-flex-wrap:wrap;
+}
+
+.image-info{
+  position: relative;
+  margin-right: 20rpx;
+}
+
+ .image-info:nth-child(4n){
+  margin-right: 0rpx;
+} 
+
+.image-info .delete{
+  position: absolute;
+  width: 38rpx;
+  height: 38rpx;
+  border-radius: 50%;
+  background-color: #f65f5f;
+  z-index: 999;
+  right:-12rpx;
+  top:5rpx;
+  color: #fff;
+  text-align: center;
+  line-height: 38rpx;
+}
+
+image{
+  width: 150rpx;
+  height: 150rpx;
+  margin-top: 25rpx;
+}
+
+.add{
+  position: relative;
+  width: 150rpx;
+  height: 150rpx;
+}
+
+.btn{
+  position: fixed;
+  bottom: 0rpx;
+  height: 88rpx;
+  width: 100%;
+  font-size: 36rpx;
+  color: #fff;
+  background-color: #f65f5f;
+  line-height: 88rpx;
+  text-align: center;
+}
+
+/*  footer  */
+.footer-submit{
+  width: 750rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  box-shadow: 1px 1px 1px 1px #e7e7e7;
+  color: #fff;
+  text-align: center;
+  font-size: 33rpx;
+}
+
+textarea{
+  width: 650rpx;
+  height: 186rpx;
+  background-color: #F9F9F9;
+  font-size: 26rpx;
+  color: #232323;
+  margin-top: 30rpx;
+  padding: 20rpx;
+}

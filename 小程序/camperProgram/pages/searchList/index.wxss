@@ -1,0 +1,66 @@
+/* pages/searchList/index.wxss */
+.container{
+  min-height: 100%;
+  padding-top: 130rpx;
+}
+.tab_list{
+  height: 100rpx;
+  border-top: 1rpx solid #dedede;
+  border-bottom: 1rpx solid #dedede;
+  display: flex;
+  display: -webkit-flex;
+  justify-content: space-around;
+  align-items: center;
+  position: fixed;
+  left: 0;
+  top:0;
+  width: 100%;
+  background-color: #fff;
+}
+.tab_item{
+  height: 100rpx;
+  line-height: 100rpx;
+  color: #333;
+  text-align: center;
+}
+.tab_item.active{
+  border-bottom: 4rpx solid #f8b62b;
+  color: #f8b62b;
+}
+.rent_list{
+  padding: 0 40rpx;
+}
+.rent_item{
+  margin-bottom: 40rpx;
+}
+.rent_item image{
+  width: 670rpx;
+  height: 405rpx;
+  border-radius: 6rpx;
+}
+.tip{
+  color: #333;
+  font-size: 20rpx;
+  margin-top:10rpx;
+}
+.title{
+  color: #333;
+  font-size: 30rpx;
+  font-weight: 600;
+  margin-top:10rpx;
+  min-height:50rpx;
+  word-break:break-all;
+  display: -webkit-box;
+  -webkit-line-clamp:2; 
+  -webkit-box-orient:vertical;
+  overflow:hidden;
+}
+.price{
+  color: #111;
+  font-size: 30rpx;
+  margin-top:10rpx;
+}
+.price text{
+  display: inline-block;
+  margin-left: 10rpx;
+}

@@ -1,0 +1,42 @@
+<!--pages/accountDetail/index.wxml-->
+<view class='container'>
+  <view class='tab_list_wrap'>
+    <view class='tab_list borderColor'>
+      <view wx:for='{{tabList}}' wx:key='{{item.name}}'  bindtap='switchTab' data-index ='{{index}}'
+      class='{{item.isActive?"bgColor":"fontColor"}}  tab_item' >{{item.name}}</view>
+     
+    </view>
+  </view>
+  <view class='list'>
+    <view class='item' wx:for='{{detailList}}' wx:for-item='withdrawItem' wx:key='{{withdrawItem.id}}' wx:if="{{currentTab == 1}}">
+      <view class='item_header'>
+        <view class='item_header_l'>{{withdrawItem.statusDesc}}</view>
+        <view class='item_header_r'>-{{withdrawItem.withdrawPrice}}</view>
+      </view>
+      <view class='item_footer'>
+        <view class='item_footer_l'>{{withdrawItem.withdrawId}}</view>
+        <view class='item_footer_r'>{{withdrawItem.auditTime}}</view>
+      </view>
+      <view class="memo" wx:if="{{withdrawItem.memo}}">
+        备注：{{withdrawItem.memo}}
+      </view>
+    </view>
+    <view class='item' wx:for='{{detailList}}' wx:for-item='incomeItem' wx:key='{{incomeItem.id}}' wx:if="{{currentTab == 0}}">
+      <view class='item_header'>
+        <view class='item_header_l'>{{incomeItem.busTypeDesc}}</view>
+        <view class='item_header_r'>{{incomeItem.operateType == 'in'?'+':'-'}}{{incomeItem.operateBalance}}</view>
+        <!-- <view class='item_header_r'>+{{incomeItem.operateBalance}}</view> -->
+      </view>
+      <view class='item_footer'>
+        <view class='item_footer_l'>{{incomeItem.seqId}}</view>
+        <view class='item_footer_r'>{{incomeItem.gmtCreated}}</view>
+      </view>
+    </view>
+
+    <view class='no-more' wx:if='{{detailList.length == 0 }}'>
+        <image src='../../images/logo.png'></image>
+        <view class='no-data'>暂无{{currentTab == 0?'收入明细':'提现记录'}}</view>
+    </view> 
+    <view class='no-more' wx:if='{{noMoreShow}}'><text>没有更多数据了</text></view>
+  </view>
+</view>

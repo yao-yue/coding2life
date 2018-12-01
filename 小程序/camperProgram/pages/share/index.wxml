@@ -1,0 +1,17 @@
+<!--pages/share/index.wxml-->
+<view class='container'>
+  <image src='../../images/share_bg.png' class='bg'></image>
+  <view class='tip'>* 积分可以抵扣消费金额</view>
+  <view class='main' wx:if='{{shareType == 1}}'>
+    <!-- <view class='mobile'>
+      <input type='number' value='{{mobile}}' bindinput='mobileBind' placeholder="请输入您的联系方式" placeholder-class='holder'/>
+    </view> -->
+    <view class='btn' bindtap='linkTo'>领取</view>
+    <!-- <view class='btn' bindtap='Share'  wx:if='{{shareType == 2}}'>分享</view>
+    <button open-type='share'  wx:if='{{shareType == 2}}'></button> -->
+  </view>
+  <view class='main' wx:if='{{shareType == 2}}'>
+    <view class='btn' bindtap='Share'  >分享</view>
+    <button open-type='share'  plain='plain'></button>
+  </view>
+</view>

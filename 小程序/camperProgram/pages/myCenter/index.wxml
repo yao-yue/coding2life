@@ -1,0 +1,22 @@
+<!--pages/myCenter/index.wxml-->
+<view class='container'>
+  <view class='top' bindtap='linkTo'  data-url = 'myInfo'>
+    <form bindsubmit="formSubmit" report-submit='true' class='form_btn'>
+        <button formType="submit" plain='true'></button>
+    </form>
+    <view class='name'>{{detailInfo.nickname?detailInfo.nickname:'未登录'}}</view>
+    <view class='edit_btn'>查看编辑个人资料</view>
+    <image class='avatar' src="{{detailInfo.avatarUrl?detailInfo.avatarUrl:'../../images/moren.png'}}" 
+          mode="aspectFill"></image>
+  </view>
+  <view class='list'>
+    <view class='item' wx:for='{{list}}' wx:key='{{item.name}}'  
+          data-url= '{{item.url}}' data-index='{{index}}' bindtap='linkTo'>
+      <form bindsubmit="formSubmit" report-submit='true' class='form_btn'>
+        <button formType="submit" plain='true'></button>
+      </form>
+      <image class='icon' src='{{item.icon}}'></image>
+      {{item.name}}
+    </view>
+  </view>
+</view>

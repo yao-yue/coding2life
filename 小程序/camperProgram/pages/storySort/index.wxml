@@ -1,0 +1,39 @@
+<!--pages/storySort/index.wxml-->
+<view class='container'>
+  <view class='list_hot'>
+    <view class='super_title'>故事类别</view>
+    <view class='list_wrap'>
+    <scroll-view scroll-x style="height: 280rpx;">
+      <view class='pro_list list_three' style="width: {{sortWidth}}rpx;">
+        <view class='pro_item' wx:for='{{sortList}}' wx:key='{{item.id}}' bindtap='linkToList' data-sorttype='{{item.sorttype}}'>
+          <image src='{{item.headImage}}' mode='aspectFill'></image>
+          <view class='type'>{{item.name}}</view>
+        </view>
+      </view>
+    </scroll-view> 
+    </view>
+  </view>
+  <view class='super_title'>全部故事</view>
+  <view class='list'>
+    <view class='item' wx:for='{{dataList}}' wx:key='{{item.id}}' bindtap='linkToDetail' data-id='{{item.id}}'>
+      <view class='picture'>
+         <image src='{{item.coverImage}}' mode='aspectFill'></image>
+         <view class='tag'>{{item.msgTypeName}}</view>
+      </view>
+      <view class='detail'>
+        <view class='position'>{{item.msgCity}}  </view> 
+        <view class='intro'> {{item.msgTitle}}</view>
+      </view>
+      <view class='user'>
+        <image src='{{item.headImage?item.headImage:"../../images/moren.png"}}' mode='aspectFill' class='avatar'></image>
+        <view class='num'>{{item.hitCount}}<image src='../../images/thumb.png' mode='aspectFit' class='thumb'></image></view>
+        <view class='num'>{{item.replyCount}}<image src='../../images/comment.png' mode='aspectFit' class='comment'></image></view>
+      </view>
+    </view>
+    <view class='no-more' wx:if='{{noMoreShow}}'><text>没有更多数据了</text></view>
+    <view class='no-more' wx:if='{{!dataList.length}}'>
+        <image src='../../images/logo.png'></image>
+        <view class='no-data'>暂时还没有数据哦~~</view>
+    </view> 
+  </view>
+</view>

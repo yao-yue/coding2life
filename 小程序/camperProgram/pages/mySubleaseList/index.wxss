@@ -1,0 +1,83 @@
+/* pages/mySubleaseList/index.wxss */
+view {
+  box-sizing: border-box;
+}
+.container{
+  border-top:none;
+}
+.container .placeholder{
+  width: 100%;
+  height: 20rpx;
+  background-color: #F7F8FE;
+}
+.container .list {
+  width: 100%;
+  padding-left: 30rpx;
+  margin-bottom: 40rpx;
+  border-top:1px solid #dedede;
+}
+.container .list .item {
+  width: 100%;
+  padding: 30rpx 30rpx 30rpx 0;
+  box-shadow: 0 2rpx #e1e1e1;
+  box-sizing: border-box;
+}
+.list .item .left-image {
+  flex: 0 0 280rpx;
+  height: 184rpx;
+  margin-right: 26rpx;
+  position: relative;
+}
+.code{
+  position: absolute;
+  right: -150rpx;
+  bottom: 10rpx;
+  font-size: 24rpx;
+  color: #02B5F9;
+}
+.list .item .left-image image {
+  width: 100%;
+  height: 100%;
+}
+.list .item .right-info {
+  flex: 1;
+  overflow: hidden;
+}
+.right-info .title {
+  max-width: 100%;
+  font-size: 34rpx;
+  line-height: 34rpx;
+  color: #333;
+}
+.right-info .time {
+  max-width: 100%;
+  font-size: 24rpx;
+  line-height: 28rpx;
+  color: #666;
+  margin: 18rpx 0 50rpx;
+}
+.right-info .price {
+  max-width: 100%;
+  font-size: 28rpx;
+  line-height: 28rpx;
+  color: #666;
+}
+.right-info .operation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.right-info .operation .sublease-btn {
+  width: 152rpx;
+  height: 60rpx;
+  display: inline-block;
+  vertical-align: top;
+  text-align: center;
+  line-height: 60rpx;
+  color: white;
+  font-size: 26rpx;
+  background-color: #F8B62B;
+  border-radius: 10rpx;
+}
+
+

@@ -1,0 +1,63 @@
+<!--pages/roomList/index.wxml-->
+<view class='container'>
+  <view class='filter'>
+    <view class='date filter_item' bindtap='chooseDate'>{{date}}</view>
+  </view>
+  <view class='rent_list'>
+    <view class='rent_item' bindtap='linkTo' wx:for="{{dataList}}" wx:key="{{item.id}}" data-id='{{item.id}}'>
+        <image src='{{item.headImage?item.headImage:"../../images/car.png"}}' mode='aspectFill'></image>
+        <view class='title'>{{item.name}}</view>
+        <!-- <view class='price'>￥{{item.price}} <text>每晚</text></view> -->
+    </view>
+  </view>
+  <view class='no-more' wx:if='{{noMoreShow}}'><text>没有更多数据了</text></view>
+  <!-- <view class='no-more' wx:if='{{!dataList.length && !noMoreShow}}'><text>酒店列表为空</text></view> -->
+  <view class='no-more index_no_more' wx:if='{{!dataList.length && !noMoreShow}}'>
+        <image src='../../images/logo.png'></image>
+        <view class='no-data'>房间列表为空~~</view>
+  </view> 
+</view>
+
+<!-- 日历插件  -->
+<view class='cover' wx:if='{{calendarShow}}'  bindtap='cancel'></view>
+<view class="flex box box-tb box-align-center calendar-dialog" wx:if='{{calendarShow}}'>
+    <view class="calendar pink-color box box-tb">
+        <view class="top-handle fs28 box box-lr box-align-center box-pack-center">
+            <view class="prev box box-rl" bindtap="handleCalendar" data-handle="prev">
+                <view class="prev-handle box box-lr box-align-center box-pack-center">《</view>
+            </view>
+            <view class="date-area box box-lr box-align-center box-pack-center">
+                  {{cur_year || "--"}} 年 {{cur_month || "--"}} 月
+            </view>
+            <view class="next box box-lr" bindtap="handleCalendar" data-handle="next">
+                <view class="next-handle box box-lr box-align-center box-pack-center">》</view>
+            </view>
+        </view>
+        <view class="weeks box box-lr box-pack-center box-align-center">
+            <view class="flex week fs28" wx:for="{{weeks_ch}}" wx:key="{{index}}" data-idx="{{index}}">{{item}}</view>
+        </view>
+        <view class="days box box-lr box-wrap">
+            <view wx:if="{{hasEmptyGrid}}"  wx:for="{{empytGrids}}" wx:key="{{index}}" data-idx="{{index}}"
+                  class="grid white-color box box-align-center box-pack-center">
+            </view>
+            <view wx:for="{{days}}" wx:key="{{index}}" data-idx="{{index}}" bindtap="tapDayItem"
+                  class="grid white-color box box-align-center box-pack-center">
+                <view 
+                class="day [{{item.choosed?'border-radius blue-bg':''}},{{item.canChoose?'':'grey-color'}},{{item.isWrap?'grey-bg':''}},{{item.isToday?'grey-border':''}}] box box-align-center box-pack-center ">
+                {{item.day}}
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class='btn-list-wrap'>
+      <view class='btn-list'>
+        <view class=' btn-item cancelBtn' bindtap='cancel'>取消</view>
+        <view class=' btn-item clearBtn' bindtap='clear'>清除</view>
+        <view class=' btn-item confirmBtn' bindtap='submitDate'>确定</view>
+      </view>
+    </view>
+  </view>
+  <!-- 日历插件  -->
+
+
+

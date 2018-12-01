@@ -1,0 +1,49 @@
+<!--pages/myInfo/index.wxml-->
+<view class='container'>
+  <view class='avatar'  bindtap='addImage'>
+      <image mode="aspectFill" src="{{detailInfo.avatarUrl?detailInfo.avatarUrl:'../../images/moren.png'}}" 
+          class='head'></image>
+      <view class='icon bgColor'>
+        <image src='../../images/camera.png'></image>
+      </view>
+  </view>
+  <view class='list'>
+     <view class='input_item'>
+        <view class='item_key'>昵称</view>
+        <view class='item_value'>
+          <input type='text' value='{{detailInfo.nickname}}' bindinput='nameBind' placeholder="请输入您的昵称" maxlength='10'/>
+        </view>
+      </view>
+      <view class='input_item'>
+        <view class='item_key'>姓名</view>
+        <view class='item_value'>
+          <input type='text' value='{{detailInfo.trueName}}' bindinput='trueNameBind' placeholder="请输入您的姓名" maxlength='10'/>
+        </view>
+      </view>
+      <view class='input_item'>
+        <view class='item_key'>手机号</view>
+        <view class='item_value' bindtap='linkTo'  data-path='changeMobile'>
+          <view class="picker">{{detailInfo.mobile}}</view>
+        </view>
+      </view>
+      <view class='input_item'>
+        <view class='item_key'>性别</view>
+        <view class='item_value'>
+         <picker bindchange="sexBind" value="{{detailInfo.sex}}" range="{{sexList}}">
+              <view class="picker">{{sexList[detailInfo.sex]?sexList[detailInfo.sex]:'请选择'}}</view>
+            </picker>
+        </view>
+      </view>
+      <view class='input_item'>
+        <view class='item_key'>生日</view>
+        <view class='item_value'>
+          <picker bindchange="birthBind"  mode="date" value="{{detailInfo.birthday}}"  end='{{date}}'>
+              <view class="picker">{{detailInfo.birthday?detailInfo.birthday:'请选择'}}</view>
+            </picker>
+        </view>
+      </view>
+  </view>
+  <view class='btn bgColor' bindtap='submit'>提交</view>
+  <import src="../../component/dialog/index.wxml" />
+  <template wx:if="{{dialogText}}" is="dialog" data="{{text:dialogText}}" />
+</view>

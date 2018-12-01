@@ -1,0 +1,45 @@
+<!--pages/subleaseAuditSave/index.wxml-->
+<view class='container'>
+  <view class='input-list'>
+    <view class='input-item'> 
+        <view class='item-key'><text>*</text>姓名:</view>
+        <view class='item-value'>
+          <input placeholder='请输入真实姓名' type='text' value="{{name}}" bindinput="bindNameInput" maxlength='10'></input>
+        </view>
+    </view>
+    <view class='input-item'> 
+        <view class='item-key'><text>*</text>手机号:</view>
+        <view class='item-value'>
+          <input placeholder='请输入手机号' type='number' maxlength='11' value="{{mobile}}" bindinput="bindMobileInput"></input>
+        </view>
+    </view>
+    <view class='input-item'> 
+        <view class='item-key'><text>*</text>身份证号:</view>
+        <view class='item-value'>
+          <input placeholder='请输入身份证号' type='text' maxlength='18' value="{{code}}" bindinput="bindCodeInput"></input>
+        </view>
+    </view>
+  </view>
+  <view class='upload-tip'>
+    <text>*</text>请拍摄上传您的身份证件照
+  </view>
+  <view class='upload-list'>
+    <view class='upload-item'>
+      <image src='../../images/zm.png' bindtap='choosePic' data-index='0' class='temp' hidden='{{!oneShow}}'></image>
+      <image src='{{frontImageSrc}}' bindtap='choosePic' data-index='0' class='temp' hidden='{{oneShow}}'></image>
+      <view class='cover' hidden='{{oneShow}}'></view>
+      <image src='../../images/delete_icon.png' hidden='{{oneShow}}' bindtap='deletePic' data-index='0' class='icon' ></image>
+    </view>
+    <view class='upload-title fontColor'>拍摄正面</view>
+     <view class='upload-item'>
+      <image src='../../images/fm.png' bindtap='choosePic' data-index='1' class='temp' hidden='{{!twoShow}}'></image>
+      <image src='{{backImageSrc}}' bindtap='choosePic' data-index='1' class='temp' hidden='{{twoShow}}'></image>
+      <view class='cover' hidden='{{twoShow}}'></view>
+      <image src='../../images/delete_icon.png' hidden='{{twoShow}}'bindtap='deletePic' data-index='1' class='icon'></image>
+    </view>
+    <view class='upload-title fontColor'>拍摄反面</view>
+  </view>
+  <view class='btn bgColor' bind:tap="submitCheck">提交审核</view>
+</view>
+<import src="../../component/dialog/index.wxml" />
+<template wx:if="{{dialogText}}" is="dialog" data="{{text:dialogText}}"/>

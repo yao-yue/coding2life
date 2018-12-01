@@ -1,0 +1,111 @@
+<!--pages/routeDetail/index.wxml-->
+<import src="../../wxParse/wxParse.wxml" />
+<view class='container'>
+  <swiper indicator-dots="{{indicatorDots}}"  indicator-color="rgba(255,255,255,0.6)"  indicator-active-color="#fff"
+       autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+    <block wx:for="{{detailInfo.images}}" wx:key='{{item.fileUrl}}' >
+      <swiper-item>
+        <image  wx:if="{{item.fileUrl}}" src="{{item.fileUrl}}"/>
+      </swiper-item>
+    </block>
+  </swiper>
+  <view class='main'>
+    <view class='car_item'>
+      <view class='car_type'>{{detailInfo.tags}}</view>
+      <view class='car_name'>{{detailInfo.name}}</view>
+      <view class='car_attr'>
+        <view class='attr_item'>
+          <image src='../../images/route_icon-1.png'></image>
+          出游天数:{{detailInfo.tripDay  }}天
+        </view>
+        <view class='attr_item'>
+          <image src='../../images/route_icon-2.png'></image>
+          适合人数:{{detailInfo.actual }}人
+        </view>
+      </view>
+    </view>
+    <view class='car_item'>
+      <view class='item_title'>介绍</view>
+      <view class='item_text'>
+        <!-- <rich-text nodes='{{detailInfo.contents}}'></rich-text> -->
+         <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+      </view>
+    </view>
+    <view class='car_item'>
+      <view class='item_title'>评价</view>
+      <view class='no-comment' wx:if='{{!detailInfo.replys.length}}'>暂无评价</view>
+      <view class='comment_list'>
+          <view class='comment_item' wx:for='{{detailInfo.replys}}' wx:key='{{item.userId}}' wx:if='{{index == 0 || index == 1 || index == 2}}'>
+              <view class='user'>
+                <image  src="{{item.userCore.avatarUrl?item.userCore.avatarUrl:'../../images/moren.png'}}" class='avatar'/>
+                <view class='user_name'>{{item.userCore.nickname}}</view>
+                <view class='time'>{{item.gmtCreated}}</view>
+              </view>
+              <view class='comment_text'>
+                {{item.comments}}
+              </view>
+              <view class='picture_list'>
+                <view class='picture_item' wx:for='{{item.imageUrl}}'  wx:for-item = 'pictureItem' wx:key='{{pictureItem.fileUrl}}'>
+                  <image src="{{pictureItem.fileUrl}}"  mode='aspectFill'/>
+                </view>
+              </view>
+          </view>
+          <view class='all' wx:if='{{detailInfo.replys.length >= 3}}' bindtap='linkToComment'>阅读全部{{detailInfo.replys.length}}条评价</view>
+      </view>
+    </view>
+  </view>
+
+  <!--footer  -->
+  <!-- <view class='footer'>
+    <view class='price'>
+      <text>￥{{detailInfo.price}}</text><text>每人</text>
+      <view class='btn no_bg' data-mobile='{{detailInfo.mobile}}' bindtap='makeCall'>咨询</view>
+      <view class='btn btn_bg' bindtap='chooseDate'>立即预订</view>
+    </view>
+  </view> -->
+  <!-- footer  -->
+
+  
+</view>
+
+<!-- 日历插件  -->
+<view class='cover' wx:if='{{calendarShow}}' bindtap='cancel'></view>
+  <view class="flex box box-tb box-align-center calendar-dialog  line_dialog" wx:if='{{calendarShow}}'>
+    <view class="calendar pink-color box box-tb">
+        <view class="top-handle fs28 box box-lr box-align-center box-pack-center">
+            <view class="prev box box-rl" bindtap="handleCalendar" data-handle="prev">
+                <view class="prev-handle box box-lr box-align-center box-pack-center">《</view>
+            </view>
+            <view class="date-area box box-lr box-align-center box-pack-center">
+                  {{cur_year || "--"}} 年 {{cur_month || "--"}} 月
+            </view>
+            <view class="next box box-lr" bindtap="handleCalendar" data-handle="next">
+                <view class="next-handle box box-lr box-align-center box-pack-center">》</view>
+            </view>
+        </view>
+        <view class="weeks box box-lr box-pack-center box-align-center">
+            <view class="flex week fs28" wx:for="{{weeks_ch}}" wx:key="{{index}}" data-idx="{{index}}">{{item}}</view>
+        </view>
+        <view class="days days_line  box box-lr box-wrap">
+            <view wx:if="{{hasEmptyGrid}}"  wx:for="{{empytGrids}}" wx:key="{{index}}" data-idx="{{index}}"
+                  class="grid white-color box box-align-center box-pack-center">
+            </view>
+            <view wx:for="{{days}}" wx:key="{{index}}" data-idx="{{index}}" bindtap="tapDayItem"
+                  class="grid white-color box box-align-center box-pack-center">
+                <view 
+                class="day  [{{item.choosed?'border-radius blue-bg ':''}},{{item.canChoose?'day_line':'grey-color day_line_active'}},{{item.isToday?'grey-border':''}}] box box-align-center box-pack-center ">
+                {{item.day}}
+                <view class='day_price {{item.choosed?"white_color":""}}' wx:if='{{item.canChoose}}'>￥{{detailInfo.price}}</view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class='btn-list-wrap'>
+      <view class='btn-list'>
+        <view class=' btn-item cancelBtn' bindtap='cancel'>取消</view>
+        <view class=' btn-item clearBtn' bindtap='clear'>清除</view>
+        <view class=' btn-item confirmBtn' bindtap='submitDate'>确定</view>
+      </view>
+    </view>
+</view>
+

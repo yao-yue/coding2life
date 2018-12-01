@@ -1,0 +1,43 @@
+<!--pages/myOrder/index.wxml-->
+<view class='container'>
+  <view class='tab_list'>
+    <view wx:for='{{tabList}}' wx:key='{{item.name}}' class='{{item.isActive?"active":""}} tab_item'  
+        bindtap='switchTab' data-index='{{index}}'  data-ordertype = '{{item.ordertype}}'>{{item.name}}</view>
+  </view>
+
+  <view class='order_list'>
+    <view class='order_item' bindtap='linkTo' wx:for='{{dataList}}' wx:key='{{item.id}}' 
+          data-id='{{item.orderId}}'  wx:if='{{item.realStatus != "cancel_user" }}'>
+      <view class='item_top'>
+        <view class='time'>订单时间：{{item.gmtCreated}}</view>
+        <view class='status'>{{status[item.realStatus]}}</view>
+      </view>
+      <view class='item_main'>
+        <image src='{{item.details[0].images[0].fileUrl}}' mode='aspectFill'></image>
+        <view class='name'>{{item.details[0].productName}}</view>
+        <view class='date' hidden='{{orderType == "line_product" }}'>日期：{{item.bookStartDate}} - {{item.bookEndDate}}</view>
+        <view class='item_detail'>
+          <view class='price'>￥{{item.totalPrice}}</view>
+          <view class='num' hidden='{{orderType == "line_product" ||  orderType == "campbase_product"}}'>预定数量：{{item.details[0].nums}}</view>
+        </view>
+      </view>
+      <view class='item_bottom'>
+        <view class='btn gray_btn' wx:if='{{item.realStatus == "unfinished"}}' 
+              data-id='{{item.orderId}}' data-index='{{index}}'  catchtap='confirmDone'>确认完成</view>
+        <view class='btn gray_btn' wx:if='{{item.realStatus == "finished" && item.hasReply == 0}}' 
+              data-id='{{item.orderId}}' data-index='{{index}}'  catchtap='confirmComment'>评价</view>
+        <view class='btn gray_btn' wx:if='{{item.realStatus == "wait_pay"}}' 
+              data-id='{{item.orderId}}' data-index='{{index}}'  catchtap='cancelOrder'>取消订单</view>
+        <view class='btn yellow_btn' wx:if='{{item.realStatus == "wait_pay"}}' 
+              data-id='{{item.orderId}}' catchtap='confirmPay'>去支付</view>
+      </view>
+    </view>
+    <view class='no-more' wx:if='{{noMoreShow}}'><text>没有更多数据了</text></view>
+    <view class='no-more index_no_more' wx:if='{{dataList.length == 0 }}'>
+        <image src='../../images/logo.png'></image>
+        <view class='no-data' wx:if='{{orderType != "line_product"}}'>{{orderTypeFormat[orderType]}}列表为空</view>
+        <view class='no-data' wx:if='{{orderType == "line_product"}}'>敬请期待</view>
+      </view> 
+  </view>
+ 
+</view>

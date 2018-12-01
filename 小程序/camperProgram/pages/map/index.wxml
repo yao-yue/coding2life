@@ -1,0 +1,19 @@
+<!--pages/map/index.wxml-->
+<view class='map-container'>
+  <view class='map-search'>
+      <image class='search'  src='../../images/search.png'></image>
+      <image bindtap='deleteInput'  class='delete' src='../../images/delete.png'></image>
+      <input placeholder="输入关键字" value="{{addressVal}}" auto-focus type="text" bindinput="bindKeyInput"/> 
+  </view>
+  <view class="address-content"> 
+      <view class='address-item' bindtap='selectAddress' 
+       data-city = "{{item.city}}" data-district = "{{item.district}}"
+       data-location="{{item.location}}" data-name = "{{item.name}}"
+        wx:for="{{addressArr}}" wx:key="{{item.cityid}}">
+          <view  class='address-list'>
+              <view class='name'>{{item.city}}{{item.district}}</view>
+             <view class='address'>{{item.name}}</view>
+          </view>
+      </view>
+  </view>
+</view>

@@ -1,0 +1,50 @@
+<!--pages/storyCommentList/index.wxml-->
+<view class='container'>
+  <view class='main'>
+    <view class='add' bindtap='linkTo' data-commenttype='add'>添加评论</view>
+    <view class='comment_list'>
+      <view class='no-more index_no_more' wx:if='{{!dataList.length}}'>
+        <image src='../../images/logo.png'></image>
+        <view class='no-data'>暂无评价</view>
+      </view> 
+      <view class='comment_list'>
+          <view class='comment_item_wrap' wx:for='{{dataList}}' wx:key='{{item.userId}}'>
+              <view class='comment_item' bindtap='linkTo' data-index='{{index}}' data-level='parent'>
+                <view class='user'>
+                  <image  src="{{item.userAvatarUrl?item.userAvatarUrl:'../../images/moren.png'}}" class='avatar'/>
+                  <view class='user_name'>{{item.userName}}
+                    <view class='reply' hidden ='{{item.parentId == 0 || item.parentId == null}}'>回复</view>
+                    <text  hidden ='{{item.parentId == 0 || item.parentId == null}}'> {{item.replyName}}</text>
+                  </view>
+                  <view class='time'>{{item.sendTime}}</view>
+                </view>
+                <view class='comment_text'>{{item.replyInfo}}</view>
+              </view>
+              <view class='comment_item' wx:for='{{item.replyList}}' wx:for-item='replyItem'  wx:for-index ='replyIndex'  data-level='child'
+                wx:key='{{replyItem.userId}}'   data-id='{{replyItem.id}}'  data-child='{{replyIndex}}'  data-index='{{index}}' 
+                data-user='{{replyItem.userId}}' data-parent='{{replyItem.parentId}}' data-name='{{replyItem.userName}}' bindtap ='linkTo' >
+                <view class='user'>
+                  <image  src="{{replyItem.userAvatarUrl?replyItem.userAvatarUrl:'../../images/moren.png'}}" class='avatar'/>
+                  <view class='user_name'>{{replyItem.userName}}
+                    <view class='reply' hidden ='{{replyItem.parentId == 0 || replyItem.parentId == null}}'>回复</view>
+                    <text  hidden ='{{replyItem.parentId == 0 || replyItem.parentId == null}}'> {{replyItem.replyName}}</text>
+                  </view>
+                  <view class='time'>{{replyItem.sendTime}}</view>
+                </view>
+                <view class='comment_text'>{{replyItem.replyInfo}}</view>
+              </view>
+          </view>
+      </view>
+    </view>
+    <view class='no-more' wx:if='{{noMoreShow}}'><text>没有更多数据了</text></view>
+  </view>
+</view>
+
+
+<view class='cover' wx:if='{{dialogShow}}'></view>
+<view class='lease_dialog' wx:if='{{dialogShow}}' >
+  <view class='lease_list'>
+    <view class='lease_item' bindtap='handleReply'>{{dialogText}}</view>
+  </view>
+  <view class='cancel_btn' bindtap='cancel'>取消</view>
+</view>

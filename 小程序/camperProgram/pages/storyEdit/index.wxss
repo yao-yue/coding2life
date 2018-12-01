@@ -1,0 +1,137 @@
+/* pages/storyEdit/index.wxss */
+page{
+  /* padding-bottom: 100rpx; */
+}
+.container{
+  padding: 0 40rpx;
+  border-top:none;
+}
+.placeholder{
+  color: #b0b0b0;
+}
+.title{
+  border-bottom: 1rpx solid #dedede;
+  padding: 20rpx 0  20rpx 4rpx;
+}
+.title input{
+  height: 50rpx !important;
+  line-height: 50rpx !important;
+  font-size: 32rpx;
+  color: #333;
+}
+.content{
+  padding: 20rpx 0;
+  border-bottom: 1rpx solid #dedede;
+}
+.content textarea{
+  font-size: 28rpx;
+  color: #333;
+  width: 100%;
+  margin-left:-5rpx;
+
+}
+.image-list{
+  display: -webkit-box;
+  display: box;
+  display: -moz-box;
+  /* 老版本 - 适配iOS 6-, Safari 3.1-6 */
+  display: -webkit-flex;
+  /* 新版本 - 适配Chrome */
+  display: flex;
+  flex-wrap: wrap;
+  -webkit-flex-wrap:wrap;
+}
+
+.image-info{
+  position: relative;
+  margin-right: 20rpx;
+}
+
+ .image-info:nth-child(4n){
+  margin-right: 0rpx;
+} 
+
+.image-info .delete{
+  position: absolute;
+  width: 38rpx !important;
+  height: 38rpx !important;
+  border-radius: 50%;
+  right:-12rpx;
+  top:-19rpx;
+}
+
+image{
+  width: 150rpx;
+  height: 150rpx;
+  margin-top: 25rpx;
+}
+
+.add{
+  position: relative;
+  width: 150rpx;
+  height: 150rpx;
+}
+.attach{
+  display: -webkit-box;
+  display: box;
+  display: -moz-box;
+  /* 老版本 - 适配iOS 6-, Safari 3.1-6 */
+  display: -webkit-flex;
+  /* 新版本 - 适配Chrome */
+  display: flex;
+  flex-wrap: wrap;
+  -webkit-flex-wrap:wrap;
+  margin-top: 30rpx;
+}
+.attach_item{
+  height: 50rpx;
+  padding: 0 30rpx 0 60rpx;
+  /* width: 150rpx; */
+  margin-right: 30rpx;
+  text-align: center;
+  position: relative;
+  color: #b0b0b0;
+  font-size: 22rpx;
+  background-color: #F4F4F4;
+  border-radius: 24rpx;
+  line-height: 50rpx;
+}
+.attach_item image{
+  position: absolute;
+  left:30rpx;
+  width: 22rpx;
+}
+.attach_item:nth-child(1) image{
+  height: 24rpx;
+  bottom:13rpx;
+}
+.attach_item:nth-child(2) image{
+  height: 22rpx;
+  bottom: 14rpx;
+}
+.btn{
+  position: fixed;
+  bottom: 0rpx;
+  height: 88rpx;
+  width: 100%;
+  font-size: 36rpx;
+  color: #fff;
+  background-color: #f65f5f;
+  line-height: 88rpx;
+  text-align: center;
+}
+
+/*  footer  */
+.footer-submit{
+  width: 670rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  position: absolute;
+  left: 40rpx;
+  bottom: 80rpx;
+  /* box-shadow: 1px 1px 1px 1px #e7e7e7; */
+  color: #fff;
+  text-align: center;
+  font-size: 33rpx;
+  border-radius: 8rpx;
+}

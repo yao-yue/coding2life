@@ -1,0 +1,267 @@
+<!--index.wxml-->
+<view class="container">
+  <view class='top'>
+    <view class='search'>
+      <image src='../../images/search.png'></image>
+      <form bindsubmit="formSubmitSearch" report-submit='true' class='form_btn'>
+              <button formType="submit" plain='true'></button>
+      </form>
+     <input placeholder-style='color:#999'  placeholder='搜索"郑州"试试'  value='{{keyWord}}'
+          bindfocus="linkToSearch"></input>
+    </view>
+    <view class='scan' catchtap='scanTap'>
+       <image src='../../images/scan.png'></image>
+       <view class='scan_text'>扫一扫</view>
+    </view>
+  </view>
+  <view class='filter'>
+    <view class='filter_item' bindtap='chooseDate'>{{date}}
+      <form bindsubmit="formSubmit" report-submit='true' class='form_btn'>
+            <button formType="submit" plain='true'></button>
+      </form>
+    </view>
+    <view class='sign_item {{isSign?"signed":""}}' bindtap='sign'>{{isSign?'已签到':'签到'}}</view>
+  </view>
+  
+  <!--   驴道房车  -->
+  <view class='list_hot'>
+    <view class='super_title {{style?"":"super_large"}}' >驴道房车</view>
+    <view class='list_wrap'>
+    <scroll-view scroll-x  style="height: {{scrollHeightThree}}rpx;">
+      <view class='pro_list {{style?"list_three":"large_three"}}'>
+        <view class='pro_item' wx:for='{{carList}}' wx:key='{{item.id}}' bindtap='linkToList' data-path='{{item.path}}'>
+          <form bindsubmit="formSubmit" report-submit='true' class='form_btn'>
+              <button formType="submit" plain='true'></button>
+          </form>
+          <image src='{{item.url}}' mode='aspectFill'></image>
+          <view class='type'>{{item.name}}</view>
+        </view>
+      </view>
+    </scroll-view> 
+    </view>
+  </view>
+  <!--  驴道房车   -->
+
+  <!--   热门房车租赁  -->
+  <view class='list_hot'>
+    <view class='super_title {{style?"":"super_large"}}'>热门房车租赁</view>
+    <view class='tab_list'>
+      <view wx:for='{{rentTabList}}' wx:key='{{item.cityName}}' class='{{item.isActive?"active":""}} tab_item' bindtap='switchTab' 
+        data-type='rent' data-name="{{item.cityName}}" data-code="{{item.cityCode}}" data-index='{{index}}' >
+        {{item.cityName}}
+      </view>
+    </view>
+    <view class='list_wrap index_wrap'>
+      <scroll-view scroll-x style="height:{{style?'400':rentItemList.length?526*rentItemList.length:'340'}}rpx;">
+        <view class='pro_list {{style?"list_six":"large_six"}}' style="width: {{style?rentWidth:'670'}}rpx;">
+          <view class='pro_item' wx:for='{{rentItemList}}' wx:key='{{item.id}}' 
+              bindtap='linkToDetail' data-id='{{item.id}}' data-path='rentDetail'>
+            <form bindsubmit="formSubmit" report-submit='true' class='form_btn'>
+              <button formType="submit" plain='true'></button>
+            </form>
+            <image src='{{item.productInfo.images[0].fileUrl}}' mode='aspectFill'></image>
+            <view class='tip'>
+              {{item.productInfo.gearBox}} / 适合{{item.productInfo.tripPeople}}人 / {{item.productInfo.outputVolume}}
+            </view>
+            <view class='title'>{{item.rentName}}</view>
+            <view class='price'> <text>￥{{item.price}}</text>每天</view>
+          </view>
+        </view>
+      </scroll-view>
+      <view class='no-more index_no_more' wx:if='{{rentItemList.length == 0 }}'>
+        <image src='../../images/logo.png'></image>
+        <view class='no-data'>暂时还没有数据哦~~</view>
+      </view> 
+    </view>
+    <view class='more_item {{style?"":"more_large"}}' data-type='rent' bindtap='linkToMore' data-url='rentList'>
+      查看更多<text>{{rentCurrentTab.cityName}}</text>房车租赁
+      <form bindsubmit="formSubmit" report-submit='true' class='form_btn'>
+          <button formType="submit" plain='true'></button>
+      </form>
+    </view>
+  </view>
+  <!--  热门房车租赁   -->
+
+  <!--   热门酒店  -->
+  <view class='list_hot'>
+    <view class='super_title {{style?"":"super_large"}}'>热门酒店</view>
+    <view class='tab_list'>
+      <view wx:for='{{hotelTabList}}' wx:key='{{item.cityName}}'  class='{{item.isActive?"active":""}} tab_item'bindtap='switchTab' 
+        data-type='hotel' data-index='{{index}}' data-name="{{item.cityName}}" data-code="{{item.cityCode}}" >
+        {{item.cityName}}
+      </view>
+    </view>
+    <view class='list_wrap index_wrap'>
+      <scroll-view scroll-x style="height:{{style?'340':hotelItemList.length?460*hotelItemList.length:'340'}}rpx;">
+      <view class='pro_list {{style?"list_six":"large_six"}}' style="width: {{style?hotelWidth:'670'}}rpx;">
+        <view class='pro_item' wx:for='{{hotelItemList}}' wx:key='{{item.id}}' 
+          bindtap='linkToDetail' data-id='{{item.id}}' data-path='roomList'>
+          <form bindsubmit="formSubmit" report-submit='true' class='form_btn'>
+              <button formType="submit" plain='true'></button>
+          </form>
+          <image src='{{item.images[0].fileUrl}}' mode='aspectFill'></image>
+          <view class='tip'>{{item.provinceName}}·{{item.cityName}}</view>
+          <view class='title'>{{item.name}}</view>
+          <!-- <view class='price'><text>￥{{item.cheapestRoomPrice}}</text>每晚</view> -->
+        </view>
+      </view>
+      </scroll-view>
+      <view class='no-more index_no_more' wx:if='{{hotelItemList.length == 0 }}'>
+        <image src='../../images/logo.png'></image>
+        <view class='no-data'>暂时还没有数据哦~~</view>
+      </view> 
+    </view>
+    <view class='more_item {{style?"":"more_large"}}' data-type='hotel' bindtap='linkToMore' data-url='hotelList'>
+      查看更多<text>{{hotelCurrentTab.cityName}}</text>酒店
+      <form bindsubmit="formSubmit" report-submit='true' class='form_btn'>
+          <button formType="submit" plain='true'></button>
+      </form>
+    </view>
+  </view>
+  <!--  热门酒店   -->
+
+  <!--   热门营地  -->
+  <view class='list_hot'>
+    <view class='super_title {{style?"":"super_large"}}'>热门营地</view>
+    <view class='tab_list'>
+      <view wx:for='{{campbaseTabList}}' wx:key='{{item.cityName}}' class='{{item.isActive?"active":""}} tab_item' 
+        bindtap='switchTab'  data-type='campbase' data-index='{{index}}' data-name="{{item.cityName}}" data-code="{{item.cityCode}}">
+        {{item.cityName}}
+      </view>
+    </view>
+    <view class='list_wrap index_wrap'>
+      <scroll-view scroll-x style="height:{{style?'340':campbaseItemList.length?460*campbaseItemList.length:'340'}}rpx;">
+      <view class='pro_list {{style?"list_six":"large_six"}}' style="width: {{style?campbaseWidth:'670'}}rpx;">
+        <view class='pro_item' wx:for='{{campbaseItemList}}' wx:key='{{item.id}}' 
+            bindtap='linkToDetail' data-id='{{item.id}}' data-path='carList'>
+          <form bindsubmit="formSubmit" report-submit='true' class='form_btn'>
+              <button formType="submit" plain='true'></button>
+          </form>
+          <image src='{{item.images[0].fileUrl}}' mode='aspectFill'></image>
+          <view class='tip'>{{item.provinceName}}·{{item.cityName}}</view>
+          <view class='title'>{{item.name}}</view>
+          <!-- <view class='price'><text>￥{{item.cheapestCampsitePrice}}</text>每天</view> -->
+        </view>
+      </view>
+      </scroll-view>
+      <view class='no-more index_no_more' wx:if='{{campbaseItemList.length == 0 }}'>
+        <image src='../../images/logo.png'></image>
+        <view class='no-data'>暂时还没有数据哦~~</view>
+      </view> 
+    </view>
+    <view class='more_item {{style?"":"more_large"}}' data-type='campbase' bindtap='linkToMore' data-url='campList'>
+      查看更多<text>{{campbaseCurrentTab.cityName}}</text>营地
+      <form bindsubmit="formSubmit" report-submit='true' class='form_btn'>
+            <button formType="submit" plain='true'></button>
+      </form>
+    </view>
+  </view>
+  <!--  热门营地   -->
+
+  <view class='rent_banner' bindtap='linkToSublease'>
+    <image src='../../images/rent_banner.png'></image>
+    <form bindsubmit="formSubmit" report-submit='true' class='form_btn'>
+        <button formType="submit" plain='true'></button>
+    </form>
+  </view>
+
+  <!-- 日历插件  -->
+<view class='cover' wx:if='{{calendarShow}}' bindtap='cancel'></view>
+  <view class="flex box box-tb box-align-center calendar-dialog" wx:if='{{calendarShow}}'>
+    <view class="calendar pink-color box box-tb">
+        <view class="top-handle fs28 box box-lr box-align-center box-pack-center">
+            <view class="prev box box-rl" bindtap="handleCalendar" data-handle="prev">
+                <view class="prev-handle box box-lr box-align-center box-pack-center">《</view>
+            </view>
+            <view class="date-area box box-lr box-align-center box-pack-center">
+                  {{cur_year || "--"}} 年 {{cur_month || "--"}} 月
+            </view>
+            <view class="next box box-lr" bindtap="handleCalendar" data-handle="next">
+                <view class="next-handle box box-lr box-align-center box-pack-center">》</view>
+            </view>
+        </view>
+        <view class="weeks box box-lr box-pack-center box-align-center">
+            <view class="flex week fs28" wx:for="{{weeks_ch}}" wx:key="{{index}}" data-idx="{{index}}">{{item}}</view>
+        </view>
+        <view class="days box box-lr box-wrap">
+            <view wx:if="{{hasEmptyGrid}}"  wx:for="{{empytGrids}}" wx:key="{{index}}" data-idx="{{index}}"
+                  class="grid white-color box box-align-center box-pack-center">
+            </view>
+            <view wx:for="{{days}}" wx:key="{{index}}" data-idx="{{index}}" bindtap="tapDayItem"
+                  class="grid white-color box box-align-center box-pack-center">
+                <view 
+                class="day [{{item.choosed?'border-radius blue-bg':''}},{{item.canChoose?'':'grey-color'}},{{item.isWrap?'grey-bg':''}},{{item.isToday?'grey-border':''}}] box box-align-center box-pack-center">
+                {{item.day}}
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class='btn-list-wrap'>
+      <view class='btn-list'>
+        <view class=' btn-item cancelBtn' bindtap='cancel'>取消</view>
+        <view class=' btn-item clearBtn' bindtap='clear'>清除</view>
+        <view class=' btn-item confirmBtn' bindtap='submitDate'>确定</view>
+      </view>
+    </view>
+</view>
+
+</view>
+
+<view class='cover' wx:if='{{authShow}}' bindtap='cancelAuth'></view>
+<view class='auth_dialog'  wx:if='{{authShow}}'>
+  <view class='auth_title'>授权提示<image src='../../images/close.png' bindtap='cancelAuth'></image></view>
+  <view class='auth_main'>
+    <image src='../../images/auth_logo.png'></image>
+    <button plain='true'  open-type="getUserInfo"  bindgetuserinfo="binduserInfo">同意授权</button>
+  </view>
+</view>
+
+
+<view class='cover' wx:if='{{signShow}}' bindtap='cancelSign'></view>
+<view class='auth_dialog sign_dialog'  wx:if='{{signShow}}'>
+  <view class='auth_title'>签到<image src='../../images/close.png' bindtap='cancelSign'></image></view>
+  <view class='sign_main'>
+    <view class='sign_suptitle'>签到送积分，积分抽奖中大礼</view>
+    <view class='sign_subtitle'>付费签到中间的概率更高哦~</view>
+    <view class='sign_btn sign_btn_primary' bindtap='signFee'>付费签到<text>(只需支付一元)</text></view>
+    <view class='sign_btn sign_btn_default' bindtap='signFree'>免费签到</view>
+  </view>
+</view>
+
+
+<view bindtap='modalClick' class='cover' wx:if='{{wayShow}}'></view>
+<view class='pay-way' wx:if='{{wayShow}}'>
+      <view class='pay-title'>
+        确认付款<image src='../../images/close.png' bindtap='modalClick'></image>
+      </view>
+      <view class='way-list'>
+        <view class='pay-amount'>￥<text>1</text></view>
+        <view class='way-list-title'>付款方式：</view>
+        <!-- way-item   -->
+        <view class='way-item'>
+          <view class='way-item-key'>
+            <image src='../../images/wallet.png' class='wallet'></image>
+            账户余额<text wx:if="{{balance<1}}">（账户余额不足，可用余额{{balance?balance:'0.00'}}元）</text>
+            <text wx:if="{{balance>=1}}">（可用余额{{balance?balance:'0.00'}}元）</text>
+          </view>
+          <view class='way-item-value' hidden = "{{wayPay || 1 > balance}}"  bindtap='changePayWay' data-id='coins'>
+            <image src='../../images/select.png' class='select'></image>
+          </view>
+          <view class='way-item-value' hidden ="{{!wayPay || 1 > balance}}">
+            <image src='../../images/selected.png' class='select'></image>
+          </view>
+        </view>
+        <view class='way-item'>
+          <view class='way-item-key'><image src='../../images/weixin.png' class='wallet'></image>微信支付</view>
+          <view class='way-item-value' hidden = "{{!wayPay}}"  bindtap='changePayWay' data-id='weixin'>
+            <image src='../../images/select.png' class='select'></image>
+          </view>
+          <view class='way-item-value' hidden ="{{wayPay}}">
+            <image src='../../images/selected.png' class='select'></image>
+          </view>
+        </view>
+         <!-- way-item   -->
+      </view>
+       <!-- way-list   -->
+      <view class='pay-btn' bindtap='confirmPay'>确认支付</view>
+</view>

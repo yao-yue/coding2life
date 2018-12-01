@@ -1,0 +1,64 @@
+/* pages/search/index.wxss */
+.container{
+  height: 100%;
+  padding: 0 40rpx;
+  border:none;
+}
+.top{
+  padding: 20rpx 50rpx 20rpx 60rpx;
+  position: relative;
+  height: 60rpx;
+  border-bottom: 1rpx solid #dedede;
+}
+.top .search_icon{
+  position: absolute;
+  height: 38rpx;
+  width: 38rpx;
+  left: 0;
+  top:30rpx;
+}
+.top .delete_icon{
+  position: absolute;
+  height: 30rpx;
+  width: 30rpx;
+  right: 0;
+  top:40rpx;
+}
+.top input{
+  height: 60rpx;
+  line-height: 60rpx;
+  color: #333333;
+  font-size: 30rpx;
+}
+.main{
+  margin-top: 50rpx;
+}
+.title{
+  position: relative;
+  height: 60rpx;
+  line-height: 60rpx;
+  color: #333;
+}
+.title image{
+  position: absolute;
+  right: 0;
+  top:17rpx;
+  width:35rpx;
+  height: 36rpx;
+}
+.list{
+  margin-top: 10rpx;
+}
+.item{
+  display: inline-block;
+  height: 50rpx;
+  padding: 0 40rpx;
+  text-align: center;
+  line-height: 50rpx;
+  color: #333;
+  font-size: 24rpx;
+  background-color: #EFEFEF;
+  margin-right: 20rpx;
+  border-radius: 20rpx;
+  margin-bottom: 20rpx;
+}

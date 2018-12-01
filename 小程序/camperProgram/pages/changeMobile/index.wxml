@@ -1,0 +1,17 @@
+<!--pages/changeMobile/index.wxml-->
+<view class="container">
+  <view class="myself-item">
+    <view class="item-list">
+      <text>手机号：</text>
+      <input placeholder='请输入手机号' bindinput='mobileBind' type='number' maxlength="18" > </input>
+    </view>
+    <view class="item-list">
+      <text>验证码：</text>
+      <input class='code' bindinput='codeBind'  placeholder='请输入验证码' maxlength="18"  type='number'> </input>
+      <view class='send-code fontColor' bindtap='sendCode'>{{btnText}}</view>
+    </view>
+  </view>
+  <view class='footer-submit bgColor' bindtap='submit'>提交</view>
+    <import src="../../component/dialog/index.wxml" />
+    <template wx:if="{{dialogText}}" is="dialog" data="{{text:dialogText}}" />
+</view>

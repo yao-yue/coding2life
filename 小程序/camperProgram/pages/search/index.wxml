@@ -1,0 +1,18 @@
+<!--pages/search/index.wxml-->
+<view class='container'>
+  <view class='top'>
+    <image src='../../images/search.png' class='search_icon'></image>
+    <image src='../../images/delete_word.png' class='delete_icon' hidden='{{!keyWord}}'  bindtap='empty'></image>
+    <input placeholder-style='color:#999'  placeholder='搜索"郑州"试试'    value='{{keyWord}}'
+        bindinput='keyBind'  confirm-type="search" bindconfirm="search"></input>
+  </view>
+  <view class='main'>
+    <view class='title'>
+     搜索历史
+     <image src='../../images/delete.png'  class='delete'  bindtap='delete' bindtap='deleteHistory'></image>
+    </view>
+    <view class='list'>
+      <view class='item' wx:for='{{list}}' wx:key='{{item}}' bindtap='searchByHistory' data-key='{{item}}'>{{item}}</view>
+    </view>
+  </view>
+</view>

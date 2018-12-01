@@ -1,0 +1,157 @@
+<!--pages/confirmLineOrde/index.wxml-->
+<!--pages/confirmOrder/index.wxml-->
+<view class='container'>
+ <import src="../../component/dialog/index.wxml" />
+  <template wx:if="{{dialogText}}" is="dialog" data="{{text:dialogText}}" />
+    <view class='top'>
+      <view class='name'>{{detailInfo.name}}</view>
+      <view class='attr'>{{detailInfo.tags}}</view>
+      <image src='{{detailInfo.headImage?detailInfo.headImage:"../../images/car.png"}}'  mode='aspectFill'></image>
+    </view>
+    <view class='input_list'>
+      <view class='input_item'>
+          <view class='item_key'>出游日期</view>
+          <view class='item_value' bindtap='chooseDate'>
+            <view class="picker" hidden='{{!beginDate}}'>{{beginDate}}</view>   
+            <view class="picker" hidden='{{beginDate}}'>请选择</view>  
+          </view>
+      </view>
+      <view class='input_item'>
+          <view class='item_key'>出行人数</view>
+          <view class='item_value input-count'>
+            <image src='../../images/minus.png' class='minus' bindtap='changeCarNum' data-type ='minus'></image>
+            <!-- <input maxlength='99'  type='number' bindinput='numberGet' value='{{carNum}}'/> -->
+            <view class='num'>{{carNum}}</view>
+            <image src='../../images/plus.png' class='plus' bindtap='changeCarNum' data-type ='plus'></image>
+          </view>
+      </view>
+      <view class='input_item'>
+          <view class='item_key'>姓名</view>
+          <view class='item_value'>
+            <input type='text'  value='{{name}}'  bindinput='nameBind'  placeholder="请输入您的真实姓名"/>
+          </view>
+      </view>
+      <view class='input_item'>
+          <view class='item_key'>手机号</view>
+          <view class='item_value'>
+            <input type='number' value='{{mobile}}' bindinput='mobileBind' placeholder="请输入您的联系方式"/>
+          </view>
+      </view>
+      <view class='input_item score_item'>
+          <view class='item_key'>积分抵扣
+            <text>可用积分:{{spendablePoint?spendablePoint:0}}，1积分可抵扣{{discountRate?discountRate:0}}元</text>
+          </view>
+          <view class='item_value'>
+            <input type='number' value='{{discount==0?"":discount}}'  bindinput='discountBind' placeholder="请输入抵扣的积分" 
+                 bindfocus='discountFoucs'/>
+          </view>
+      </view>
+    </view>
+    <!-- input_list  finished  -->
+    <view class='cost_list'>
+      <view class='cost_title'>费用</view>
+      <view class='cost_item sub_item bottom'>
+        <view class='cost_item_key'>出行人数</view>
+        <view class='cost_item_value'>×{{carNum?carNum:0}}人</view>
+      </view>
+      <view class='cost_item fee_item'>
+        <view class='cost_item_key'>金额：</view>
+        <view class='cost_item_value'>￥{{totalPrice}}</view>
+      </view>
+      <view class='cost_item fee_item'>
+        <view class='cost_item_key'>折扣：</view>
+        <view class='cost_item_value'> －￥{{discount*discountRate}}</view>
+      </view>
+      <view class='cost_item fee_item'>
+        <view class='cost_item_key'>合计：</view>
+        <view class='cost_item_value'>￥{{payPrice}}</view>
+      </view>
+    </view>
+</view>
+<view class='footer'>
+  <view class='total'>￥{{payPrice}}
+    <view class='btn' bindtap='submit'>立即支付</view>
+  </view>
+</view>
+
+<view bindtap='modalClick' class='cover' wx:if='{{wayShow}}'></view>
+  <view class='pay-way' wx:if='{{wayShow}}'>
+      <view class='pay-title'>
+        确认付款<image src='../../images/close.png' bindtap='modalClick'></image>
+      </view>
+      <view class='way-list'>
+        <view class='pay-amount'>￥<text>{{payPrice?payPrice:'0.00'}}</text></view>
+        <view class='way-list-title'>付款方式：</view>
+        <!-- way-item   -->
+        <view class='way-item'>
+          <view class='way-item-key'>
+            <image src='../../images/wallet.png' class='wallet'></image>
+            账户余额<text wx:if="{{balance<payPrice}}">（账户余额不足，可用余额{{balance?balance:'0.00'}}元）</text>
+            <text wx:if="{{balance>=payPrice}}">（可用余额{{balance?balance:'0.00'}}元）</text>
+          </view>
+          <view class='way-item-value' hidden = "{{wayPay || payPrice > balance}}"  bindtap='changePayWay' data-id='coins'>
+            <image src='../../images/select.png' class='select'></image>
+          </view>
+          <view class='way-item-value' hidden ="{{!wayPay || payPrice > balance}}">
+            <image src='../../images/selected.png' class='select'></image>
+          </view>
+          <!-- <view class='way-item-value' hidden ="{{payPrice < balance}}" bindtap='forbidPay'>
+            <image src='../../images/select_forbid.png' class='select'></image>
+          </view> -->
+        </view>
+        <view class='way-item'>
+          <view class='way-item-key'><image src='../../images/weixin.png' class='wallet'></image>微信支付</view>
+          <view class='way-item-value' hidden = "{{!wayPay}}"  bindtap='changePayWay' data-id='weixin'>
+            <image src='../../images/select.png' class='select'></image>
+          </view>
+          <view class='way-item-value' hidden ="{{wayPay}}">
+            <image src='../../images/selected.png' class='select'></image>
+          </view>
+        </view>
+         <!-- way-item   -->
+      </view>
+       <!-- way-list   -->
+      <view class='pay-btn' bindtap='confirmBtn'>确认支付</view>
+</view>
+
+<!-- 日历插件  -->
+<view class='cover' wx:if='{{calendarShow}}' bindtap='cancel'></view>
+  <view class="flex box box-tb box-align-center calendar-dialog  line_dialog" wx:if='{{calendarShow}}'>
+    <view class="calendar pink-color box box-tb">
+        <view class="top-handle fs28 box box-lr box-align-center box-pack-center">
+            <view class="prev box box-rl" bindtap="handleCalendar" data-handle="prev">
+                <view class="prev-handle box box-lr box-align-center box-pack-center">《</view>
+            </view>
+            <view class="date-area box box-lr box-align-center box-pack-center">
+                  {{cur_year || "--"}} 年 {{cur_month || "--"}} 月
+            </view>
+            <view class="next box box-lr" bindtap="handleCalendar" data-handle="next">
+                <view class="next-handle box box-lr box-align-center box-pack-center">》</view>
+            </view>
+        </view>
+        <view class="weeks box box-lr box-pack-center box-align-center">
+            <view class="flex week fs28" wx:for="{{weeks_ch}}" wx:key="{{index}}" data-idx="{{index}}">{{item}}</view>
+        </view>
+        <view class="days days_line  box box-lr box-wrap">
+            <view wx:if="{{hasEmptyGrid}}"  wx:for="{{empytGrids}}" wx:key="{{index}}" data-idx="{{index}}"
+                  class="grid white-color box box-align-center box-pack-center">
+            </view>
+            <view wx:for="{{days}}" wx:key="{{index}}" data-idx="{{index}}" bindtap="tapDayItem"
+                  class="grid white-color box box-align-center box-pack-center">
+                <view 
+                class="day  [{{item.choosed?'border-radius blue-bg ':''}},{{item.canChoose?'day_line':'grey-color day_line_active'}},{{item.isToday?'grey-border':''}}] box box-align-center box-pack-center ">
+                {{item.day}}
+                <view class='day_price {{item.choosed?"white_color":""}}' wx:if='{{item.canChoose}}'>￥{{detailInfo.price}}</view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class='btn-list-wrap'>
+      <view class='btn-list'>
+        <view class=' btn-item cancelBtn' bindtap='cancel'>取消</view>
+        <view class=' btn-item clearBtn' bindtap='clear'>清除</view>
+        <view class=' btn-item confirmBtn' bindtap='submitDate'>确定</view>
+      </view>
+    </view>
+</view>
+

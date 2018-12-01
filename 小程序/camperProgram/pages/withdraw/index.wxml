@@ -1,0 +1,51 @@
+<!--pages/withdraw/index.wxml-->
+<view class='container'>
+  <view class='main'>
+    <view class='balance'>账户余额<text>{{balance}}元 </text></view>
+    <view class='way_title'>到账渠道</view>
+    <view class='way_list'>
+      <view class='way_item' bindtap='changePayWay' data-way='weixin'>
+        <image src='../../images/wx.png' class='icon'></image>
+        <image src='../../images/select.png' class='select' hidden='{{payWay == "weixin"}}'></image>
+        <image src='../../images/selected.png' class='select' hidden='{{payWay != "weixin"}}'></image>
+        微信钱包
+      </view>
+      <view class='{{payWay?"no_border":""}} way_item' bindtap='changePayWay' data-way='bank'>
+        <image src='../../images/bank.png' class='icon'></image>
+        <image src='../../images/select.png' class='select'  hidden='{{payWay == "bank"}}'></image>
+        <image src='../../images/selected.png' class='select' hidden='{{payWay != "bank"}}'></image>
+        银行卡
+      </view>
+      <view class='input_item' hidden='{{payWay == "weixin"}}'>
+        <view class='item_key'>银行卡号</view>
+        <view class='item_value'>
+          <input type='number' value='{{bankCard}}' bindinput='bankCardBind' placeholder="请输入您的银行卡号"/>
+        </view>
+      </view>
+      <view class='input_item' hidden='{{payWay == "weixin"}}'>
+        <view class='item_key'>持卡人姓名</view>
+        <view class='item_value'>
+          <input  value='{{realName}}' bindinput='realNameBind' placeholder="请输入您的姓名"/>
+        </view>
+      </view>
+      <view class='input_item no_border' hidden='{{payWay == "weixin"}}'>
+        <view class='item_key'>开户银行</view>
+        <view class='item_value'>
+          <picker bindchange="bankBind" value="{{bankIndex}}" range="{{bankList}}">
+            <view class="picker">{{dictList[bankIndex]['value']?dictList[bankIndex]['value']:'请选择'}}</view>
+          </picker>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class='amount'>
+    <view class='amount_title'>提现金额</view>
+    <view class='amount_value'>
+      <input type='number' value='{{amount}}' bindinput='amountBind'/>
+      <view class='icon'>￥</view>
+    </view>
+    <view class='charge'>提现收取服务费{{rate*100}}%</view>
+  </view>
+  <view class='btn bgColor' bind:tap="submitWithdraw">提现</view>
+</view>

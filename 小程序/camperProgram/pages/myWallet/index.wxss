@@ -1,0 +1,388 @@
+/* pages/myWallet/index.wxss */
+.container{
+  height: 100%;
+  border:none;
+  background-color: #f2f2f2;
+}
+.top{
+  background-color: #F8B62B;
+  height: 350rpx;
+  padding: 0 40rpx;
+  color: #fff;
+}
+.top_title{
+  padding-top: 50rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.top_title .balance-tag {
+  font-size: 26rpx;
+}
+.top_title .account-tag {
+  width: 100rpx;
+  height: 50rpx;
+  font-size: 34rpx;
+  text-align: right;
+}
+.top_num{
+  font-size: 80rpx;
+  margin-top: 80rpx;
+}
+.action_list{
+  height: 90rpx;
+  display: flex;
+  justify-content: space-between;
+  background-color: #fff;
+}
+.action_item{
+  width: 331rpx;
+  height: 90rpx;
+  line-height: 90rpx;
+  text-align: center;
+  padding-left: 43rpx;
+  position: relative;
+  color: #666;
+  font-size: 32rpx;
+}
+.action_item:first-child:after{
+  position: absolute;
+  right: 0;
+  top:0;
+  content:'';
+  width: 2rpx;
+  height: 90rpx;
+  background-color: #dedede;
+}
+
+.action_item image{
+  position: absolute;
+  left: 120rpx;
+  top:30rpx;
+  width: 43rpx;
+  height: 32rpx;
+}
+.score{
+  margin-top: 20rpx;
+  padding: 40rpx;
+  background-color: #fff;
+  position: relative;
+}
+.score_title{
+  color: #333;
+  font-size: 32rpx;
+}
+.score_num{
+  margin-top:10rpx;
+  color: #666;
+  font-size: 42rpx;
+}
+.score:after{
+  content: '';
+  position: absolute;
+  width: 18rpx;
+  height: 18rpx;
+  border-top: 1rpx solid #666;
+  border-right: 1rpx solid #666;
+  transform: rotate(45deg);
+  -ms-transform:rotate(45deg); 	/* IE 9 */
+  -moz-transform:rotate(45deg); 	/* Firefox */
+  -webkit-transform:rotate(45deg); /* Safari 和 Chrome */
+  -o-transform:rotate(45deg); 
+  right:40rpx;
+  top:50rpx;
+}
+.score_award_icon{
+  position: absolute;
+  right: 0;
+  bottom: 20rpx;
+  width: 139rpx;
+  height: 62rpx;
+}
+.score_award_text{
+  position: absolute;
+  right: 0;
+  bottom: 20rpx;
+  width: 109rpx;
+  height: 62rpx;
+  color: #FFF;
+  font-size: 24rpx;
+  z-index: 3;
+  text-align: center;
+  line-height: 60rpx;
+  padding-left: 30rpx;
+  letter-spacing: 1rpx;
+}
+.list_wrap{
+  margin-top: 20rpx;
+  background-color: #fff;
+  padding: 40rpx 40rpx 20rpx;
+}
+.list_title{
+  height: 40rpx;
+  line-height: 40rpx;
+  text-align: center;
+  font-size: 34rpx;
+  color: #333;
+  margin-bottom: 40rpx;
+  font-weight: 500;
+}
+
+.item{
+  display: inline-block;
+  width: 315rpx;
+  margin-right: 40rpx;
+  height: 300rpx;
+  margin-bottom: 30rpx;
+}
+.item:nth-child(even){
+  margin-right: 0rpx;
+}
+.item image{
+  width:100%;
+  height: 200rpx;
+  display: block;
+  border-radius: 10rpx;
+}
+.item_name{
+  color: #333;
+  font-size: 30rpx;
+  height: 65rpx;
+  line-height: 65rpx;
+  font-weight: 600;
+}
+.item_score{
+  height: 35rpx;
+  line-height: 35rpx;
+  color: #333;
+  font-size: 26rpx;
+}
+
+.recharge-panel {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 99;
+  width: 100%;
+  height: 500rpx;
+  padding-top: 40rpx;
+  background-color: white;
+}
+.recharge-panel #close-cross {
+  width: 102rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.recharge-panel #close-cross image {
+  width: 22rpx;
+  height: 22rpx;
+}
+.main{
+  margin-top: 20rpx;
+  padding: 0 40rpx;
+  background-color: #fff;
+}
+.way_title{
+  color: #333;
+  font-size: 30rpx;
+  margin-top: 35rpx;
+}
+.way_item{
+  height: 90rpx;
+  line-height: 90rpx;
+  padding-left: 60rpx;
+  border-bottom: 1rpx solid #dedede;
+  position: relative;
+  font-size: 30rpx;
+}
+.way_item .icon{
+  position: absolute;
+  left:5rpx;
+}
+.way_item:nth-child(1) .icon{
+  width: 31rpx;
+  height: 30rpx;
+  top:30rpx;
+}
+.way_item:nth-child(2) .icon{
+  width: 33rpx;
+  height: 24rpx;
+  top:33rpx;
+}
+.way_item .select{
+  position: absolute;
+  right: 5rpx;
+  top:33rpx;
+  width: 24rpx;
+  height: 24rpx;
+}
+
+.input_item{
+  display: -webkit-box;
+  display: box;
+  display: -moz-box;
+  /* 老版本 - 适配iOS 6-, Safari 3.1-6 */
+  display: -webkit-flex;
+  /* 新版本 - 适配Chrome */
+  display: flex;
+  -webkit-box-align: center;
+  -moz-align-items: center;
+  -webkit-align-items: center;
+  align-items: center;
+  padding: 10rpx 0;
+  font-size:28rpx;
+  border-bottom: 1rpx solid #dedede;
+}
+.item_key{
+  height: 60rpx;
+  line-height: 60rpx;
+  color: #666;
+  margin-right: 10rpx;
+  font-size: 32rpx;
+}
+.item_value{
+  height: 60rpx;
+  width: 420rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #333;
+}
+.item_value input{
+  height:60rpx;
+  font-size: 32rpx;
+  line-height: 60rpx;
+  min-height: auto;
+  width: 420rpx;
+}
+.btn{
+  margin: 56rpx auto;
+  width: 670rpx;
+  height: 90rpx;
+  line-height: 90rpx;
+  text-align: center;
+  font-size: 36rpx;
+  border-radius: 10rpx;
+}
+.award_dialog{
+  width: 690rpx;
+  height:975rpx;
+  position: fixed;
+  left: 30rpx;
+  bottom: 100rpx;
+  z-index:99;
+  border-radius: 10rpx;
+  animation:dialogShow 0.3s 0s ease-in;
+}
+.award_main{
+  width: 100%;
+  height:100%;
+  position: relative;
+}
+.lottery_bg{
+  display: block;
+  width: 690rpx;
+  height:975rpx;
+}
+.award_content{
+  position: absolute;
+  left: 0;
+  top:0;
+  width: 100%;
+  height:100%;
+}
+.award_title{
+  width: 100%;
+  padding: 73rpx 0 58rpx;
+  text-align: center;
+  font-size: 60rpx;
+  font-weight: 600;
+  color: #333;
+  position: relative;
+}
+.lottery_grid_list{
+  width: 560rpx;
+  height: 560rpx;
+  margin: 0 auto;
+  position: relative;
+}
+.lottery_btn{
+  position: absolute;
+  left: 190rpx;
+  top:190rpx;
+  width: 92rpx;
+  height: 120rpx;
+  padding: 30rpx 44rpx;
+  color: #fff;
+  font-size: 44rpx;
+  letter-spacing: 1rpx;
+  z-index: 100;
+}
+.lottery_grid_item{
+  width: 180rpx;
+  height: 180rpx;
+  margin-right: 10rpx;
+  /* margin-bottom: 10rpx; */
+  border-radius: 4rpx;
+  overflow: hidden;
+  display: inline-block;
+  position: relative;
+}
+.lottery_grid_item:nth-child(3n){
+  margin-right: 0;
+}
+.lottery_grid_item:nth-child(7),.lottery_grid_item:nth-child(8),.lottery_grid_item:nth-child(9){ margin-bottom: 0;}
+.lottery_grid_item image{
+  width: 180rpx;
+  height: 180rpx;
+  display: block;
+}
+.lottery_active{
+  position: absolute;
+  left: 0;
+  top:0;
+  width: 180rpx;
+  height: 180rpx;
+  z-index: 100;
+}
+.lottery_choosed{
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.lottery_choosed image{
+  width: 180rpx;
+  height: 180rpx;
+  display: block;
+}
+.lottery_choosed text{
+  position: absolute;
+  left: 0;
+  top:60rpx;
+  width: 100%;
+  height: 60rpx;
+  line-height: 60rpx;
+  font-size: 26rpx;
+  color: #333;
+  text-align: center;
+}
+.choosed_wrap{
+   animation:choosed 0.3s 0s ease-in;
+}
+@keyframes choosed{
+  from {transform:rotateY(-180deg);-webkit-transform:rotateY(-180deg); /* Safari and Chrome */}
+  to {transform:rotateY(0deg);-webkit-transform:rotateY(0deg); /* Safari and Chrome */}
+}
+@keyframes dialogShow {
+  0%   {transform: scale(0);}
+  100% {transform: scale(1);}
+}
+
+@keyframes cover {
+  0%   {background-color: rgba(0,0,0,0.3);}
+  100% {background-color: rgba(0,0,0,0.5);}
+}

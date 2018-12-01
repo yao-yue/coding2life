@@ -1,0 +1,90 @@
+<!--pages/myWallet/index.wxml-->
+<view class='container'>
+  <view class='top'>
+    <view class='top_title'>
+      <view class="balance-tag">账户余额(元）</view>
+      <view class="account-tag" data-target="accountDetail" bind:tap="navigatePage">账单</view>
+    </view>
+    <view class='top_num'>{{balance}}</view>
+  </view>
+  <view class='action_list'>
+    <view class='action_item recharge_item'  bind:tap="showRechargePanel">
+      <image src='../../images/in.png'></image>
+      充值
+    </view>
+    <view class='action_item withdraw_item' data-target="withdraw" bind:tap="navigatePage">
+      <image src='../../images/out.png'></image>
+      提现
+    </view>
+  </view>
+  <view class='score' data-target="pointDetail" bind:tap="navigatePage">
+    <view class='score_title'>积分</view>
+    <view class='score_num'>{{point}}</view>
+    <view  class='score_award_text' catchtap='drawLottery'>抽奖</view>
+    <image class='score_award_icon'src='../../images/wallet_award.png' ></image>
+  </view>
+  <view class='list_wrap'>
+    <view class='list_title'>积分商品</view>
+    <view class='list'>
+      <view class='item' wx:for='{{goodsList}}' wx:key='{{item.name}}'>
+      <image src='{{item.headImage}}' mode='aspectFill'></image>
+      <view class='item_name'>{{item.name}}</view>
+      <view class='item_score'>积分：{{item.point}}</view>
+    </view>
+    <view class='no-more' wx:if='{{goodsList.length == 0 }}'>
+        <image src='../../images/logo.png'></image>
+        <view class='no-data'>暂无积分商品</view>
+      </view> 
+    </view>
+  </view>
+</view>
+
+<view class='cover' wx:if="{{rechargeShow}}"></view>
+<view class="recharge-panel"  wx:if="{{rechargeShow}}">
+  <view id="close-cross" bindtap="closeMask">
+      <image src="/images/close.png"></image>
+  </view>
+  <view class='main'>
+      <view class='input_item'>
+        <view class='item_key'>充值金额:</view>
+        <view class='item_value'>
+          <input type='digit' value='{{rechargeNumber?rechargeNumber:""}}' bindinput='rechargeInput' 
+            placeholder-style='font-size:30rpx; color: #999' placeholder="请输入充值金额"/>
+        </view>
+      </view>
+      <view class='way_title'>付款方式：</view>
+      <view class='way_list'>
+        <view class='way_item'>
+          <image src='../../images/wx.png' class='icon'></image>
+          <image src='../../images/selected.png' class='select'></image>
+            微信支付
+        </view>
+        <view class='btn bgColor' bind:tap="rechargePoints">充值</view>
+      </view>
+  </view>
+</view>
+
+<view class='cover' wx:if="{{awardShow}}" bindtap='cancelLotter'></view>
+<view class='award_dialog' wx:if="{{awardShow}}">
+  <view class='award_main'>
+    <image src='../../images/lottery_bg.png' class='lottery_bg'></image>
+    <view class='award_content'>
+      <view class='award_title'>积分抽奖</view>
+      <view class='lottery_grid_list'>
+        <view class='lottery_grid_item' wx:for='{{lotteryList}}'  wx:key='{{index}}'>
+          <image src='../../images/lottery_back.png' class='lottery' wx:if='{{item.lotteryIndex != -1}}'></image>
+          <image src='../../images/lottery.png' class='lottery' wx:if='{{item.lotteryIndex == -1}}'></image>
+          <image src='../../images/lottery_active.png' class='lottery  lottery_active'
+            wx:if='{{amplification_index === item.lotteryIndex}}'></image>
+          <view class='lottery lottery_active choosed_wrap' wx:if='{{amplification_index === item.lotteryIndex && choosedShow}}'>
+           <view class='lottery_choosed'>
+             <image src='../../images/lottery_positive.png'></image>
+              <text>谢谢参与</text>
+           </view>
+          </view>
+        </view>
+         <view class='lottery_btn' bindtap='startrolling'>{{lotteryText}}</view>
+      </view>
+    </view>
+  </view>
+</view>

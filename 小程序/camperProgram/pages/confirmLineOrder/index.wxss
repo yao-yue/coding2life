@@ -1,0 +1,196 @@
+/* pages/confirmLineOrde/index.wxss */
+.container{
+  padding: 0 40rpx 150rpx 40rpx;
+}
+.top{
+  padding: 60rpx 220rpx 60rpx 0;
+  height: 148rpx;
+  position: relative;
+  border-bottom: 1rpx solid #dedede;
+}
+.top image{
+  position: absolute;
+  right: 0;
+  top:60rpx;
+  width: 190rpx;
+  height: 148rpx;
+  border-radius: 4rpx;
+}
+.top .name{
+  color: #000;
+  font-size: 40rpx;
+  /* font-weight: 600; */
+  word-break:break-all;  
+  display:-webkit-box;  
+  -webkit-line-clamp:2;  
+  -webkit-box-orient:vertical;  
+  overflow:hidden;
+}
+.top .attr{
+  color: #333;
+  font-size: 30rpx;
+}
+.input_item{
+  display: -webkit-box;
+  display: box;
+  display: -moz-box;
+  /* 老版本 - 适配iOS 6-, Safari 3.1-6 */
+  display: -webkit-flex;
+  /* 新版本 - 适配Chrome */
+  display: flex;
+  -webkit-box-align: center;
+  -moz-align-items: center;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-box-justify-content: space-between;
+  -moz-align-justify-content: space-between;
+  -webkit-align-justify-content: space-between;
+  justify-content: space-between;
+  padding: 40rpx 0;
+  font-size: 32rpx;
+  border-bottom: 1rpx solid #dedede;
+}
+.score_item{
+  padding-top: 30rpx;
+  padding-bottom: 60rpx;
+  position: relative;
+}
+.item_key{
+  width: 150rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  color: #333;
+}
+.score_item .item_key text{
+  position: absolute;
+  left: 0rpx;
+  bottom: 20rpx;
+  color: #999;
+  font-size: 22rpx;
+}
+.item_value{
+  height: 60rpx;
+  line-height: 60rpx;
+  max-width: 520rpx;
+  min-width: 200rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #666;
+  text-align: right;
+}
+.item_value input{
+  height:60rpx;
+  font-size: 30rpx;
+  text-align: right;
+}
+.input-count{
+  position: relative;
+  padding-right: 40rpx;
+  text-align: right;
+}
+.input-count .num{
+  width: 60rpx;
+  text-align: center;
+  display: inline-block;
+}
+.input-count image{
+  width: 40rpx;
+  height: 40rpx;
+  position: absolute;
+  top:10rpx;
+}
+.plus{
+  right:0rpx;
+}
+.minus{
+  right: 100rpx;
+}
+.input-count input{
+  width:60rpx;
+  text-align:center;
+  height: 60rpx;
+  line-height: 60rpx;
+  font-size: 34rpx;
+  display: inline-block;
+}
+.cost_list{
+  padding: 50rpx 0;
+}
+.cost_title{
+  color: #333;
+  font-size: 38rpx;
+}
+.cost_item{
+  display: -webkit-box;
+  display: box;
+  display: -moz-box;
+  /* 老版本 - 适配iOS 6-, Safari 3.1-6 */
+  display: -webkit-flex;
+  /* 新版本 - 适配Chrome */
+  display: flex;
+  -webkit-box-align: center;
+  -moz-align-items: center;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-box-justify-content: space-between;
+  -moz-align-justify-content: space-between;
+  -webkit-align-justify-content: space-between;
+  justify-content: space-between;
+}
+.bottom{
+  margin-bottom: 30rpx;
+}
+.sub_item{
+  padding:30rpx 0;
+  color: #999;
+  font-size: 30rpx;
+  border-bottom: 1rpx solid #dedede; 
+}
+.fee_item{
+  padding: 10rpx 0;
+  color: #464646;
+  font-size: 30rpx;
+}
+
+
+
+
+
+
+/* footer  */
+.footer{
+  position: fixed;
+  left: 0;
+  bottom:0;
+  width: 100%;
+  height: 156rpx;
+  background-color: #fff;
+  z-index:2;
+  box-shadow: -2rpx -2rpx 3rpx #f1f1f1;
+}
+.total{
+  height: 156rpx;
+  line-height:156rpx;
+  padding-left: 40rpx;
+  color: #333;
+  font-size: 40rpx;
+  position: relative;
+}
+.btn{
+  position: absolute;
+  width: 264rpx;
+  height: 76rpx;
+  line-height: 76rpx;
+  text-align: center;
+  color: #fff;
+  background-color: #f8b62b;
+  border-radius:10rpx;
+  right: 40rpx;
+  top:40rpx;
+  font-size: 32rpx;
+}
+
+
+
+

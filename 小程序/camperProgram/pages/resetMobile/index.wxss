@@ -1,0 +1,103 @@
+/* pages/resetMobile/index.wxss */
+.container{
+  width: 100%;
+  height: 100%;
+  position:relative;
+  border:none;
+}
+.container .bg{
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.container .main_wrap{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top:0;
+}
+.main{
+  padding: 0 40rpx;
+}
+.title{
+  margin-top: 160rpx;
+  color: #fff;
+  font-size: 58rpx;
+}
+.list{
+  margin-top: 80rpx;
+}
+.item{
+  padding: 15rpx;
+  position: relative;
+  border-bottom: 1rpx solid #fff;
+  height: 50rpx;
+  color: #fff;
+  font-size: 30rpx;
+  margin-bottom: 40rpx;
+}
+.empty{
+  position: absolute;
+  width: 50rpx;
+  height: 50rpx;
+  right:2rpx;
+  top:18rpx;
+  text-align: center;
+}
+.code_empty{
+  position: absolute;
+  width: 50rpx;
+  height: 50rpx;
+  right:200rpx;
+  top:18rpx;
+  text-align: center;
+}
+.empty image, .code_empty image{
+  width: 30rpx;
+  height: 30rpx;
+  display: inline-block;
+}
+.code{
+  position: absolute;
+  right: 15rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  text-align: center;
+  padding: 0 15rpx;
+  color: #156C8D;
+  font-size: 20rpx;
+  background-color: #fff;
+  border-radius: 10rpx;
+  bottom: 15rpx;
+  font-weight: 500;
+}
+.item input{
+  border: none;
+  color: #fff;
+  font-size: 30rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  /* letter-spacing: 2rpx; */
+  width: 380rpx;
+}
+.placeholder{
+  color: #fff;
+  font-size: 30rpx;
+  /* letter-spacing: 2rpx; */
+}
+.btn{
+  margin-top: 80rpx;
+  height: 84rpx;
+  text-align: center;
+  line-height: 84rpx;
+  color: #156C8D;
+  background-color: #fff;
+  border-radius: 10rpx;
+}
+.tip{
+  color: #fff;
+  font-size: 24rpx;
+  text-align: right;
+  margin-top: 10rpx;
+}

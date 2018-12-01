@@ -1,0 +1,7 @@
+/* pages/agreement/index.wxss */
+page{
+  position: relative;
+}
+.content{
+  padding: 20rpx;
+}

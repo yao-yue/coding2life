@@ -1,0 +1,11 @@
+<!--pages/storyComment/index.wxml-->
+<view class='container'>
+  <view class='comment-list'>
+    <view class='comment-item'>
+      <textarea maxlength="100" bindinput='textareaTxt' placeholder='{{placeholder}}'></textarea>
+    </view>
+  </view>
+    <view class='footer-submit bgColor' bindtap='submitList'>提交</view>
+    <import src="../../component/dialog/index.wxml" />
+    <template wx:if="{{dialogText}}" is="dialog" data="{{text:dialogText}}" />
+</view>

@@ -1,0 +1,42 @@
+<!--pages/resetMobile/index.wxml-->
+<view class='container'>
+  <image src='../../images/login.png' class='bg'></image>
+  <view class='main_wrap'>
+    <view class='main'>
+      <view class='title'>重置密码</view>
+      <view class='list'>
+        <view class='item'>
+          <input type='number' value='{{mobile}}' bindinput='mobileBind' placeholder="请输入手机号" placeholder-class='placeholder'/>
+          <view  class='empty' wx:if='{{mobile}}' bindtap='clearMobile'>
+            <image src='../../images/empty.png'></image>
+          </view>
+        </view>
+        <view class='item'>
+          <input type='number' value='{{code}}' bindinput='codeBind' placeholder="请输入验证码" placeholder-class='placeholder'/>
+          <view class='code' bindtap='sendCode'>{{btnText}}</view>
+           <view class='code_empty' wx:if='{{code}}' bindtap='clearCode'>
+              <image src='../../images/empty.png'></image>
+           </view>
+        </view>
+        <view class='item'>
+          <input type='password' value='{{newPwd}}' bindinput='newPwdBind' 
+            placeholder="请输入6-18位密码"  placeholder-class='placeholder'/>
+            <view  class='empty' wx:if='{{newPwd}}' bindtap='clearNewPwd'>
+              <image src='../../images/empty.png'></image>
+            </view>
+        </view>
+        <view class='item'>
+          <input type='password' value='{{confirmPwd}}' bindinput='confirmPwdBind' 
+            placeholder="请再次输入6-18位密码"  placeholder-class='placeholder'/>
+            <view class='empty' wx:if='{{confirmPwd}}' bindtap='clearConfirmPwd'>
+              <image src='../../images/empty.png'></image>
+            </view>
+        </view>
+        <view class='tip' hidden='{{isSame}}'>两次密码输入不一致</view>
+      </view>
+      <view class='btn' bindtap='save'>重置密码</view>
+    </view>
+  </view>
+   <import src="../../component/dialog/index.wxml" />
+    <template wx:if="{{dialogText}}" is="dialog" data="{{text:dialogText}}" />
+</view>

@@ -1,0 +1,170 @@
+<!--pages/subleaseSettings/index.wxml-->
+<view class="price-setting">
+  <view class="price-input box box-align-center">
+    <view>转租价格(元/天):</view>
+    <input type="digit" maxlength="10" placeholder="请输入" value="{{price?price:'0.00'}}" bindinput="bindPriceInput"></input>
+  </view>
+  <view class="price-save-btn">
+    <view bind:tap="saveSubleasePrice">保 存</view>
+  </view>
+</view>
+<view class="placeholder"></view>
+<view class="visit-volume box box-align-center">
+  <view class="title">剩余可浏览次数：</view>
+  <view class="count">{{subleaseInfo.viewLimit}}</view>
+  <view class="recharge" bindtap='submitOrder' data-recharge="recharge">
+    充值
+    <view class="arrow"></view>
+  </view>
+</view>
+<view class="placeholder"></view>
+<view class="qrcode-area">
+  <view class="title">转租二维码</view>
+  <view class="image-box">
+    <image src="{{subleaseInfo.qrCodeUrl}}"></image>
+  </view>
+  <view class="share"  bindtap='shareTo'>
+    -  <image src="/images/fx_icon.png"></image>分享给租客  -
+  </view>
+</view>
+<view class="detail-btn" data-id="{{productId}}" bind:tap="navigatePage">查看转租详情</view>
+<view class='modal-screen'  hidden='{{!modalShow}}'></view>
+<import src="../../component/dialog/index.wxml" />
+<template wx:if="{{dialogText}}" is="dialog" data="{{text:dialogText}}"/>
+
+
+<view class='cover' wx:if='{{shareShow}}'></view>
+<view class='lease_dialog' wx:if='{{shareShow}}' >
+  <view class='lease_list'>
+    <!-- <view class='lease_item'  bindtap='linkToPage' data-path='confirmOrder' data-leasetype = 'day'>分享到微信好友</view> -->
+    <view class='lease_item' bindtap='saveCode'>保存到手机</view>
+  </view>
+  <view class='cancel_btn' bindtap='calcelLease'>取消</view>
+</view>
+
+<view class="protocal-wrap" wx:if="{{protocalShow}}">
+  <view class="content">
+    <rich-text type="text" nodes='{{tip}}'></rich-text>
+  </view>
+  <view class='tip-radio box' bindtap='readClick'>
+    <view class='radio' wx:if="{{!read}}" ></view>
+    <image  wx:if="{{read}}" src='../../images/selected.png'></image>
+    我已经认真阅读并同意《转租协议》
+  </view>
+  <view class='order-btn-list'>
+    <view class='total-btn'>费用：<text>￥300.00</text></view>
+    <view class='submit-btn' bindtap='submitOrder' data-recharge="protocal">去支付</view>
+  </view>
+</view>
+
+<!-- 
+ <view class='cover' wx:if='{{wayShow}}' bindtap='close'></view>
+<view class='pay-way' wx:if='{{wayShow}}'>
+  <view class='pay-amount' wx:if="{{rechargeType == 'protocal'}}">
+    付款金额：<text>300元</text>
+      <image src='../../images/close.png' bindtap='close'></image>
+  </view>
+  <block wx:else>
+    <view class='pay-amount'>
+      充值类型：<text>300元/300次</text>
+      <image src='../../images/close.png' bindtap='close'></image>
+    </view>
+    <view class='pay-count'>
+      <view class="ff-r fs-15 fc-3">数量</view>
+      <view class="count-operation">
+        <view class="operation-btn minus" bind:tap="minusCount">-</view>
+        <input type="number" value="{{rechargeCount}}" bindinput="bindCountInput" maxlength='3' disabled='true'></input>
+        <view class="operation-btn add" bind:tap="addCount">+</view>
+      </view>
+    </view>
+    <view class="pay-total">
+      <view class="ff-r fs-15 fc-3">付款金额</view>
+      <view class="ff-r fs-15 fc-3">{{rechargeAmount}}元</view>
+    </view>
+  </block>
+  <view class='way-list'>
+    <view class='way-list-title'>付款方式：</view>
+    <view class='way-item' data-payway="coins" bindtap='changePayWay'>
+      <view class='way-item-key' >
+        <image src='../../images/wallet.png' class='wallet'></image>
+        余额
+        <text wx:if="{{balance<rechargeAmount}}">（余额不足，可用余额{{balance?balance:'0.00'}}）</text>
+        <text wx:if="{{balance>=rechargeAmount}}">（可用余额{{balance?balance:'0.00'}}）</text>
+      </view>
+      <view class='way-item-value'>
+        <image src='../../images/select.png' class='select' wx:if='{{payWay != "coins" && !forbid}}'></image>
+        <image src='../../images/selected.png' class='select' wx:if='{{payWay == "coins" && !forbid}}'></image>
+        <image src='../../images/select_forbid.png' class='select' wx:if='{{forbid}}'></image>
+        
+      </view>
+    </view>
+    <view class='way-item' data-payway="weixin" bindtap='changePayWay'>
+      <view class='way-item-key'>
+        <image src='../../images/wechat.png' class='wallet'></image>
+        微信支付
+      </view>
+      <view class='way-item-value'>
+        <image src='../../images/select.png' class='select' wx:if='{{payWay != "weixin"}}'></image>
+        <image src='../../images/selected.png' class='select' wx:if='{{payWay == "weixin"}}'></image>
+      </view>
+    </view>
+  </view>
+  <view class='pay-btn' bindtap='confirmBtn'>确认支付</view>
+</view>  -->
+
+
+<view bindtap='close' class='cover' wx:if='{{wayShow}}'></view>
+<view class='pay-way' wx:if='{{wayShow}}'>
+      <view class='pay-title'>
+        确认付款<image src='../../images/close.png' bindtap='close'></image>
+      </view>
+      <view class='way-list'>
+        <view class='pay-amount' wx:if="{{rechargeType == 'protocal'}}">
+          ￥<text class='pay_price'>{{rechargeAmount?rechargeAmount:'300.00'}}元</text>
+        </view>
+        <block wx:else>
+          <view class='pay-amount'>
+            充值类型：<text class='pay_times'>300元/300次</text>
+          </view>
+          <view class='pay-count'>
+            <view class="ff-r fs-15 fc-3">数量</view>
+            <view class="count-operation">
+              <view class="operation-btn minus" bind:tap="minusCount">-</view>
+              <input type="number" value="{{rechargeCount}}" bindinput="bindCountInput" maxlength='3' disabled='true'></input>
+              <view class="operation-btn add" bind:tap="addCount">+</view>
+            </view>
+          </view>
+          <view class="pay-total">
+            <view class="ff-r fs-15 fc-3">付款金额</view>
+            <view class="ff-r fs-15 fc-3">{{rechargeAmount?rechargeAmount:'300.00'}}元</view>
+          </view>
+        </block>
+        <view class='way-list-title'>付款方式：</view>
+          <view class='way-item'>
+            <view class='way-item-key'>
+              <image src='../../images/wallet.png' class='wallet'></image>
+              账户余额<text wx:if="{{balance<rechargeAmount}}">（账户余额不足，可用余额{{balance?balance:'0.00'}}元）</text>
+              <text wx:if="{{balance>=rechargeAmount}}">（可用余额{{balance?balance:'0.00'}}元）</text>
+            </view>
+            <view class='way-item-value' hidden = "{{  payWay == 'coins' || rechargeAmount > balance}}"  bindtap='changePayWay' data-id='coins'>
+              <image src='../../images/select.png' class='select'></image>
+            </view>
+            <view class='way-item-value' hidden ="{{!payWay ||  payWay == 'weixin' || rechargeAmount > balance}}">
+              <image src='../../images/selected.png' class='select'></image>
+            </view>
+            <!-- <view class='way-item-value' hidden ="{{rechargeAmount < balance}}" bindtap='forbidPay'>
+              <image src='../../images/select_forbid.png' class='select'></image>
+            </view> -->
+          </view>
+          <view class='way-item'>
+            <view class='way-item-key'><image src='../../images/weixin.png' class='wallet'></image>微信支付</view>
+            <view class='way-item-value' hidden = "{{  payWay == 'weixin'}}"  bindtap='changePayWay' data-id='weixin'>
+              <image src='../../images/select.png' class='select'></image>
+            </view>
+            <view class='way-item-value' hidden ="{{!payWay ||  payWay == 'coins'}}">
+              <image src='../../images/selected.png' class='select'></image>
+            </view>
+          </view>
+        </view>
+        <view class='pay-btn' bindtap='confirmBtn'>确认支付</view>
+</view> 

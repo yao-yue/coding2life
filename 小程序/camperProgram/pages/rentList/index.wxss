@@ -1,0 +1,102 @@
+/* pages/rentList/index.wxss */
+.container{
+  padding-top: 130rpx;
+}
+.top{
+  height:90rpx;
+  padding:20rpx 40rpx;
+  position: fixed;
+  left: 0;
+  top:0rpx;
+  background-color: #fff;
+  border-top:1rpx solid #dedede;
+  z-index:8;
+}
+.search{
+  float: left;
+  /* height: 90rpx; */
+  /* width: 570rpx; */
+  position: relative;
+
+  width:598rpx;
+  height: 88rpx;
+  border:1rpx solid #dedede;
+  padding-left: 70rpx;
+  box-shadow: 1px 1px 4px #dedede;
+  border-radius: 8rpx;
+}
+.search input{
+  color: #666;
+  font-size: 30rpx;
+  height: 88rpx;
+  line-height: 88rpx;
+  width: 480rpx;
+}
+.search .search_icon{
+  position: absolute;
+  width: 38rpx;
+  height: 38rpx;
+  left: 20rpx;
+  top:26rpx;
+}
+.search .delete_icon{
+  position: absolute;
+  height: 30rpx;
+  width: 30rpx;
+  right:30rpx;
+  top:30rpx;
+  z-index:50;
+}
+.filter{
+  height: 66rpx;
+  margin: 10rpx 0 60rpx 40rpx;
+}
+.filter_item{
+  padding: 0 20rpx;
+  height: 64rpx;
+  line-height: 64rpx;
+  margin-right: 30rpx;
+  border:1rpx solid #dedede;
+  border-radius: 4rpx;
+  font-size: 30rpx;
+  color: #333;
+  text-align: center;
+  float: left;
+}
+.rent_list{
+  padding: 0 40rpx;
+}
+.rent_item{
+  margin-bottom: 40rpx;
+}
+.rent_item image{
+  width: 670rpx;
+  height: 405rpx;
+  border-radius: 6rpx;
+}
+.tip{
+  color: #333;
+  font-size: 20rpx;
+  margin-top:10rpx;
+}
+.title{
+  color: #333;
+  font-size: 30rpx;
+  font-weight: 600;
+  margin-top:10rpx;
+  min-height:50rpx;
+  word-break:break-all;
+  display: -webkit-box;
+  -webkit-line-clamp:2; 
+  -webkit-box-orient:vertical;
+  overflow:hidden;
+}
+.price{
+  color: #111;
+  font-size: 30rpx;
+  margin-top:10rpx;
+}
+.price text{
+  display: inline-block;
+  margin-left: 10rpx;
+}

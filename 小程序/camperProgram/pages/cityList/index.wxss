@@ -1,0 +1,36 @@
+/* pages/cityList/index.wxss */
+/* pages/cityList/index.wxss */
+.container{
+  background-color: #F7F8FE;
+  min-height: 100%;
+}
+
+.item{
+  font-size: 34rpx;
+  color: #000;
+}
+
+.title{
+  height: 32rpx;
+  line-height: 32rpx;
+  padding: 18rpx 0 18rpx 30rpx;
+}
+
+.wrap .city{
+  height: 100rpx;
+  background-color: #fff;
+  line-height: 100rpx;
+  padding-left: 30rpx;
+}
+
+.wrap .city.all{
+  padding-left: 55rpx;
+}
+
+.city{
+  border-bottom: 1rpx solid #e1e1e1;
+}
+
+.city:last-child{
+  border-bottom: 0;
+}

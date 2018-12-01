@@ -1,0 +1,65 @@
+/* pages/share/index.wxss */
+.container{
+  height: 100%;
+  position: relative;
+  border: none;
+}
+.bg{
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.tip{
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  left: 0;
+  top:500rpx;
+  color: #FFDE00;
+  font-size: 28rpx;
+  letter-spacing: 1rpx;
+}
+.main{
+  width: 580rpx;
+  position: absolute;
+  left: 85rpx;
+  top:610rpx;
+}
+.mobile{
+  width: 100%;
+  height: 90rpx;
+  background-color: #fff;
+  border-radius: 40rpx;
+  box-shadow: 6rpx 0rpx 5rpx rgba(28,148,154,0.32);
+}
+.mobile input{
+  height: 90rpx;
+  line-height: 90rpx;
+  text-align: center;
+  color: #333;
+}
+.holder{
+  color: #c2c2c2;
+}
+.btn{
+  width: 100%;
+  height: 90rpx;
+  line-height: 90rpx;
+  text-align: center;
+  color: #fff;
+  background-color: #FF833F;
+  border-radius: 40rpx;
+  margin-top: 24rpx;
+  box-shadow: 6rpx 0rpx 5rpx rgba(28,148,154,0.32);
+  position: relative;
+}
+button{
+  position: absolute;
+  left: 0;
+  top:24rpx;
+  width: 100%;
+  height: 90rpx;
+  z-index: 666;
+  background-color: transparent;
+  border: none !important;
+}

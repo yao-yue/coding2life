@@ -1,0 +1,34 @@
+<!--pages/storyEdit/index.wxml-->
+<view class='container'>
+  <view class='title'>
+    <input type='text' value='{{title}}' bindinput='titleBind' placeholder="添加标题" 
+            maxlength='30' placeholder-class='placeholder'/>
+  </view>
+  <view class='content'>
+    <textarea maxlength="500" bindinput='contentBind'  placeholder-class='placeholder'
+        placeholder='此时此地，想和大家分享什么（500字内）'></textarea>
+  </view>
+  <view class="image-list">
+      <view wx:for="{{imagesList}}"  wx:key="{{item.fileId}}" class="image-info">
+          <image mode="aspectFill"  src="{{item.fileUrl}}"></image> 
+          <image src='../../images/delete_word.png'  data-index="{{index}}" bindtap="deleteImage" class="delete"></image>
+      </view>
+      <view wx:if="{{imagesList.length < 8}}" class="add-image" bindtap="addImage">
+          <image src='../../images/upload.png' class='add'></image>
+      </view>
+  </view>
+  <view class='attach'>
+    <view class='attach_item' bindtap='getAddress'>
+      <image src='../../images/map.png'></image>{{msgAddress}}
+    </view>
+    <view class='attach_item'>
+      <image src='../../images/sort.png'></image>
+      <picker bindchange="sortBind" value="{{sortIndex}}" range="{{sortList}}">
+          {{sortList[sortIndex]?sortList[sortIndex]:'选择分类'}}
+      </picker>
+    </view>
+  </view>
+  <view class='footer-submit bgColor' bindtap='submit'>提交</view>
+  <import src="../../component/dialog/index.wxml" />
+  <template wx:if="{{dialogText}}" is="dialog" data="{{text:dialogText}}" />
+</view>

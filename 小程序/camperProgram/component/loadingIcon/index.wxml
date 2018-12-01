@@ -1,0 +1,11 @@
+<template name="loadingIcon">
+    <view  class="loading">
+      <image src="../../images/loading.png"></image>
+      加载中...
+    </view>
+</template>
+<template name="noData">
+     <view class="no-list">
+      没有更多的数据了...
+    </view> 
+</template>    

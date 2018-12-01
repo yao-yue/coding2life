@@ -1,0 +1,6 @@
+<!--pages/setting/index.wxml-->
+<view class='container'>
+  <view class='tab' bindtap='linkTo'>修改密码</view>
+  <view class='tab' bindtap='linkToStyle'>切换样式</view>
+  <view class='btn bgColor' bindtap='loginOut'>退出登录</view>
+</view>

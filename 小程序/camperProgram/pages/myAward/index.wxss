@@ -1,0 +1,64 @@
+/* pages/myAward/index.wxss */
+.container{
+  min-height: 100%;
+  background-color: #F2F2F2;
+  width: 100%;
+}
+.order_list{
+  margin-top: 20rpx;
+  background-color: #F2F2F2;
+  padding-bottom:10rpx;
+}
+.order_item{
+  background-color: #fff;
+  margin-bottom: 20rpx;
+}
+.item_top{
+  height:85rpx;
+  border-bottom: 1rpx solid #dedede;
+  padding: 0 40rpx;
+  color: #616161;
+  font-size: 30rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.item_top view{
+  height: 85rpx;
+  line-height: 85rpx;
+}
+.status{ color: #333;font-weight: 600;}
+.item_main{
+  padding: 30rpx 40rpx 30rpx 305rpx;
+  position: relative;
+  height: 160rpx;
+}
+.item_main image{
+  position: absolute;
+  left: 40rpx;
+  top:30rpx;
+  width: 240rpx;
+  height: 160rpx;
+}
+.item_main .name{
+  max-width: 400rpx;
+  min-height: 40rpx;
+  max-height: 80rpx;
+  word-break:break-all;
+  display: -webkit-box;
+  -webkit-line-clamp:2; 
+  -webkit-box-orient:vertical;
+  overflow:hidden;
+  font-size: 32rpx;
+  color: #000;
+  font-weight: 600;
+  margin-bottom: 20rpx;
+}
+.item_main .num{
+  height: 40rpx;
+  line-height: 40rpx;
+  font-size: 32rpx;
+  color: #666;
+}
+
+

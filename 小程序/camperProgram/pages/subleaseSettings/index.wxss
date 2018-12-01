@@ -1,0 +1,396 @@
+/* pages/subleaseSettings/index.wxss */
+
+.price-setting {
+  padding: 56rpx 28rpx 40rpx;
+}
+.price-setting .price-input {
+  display: flex;
+  margin-bottom: 90rpx;
+}
+.price-setting .price-input view {
+  color: #333;
+  font-size: 30rpx;
+  line-height: 30rpx;
+}
+.price-setting .price-input input {
+  flex: 1;
+  height: 30rpx;
+  font-size: 30rpx;
+  line-height: 30rpx;
+  margin-left: 60rpx;
+  text-align: left;
+}
+.price-setting .price-save-btn {
+  text-align: center;
+}
+.price-setting .price-save-btn view {
+  display: inline-block;
+  width: 296rpx;
+  height: 70rpx;
+  color: #fff;
+  font-size: 32rpx;
+  text-align: center;
+  line-height: 70rpx;
+  background-color: #F8B62B;
+  border-radius: 4rpx;
+}
+.placeholder {
+  width: 100%;
+  height: 20rpx;
+  background-color: #F7F8FE;
+}
+
+.visit-volume {
+  padding-left: 30rpx;
+  height: 120rpx;
+}
+.visit-volume view {
+  font-size: 30rpx;
+  line-height: 30rpx;
+  color: #333;
+}
+.visit-volume .count {
+  flex: 1;
+  color: #F8B62B;
+  margin-left: 40rpx;
+  text-align: left;
+}
+.visit-volume .recharge {
+  flex: 0 0 180rpx;
+  position: relative;
+  height: 100%;
+  line-height: 120rpx;
+}
+.visit-volume .recharge .arrow {
+  position: absolute;
+  top: 50%;
+  right: 36rpx;
+  width: 16rpx;
+  height: 16rpx;
+  border-right:3rpx solid #999;
+  border-top: 3rpx solid #999;
+  transform:rotate(45deg) translateY(-50%);
+-ms-transform:rotate(45deg) translateY(-50%); 	/* IE 9 */
+-moz-transform:rotate(45deg) translateY(-50%); 	/* Firefox */
+-webkit-transform:rotate(45deg) translateY(-50%); /* Safari 和 Chrome */
+-o-transform:rotate(45deg) translateY(-50%); 
+}
+
+.qrcode-area {
+  padding: 54rpx 30rpx 0;
+}
+.qrcode-area .title {
+  color: #333;
+  font-size: 30rpx;
+  line-height: 30rpx;
+  margin-bottom: 54rpx;
+}
+.qrcode-area .image-box {
+  text-align: center;
+  vertical-align: top;
+  margin-bottom: 26rpx;
+}
+.qrcode-area .image-box image {
+  width: 296rpx;
+  height: 296rpx;
+}
+.qrcode-area .share {
+  text-align: center;
+  color: #F8B62B;
+  font-size: 28rpx;
+  line-height: 28rpx;
+}
+.qrcode-area .share image {
+  width: 32rpx;
+  height: 28rpx;
+  margin-right: 10rpx;
+  vertical-align: middle;
+}
+
+.detail-btn {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100rpx;
+  color: white;
+  text-align: center;
+  font-size: 34rpx;
+  line-height: 100rpx;
+  background-color: #F8B62B;
+}
+
+/* 分享  */
+  /* .cover{ 
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    z-index:99;
+    background-color:rgba(0, 0, 0, .5);
+    transition: all 2s;
+} */
+.lease_dialog{
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  padding: 75rpx 30rpx;
+  background-color: transparent;
+  z-index:999;
+  text-align: center;
+}
+.lease_list{
+  width: 690rpx;
+  border-radius: 22rpx;
+  color: #02b5f9;
+  background-color: #fff;
+}
+.lease_item,.cancel_btn{
+  width: 690rpx;
+  height: 90rpx; 
+  font-size: 36rpx;
+  line-height: 90rpx;
+}
+/* .lease_item:nth-child(1){
+  border-bottom: 2rpx solid #dedede;
+} */
+.cancel_btn{
+  margin-top:15rpx;
+  color: #999;
+  background-color: #fff;
+  border-radius: 22rpx;
+}
+
+.protocal-wrap {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding:20rpx 0rpx 140rpx;
+  background-color: white;
+  z-index: 9;
+  overflow: auto;
+}
+.protocal-wrap .title {
+  width: 100%;
+  color: #333;
+  font-size: 34rpx;
+  font-weight: 700;
+  line-height: 34rpx;
+  text-align: center;
+  margin: 36rpx 0 34rpx; 
+}
+.protocal-wrap .content{
+  padding: 0 30rpx 120rpx;
+}
+.tip-radio{
+  position: fixed;
+  left: 0;
+  bottom: 100rpx;
+  height: 120rpx;
+  line-height: 120rpx;
+  font-size: 20rpx;
+  color: #999;
+  margin-top: 18rpx;
+  margin-left: 30rpx;
+  align-items: center;
+  background-color: #fff;
+  width: 100%;
+}
+.radio{
+  width: 20rpx;
+  height: 20rpx;
+  border: 1rpx solid #999;
+  border-radius: 50%; 
+  -webkit-border-radius: 50%;
+  margin-right: 8rpx;
+}
+
+.tip-radio image{
+  width: 24rpx;
+  height: 24rpx;
+  margin-right: 8rpx;
+}
+
+.order-btn-list{
+  position: fixed;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  height: 100rpx;
+  display: flex;
+  align-content: space-between;
+  border-top:1px solid #f5f5f5;
+  z-index:99;
+}
+.order-btn-list view{
+  width: 50%;
+  height: 100rpx;
+  line-height: 100rpx;
+  text-align: center;
+  font-size: 32rpx;
+}
+.total-btn{
+  background-color: #FFF;
+  color: #333;
+}
+.total-btn text{
+  color: #fc0000;
+}
+.submit-btn{
+  background-color: #F8B62B;
+  color: #fff;
+}
+
+/* 确认支付 */
+
+.cover{
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  z-index:99;
+  background-color:rgba(0, 0, 0, .5);
+  transition: all 2s;
+}
+.pay-way{
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  z-index:99999;
+  background-color: #fff;
+  padding-bottom: 30rpx;
+  transition: all 2s;
+  width: 100%;
+}
+.pay-amount{
+  padding: 0 30rpx;
+  height: 120rpx;
+  line-height: 120rpx;
+  color: #000;
+  font-size: 34rpx;
+  position: relative;
+  /* border-bottom: 1px solid #dedede; */
+}
+.pay-amount image{
+  position: absolute;
+  right: 30rpx;
+  top: 40rpx;
+  width: 30rpx;
+  height: 30rpx;
+}
+.pay-amount text{
+  color: #333;
+}
+.pay_times{
+  font-size:40rpx !important;
+}
+.pay-count {
+  padding: 0 30rpx;
+  height: 120rpx;
+  line-height: 120rpx;
+  color: #000;
+  font-size: 34rpx;
+  border-bottom: 1px solid #dedede;
+  display: flex;
+  justify-content: space-between;
+}
+.pay-count .count-operation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.pay-count .count-operation .operation-btn {
+  width: 40rpx;
+  height: 40rpx;
+  text-align: center;
+  line-height: 36rpx;
+  border: 2rpx solid #e1e1e1;
+}
+.pay-count .count-operation input {
+  height: 40rpx;
+  line-height: 40rpx;
+  font-size: 30rpx;
+  text-align: center;
+  width: 90rpx;
+}
+.pay-total {
+  padding: 0 30rpx;
+  height: 120rpx;
+  line-height: 120rpx;
+  color: #000;
+  font-size: 34rpx;
+  border-bottom: 1px solid #dedede;
+  display: flex;
+  justify-content: space-between;
+}
+.way-list-title{
+  color: #000;
+  font-size: 34rpx;
+  margin: 30rpx 0 20rpx;
+  padding-left: 30rpx;
+}
+.way-item{
+  padding: 20rpx 30rpx;
+  display: -webkit-box; /* Chrome 4+, Safari 3.1, iOS Safari 3.2+ */
+  display: -moz-box; /* Firefox 17- */
+  display: -webkit-flex; /* Chrome 21+, Safari 6.1+, iOS Safari 7+, Opera 15/16 */
+  display: -moz-flex; /* Firefox 18+ */
+  display: -ms-flexbox; /* IE 10 */
+  display: flex; /* Chrome 29+, Firefox 22+, IE 11+, Opera 12.1/17/18, Android 4.4+ */
+  justify-content: space-between;
+  border-bottom: 1px solid #dedede;
+  height: 60rpx;
+}
+.way-item-key{
+  position: relative;
+  color: #000;
+  font-size: 30rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  padding-left: 70rpx;
+}
+.way-item-key image{
+  position: absolute;
+  left: 0rpx;
+  top:10rpx;
+  width: 42rpx;
+  height: 42rpx;
+}
+.way-item-key text{
+  font-size: 20rpx;
+  color: #999;
+}
+.way-item-value image{
+  width: 30rpx;
+  height: 30rpx;
+}
+.pay-btn{
+  width: 690rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  text-align: center;
+  background-color: #F8B62B;
+  color: #fff;
+  border-radius: 10rpx;
+  margin: 40rpx auto;
+  font-size: 34rpx;
+}
+
+.drawer_log {  
+  width: 280rpx;  
+  overflow: hidden;  
+  position: fixed;  
+  top: 50%;  
+  z-index:9999;  
+  background: #000;
+  opacity: 0.8;  
+  margin-top: -220rpx;
+  left: 50%;
+  margin-left: -140rpx;
+  border-radius: 3px;  
+  padding:  40rpx 0;
+}  

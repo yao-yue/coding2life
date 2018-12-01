@@ -1,0 +1,39 @@
+/* 组件 */
+/*content*/  
+.drawer_log {  
+  width: 280rpx;  
+  overflow: hidden;  
+  position: fixed;  
+  top: 50%;  
+  z-index:9999;  
+  background: #000;
+  opacity: 0.6;  
+  margin-top: -220rpx;
+  left: 50%;
+  margin-left: -140rpx;
+  border-radius: 3px;  
+  padding:  40rpx 0;
+}  
+  
+.drawer_title{  
+  padding:15rpx 10rpx;  
+  font: 20px "microsoft yahei";  
+  text-align: center;  
+}  
+.drawer_content {  
+  overflow-y: scroll; /*超出父盒子高度可滚动*/  
+}  
+
+.drawer_log image{
+  width: 80rpx;
+  height: 80rpx;
+  margin: 0 auto;
+  display: block;
+}
+
+.drawer_text{
+  color: #fff;
+  padding-top: 20rpx;
+  font-size: 24rpx;
+  text-align: center;
+}

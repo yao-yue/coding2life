@@ -1,0 +1,50 @@
+/* pages/pointDetail/index.wxss */
+view {
+  box-sizing: border-box;
+}
+page {
+  background-color: #F6F6F6;
+}
+.container{
+  min-height: 100%;
+}
+.detail-item {
+  margin-top: 16rpx;
+  width: 100%;
+  height: 116rpx;
+  padding: 24rpx 40rpx;
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+}
+.detail-item .detail-left,
+.detail-item .detail-right {
+  height: 100%;
+}
+.detail-left .source {
+  font-size: 30rpx;
+  font-weight: 700;
+  color: #333;
+  line-height: 1em;
+  margin-bottom: 22rpx;
+}
+.detail-left .order-num {
+  font-size: 24rpx;
+  font-weight: 400;
+  color: #333;
+  line-height: 1em;
+}
+.detail-right .change {
+  font-size: 30rpx;
+  font-weight: 700;
+  color: #333;
+  line-height: 1em;
+  text-align: right;
+  margin-bottom: 20rpx;
+}
+.detail-right .time {
+  font-size: 24rpx;
+  font-weight: 400;
+  color: #999;
+  line-height: 1em;
+}

@@ -1,0 +1,19 @@
+<!--pages/subleaseAuditStatus/index.wxml-->
+<view class='container'>
+  <view class='audit' wx:if='{{isAuth === "in_audit"}}'>
+      <image src='../../images/audit.png'></image>
+      <view class='tip'>身份审核中...</view>
+  </view>
+
+  <view class='audit' wx:if="{{isAuth === 'n'}}">
+      <image src='../../images/audited.png'></image>
+      <view class='tip'>您还未完成身份审核，请先完成身份审核！</view>
+      <view class='btn bgColor' bindtap='linkTo'>去审核</view>
+  </view>
+  <view class='audit' wx:if="{{isAuth == 'reject'}}">
+      <image src='../../images/audit.png'></image>
+      <view class='tip'>身份审核未通过，提交的信息材料有误!</view>
+      <view class='btn bgColor' bindtap='linkTo'>重新提交审核</view>
+  </view>
+
+</view>

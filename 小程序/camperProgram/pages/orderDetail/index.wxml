@@ -1,0 +1,157 @@
+<!--pages/orderDetail/index.wxml-->
+<view class='container'>
+    <view class='order'>
+      <view  class='order_id'>订单号：{{detailInfo.orderId}}</view>
+      <view  class='status'>{{status[detailInfo.realStatus]}}</view>
+      <view class='space'></view>
+    </view>
+    <view class='top'>
+      <view class='name'>{{detailInfo.details[0].productName}}</view>
+      <view class='attr' wx:if='{{orderType == "rv_rent"}}'>
+      {{detailInfo.details[0].gearBox}} / 适合{{detailInfo.details[0].fitNum}}人 / {{detailInfo.details[0].outputVolume}}
+      </view>
+      <view class='attr' wx:if='{{orderType != "rv_rent"}}'>{{detailInfo.details[0].address}}</view>
+      <image src='{{detailInfo.details[0].images[0].fileUrl}}'  mode='aspectFill'></image>
+    </view>
+    <view class='input_list'>
+      <!-- 路线  -->
+      <view class='input_item'  wx:if='{{orderType == "line_product"}}'>
+          <view class='item_key'>出游日期</view>
+          <view class='item_value'>{{detailInfo.startTravelDate}}</view>
+      </view>
+      <view class='input_item'  wx:if='{{orderType == "line_product"}}'>
+          <view class='item_key'>出行人数</view>
+          <view class='item_value'>{{detailInfo.details[0].nums}}</view>
+      </view>
+      <!-- 路线  -->
+
+      <!-- 房车  -->
+      <view class='input_item'  wx:if='{{orderType == "rv_rent"}}'>
+          <view class='item_key'>取车地</view>
+          <view class='item_value'>{{detailInfo.details[0].pickAddress}}</view>
+      </view>
+      <view class='input_item'  wx:if='{{orderType == "rv_rent"}}'>
+          <view class='item_key'>还车地</view>
+          <view class='item_value'>{{detailInfo.details[0].returnAddress}}</view>
+      </view>
+      <!-- 房车  -->
+
+      <!-- 营地/酒店/房车  -->
+      <view class='input_item'  wx:if='{{orderType != "line_product"}}'>
+          <view class='item_key'>日期</view>
+          <view class='item_value'>{{detailInfo.bookStartDate}} 至 {{detailInfo.bookEndDate}}</view>
+      </view>
+      <!-- 营地/酒店/房车  -->
+
+      <!-- 房车  -->
+      <view class='input_item' wx:if='{{orderType == "rv_rent"}}'>
+          <view class='item_key'>取车时间</view>
+          <view class='item_value'>{{detailInfo.takeRentTime}}</view>
+      </view>
+      <view class='input_item' wx:if='{{orderType == "rv_rent"}}'>
+          <view class='item_key'>还车时间</view>
+          <view class='item_value'>{{detailInfo.returnRentTime}}</view>
+      </view>
+      <!-- 房车  -->
+
+      <!-- 酒店  -->
+      <view class='input_item' wx:if='{{orderType == "hotel_product"}}'>
+          <view class='item_key'>房间数量</view>
+          <view class='item_value'>{{detailInfo.details[0].nums}}</view>
+      </view>
+       <!-- 酒店  -->
+
+      <!-- 营地/房车  -->
+      <view class='input_item' wx:if='{{orderType == "campbase_product" ||orderType == "rv_rent"}}'>
+          <view class='item_key'>房车数量</view>
+          <view class='item_value'>{{detailInfo.details[0].nums}}</view>
+      </view>
+      <!-- 营地/房车  -->
+
+      <!-- common  -->
+      <view class='input_item'>
+          <view class='item_key'>姓名</view>
+          <view class='item_value'>{{detailInfo.trueName}}</view>
+      </view>
+      <view class='input_item'>
+          <view class='item_key'>手机号</view>
+          <view class='item_value'>{{detailInfo.mobile}}</view>
+      </view>
+      <!-- common  -->
+    </view>
+    <!-- input_list  finished  -->
+    <view class='cost_list'>
+      <view class='cost_title'>费用</view>
+      <!-- 路线  -->
+      <view class='cost_item sub_item bottom' wx:if='{{orderType == "line_product"}}'>
+        <view class='cost_item_key'>出行人数</view>
+        <view class='cost_item_value'>×{{detailInfo.details[0].nums}}人</view>
+      </view>
+      <!-- 路线  -->
+
+      <!-- 营地  -->
+      <view class='cost_item sub_item' wx:if='{{orderType == "campbase_product"}}'>
+        <view class='cost_item_key'>入驻天数</view>
+        <view class='cost_item_value'>×{{days}}天</view>
+      </view>
+      <!-- 营地  -->
+
+      <!-- 酒店  -->
+      <view class='cost_item sub_item' wx:if='{{orderType == "hotel_product"}}'>
+        <view class='cost_item_key'>入住天数</view>
+        <view class='cost_item_value'>×{{days}}天</view>
+      </view>
+      <view class='cost_item sub_item bottom' wx:if='{{orderType == "hotel_product"}}'>
+        <view class='cost_item_key'>房间数量</view>
+        <view class='cost_item_value'>×{{detailInfo.details[0].nums}}间</view>
+      </view>
+      <!-- 酒店  -->
+
+      <!-- 房车  -->
+      <view class='cost_item sub_item' wx:if='{{orderType == "rv_rent"}}'>
+        <view class='cost_item_key'>租赁{{detailInfo.isMonth == 'y'?'月':'天'}}数</view>
+        <view class='cost_item_value'>×{{detailInfo.isMonth == 'y'?detailInfo.monthCount:days}}{{detailInfo.isMonth == 'y'?'月':'天'}}</view>
+      </view>
+      <!-- 房车  -->
+
+      <!-- 营地/房车  -->
+      <view class='cost_item sub_item bottom' wx:if='{{orderType == "campbase_product" || orderType == "rv_rent"}}'>
+        <view class='cost_item_key'>房车数量</view>
+        <view class='cost_item_value'>×{{detailInfo.details[0].nums}}辆</view>
+      </view>
+       <!-- 营地/房车  -->
+
+      <view class='cost_item fee_item'>
+        <view class='cost_item_key'>金额：</view>
+        <view class='cost_item_value'>￥{{detailInfo.payPrice}}</view>
+      </view>
+      <view class='cost_item fee_item'>
+        <view class='cost_item_key'>折扣：</view>
+        <view class='cost_item_value'> －￥{{detailInfo.spendablePointPrice}}</view>
+      </view>
+      <view class='cost_item fee_item'>
+        <view class='cost_item_key'>合计：</view>
+        <view class='cost_item_value'>￥{{detailInfo.totalPrice}}</view>
+      </view>
+    </view>
+</view>
+<view class='footer' wx:if="{{detailInfo.realStatus == 'wait_pay'}}">
+  <view class='total'>￥{{detailInfo.totalPrice}}
+    <view class='btn btn_default' bindtap='cancel' bindtap='cancelOrder'>取消</view>
+    <view class='btn btn_primary' bindtap='submitPay'>立即支付</view>
+  </view>
+</view>
+<view class='footer' wx:if='{{detailInfo.realStatus == "finished" && detailInfo.hasReply == 0}}'>
+    <view class='btn btn_primary comment_btn' bindtap='confirmComment'>评价</view>
+</view>
+<view class='footer' wx:if="{{detailInfo.realStatus == 'unfinished'}}">
+    <view class='btn btn_primary comment_btn' bindtap='confirmDone'>确认完成</view>
+</view>
+
+<view class='share' wx:if="{{detailInfo.isShared !=  'y'}}">
+  <view class='share_btn'>
+    <image src='../../images/share.png'  mode='aspectFill'  bindtap='goToShare'></image>
+    <!-- <button open-type='share' plain='plain'></button> -->
+  </view>
+</view>
+

@@ -1,0 +1,104 @@
+/* pages/login/index.wxss */
+.container{
+  width: 100%;
+  height: 100%;
+  position:relative;
+  border:none;
+}
+.container .bg{
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.container .main_wrap{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top:0;
+}
+.main{
+  padding: 0 40rpx;
+}
+.title{
+  margin-top: 160rpx;
+  color: #fff;
+  font-size: 58rpx;
+}
+.list{
+  margin-top: 80rpx;
+}
+.item{
+  padding: 15rpx 60rpx 15rpx 66rpx;
+  position: relative;
+  border-bottom: 1rpx solid #fff;
+  height: 50rpx;
+  color: #fff;
+  font-size: 30rpx;
+  margin-bottom: 40rpx;
+}
+.account{
+  position: absolute;
+  left:4rpx;
+  top:18rpx;
+  width: 33rpx;
+  height: 36rpx;
+}
+.pwd{
+  position: absolute;
+  left:4rpx;
+  top:16rpx;
+  width: 30rpx;
+  height: 39rpx;
+}
+.empty{
+  position: absolute;
+  width: 50rpx;
+  height: 50rpx;
+  right:2rpx;
+  top:18rpx;
+  text-align: center;
+}
+.empty image{
+  width: 30rpx;
+  height: 30rpx;
+  display: inline-block;
+}
+.item input{
+  border: none;
+  color: #fff;
+  font-size: 30rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  /* letter-spacing: 2rpx; */
+}
+.placeholder{
+  color: #fff;
+  font-size: 30rpx;
+  /* letter-spacing: 2rpx; */
+}
+.btn{
+  margin-top: 80rpx;
+  height: 84rpx;
+  text-align: center;
+  line-height: 84rpx;
+  color: #156C8D;
+  background-color: #fff;
+  border-radius: 10rpx;
+}
+.more{
+  padding: 30rpx 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #cdcdcd;
+  font-size: 30rpx;
+  height: 30rpx;
+}
+.more_item{
+  height: 30rpx;
+  line-height: 30rpx;
+}
+.more .more_item:last-child{
+  margin-right: -5rpx;
+}

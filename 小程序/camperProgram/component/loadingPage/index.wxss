@@ -1,0 +1,21 @@
+.page-loading{
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  background-color: #efeff4;
+  z-index: 9999;
+   height: 100%; 
+  overflow: hidden;
+}
+
+.loading-content image,
+.loading-content{
+  width: 433rpx;
+  height: 289rpx;
+}
+
+.loading-content{
+  margin: 40% auto 0;
+}

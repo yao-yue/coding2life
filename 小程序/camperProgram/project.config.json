@@ -1,0 +1,384 @@
+{
+	"description": "项目配置文件",
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"minified": false,
+		"newFeature": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "1.7.4",
+	"appid": "wxdbfa9f508e9f4f5c",
+	"projectname": "%E6%88%BF%E8%BD%A6%E6%B5%8B%E8%AF%95%E7%8E%AF%E5%A2%83",
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"list": []
+		},
+		"miniprogram": {
+			"current": 1,
+			"list": [
+				{
+					"id": 0,
+					"name": "login",
+					"pathName": "pages/login/index",
+					"query": ""
+				},
+				{
+					"id": 1,
+					"name": "rentDetail",
+					"pathName": "pages/rentDetail/index",
+					"query": "id=63"
+				},
+				{
+					"id": 2,
+					"name": "rentList",
+					"pathName": "pages/rentList/index",
+					"query": "date=5月14日至5月26日&beginDate=2018-05-14&endDate=2018-05-26"
+				},
+				{
+					"id": -1,
+					"name": "hotelList",
+					"pathName": "pages/hotelList/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "campList",
+					"pathName": "pages/campList/index",
+					"query": ""
+				},
+				{
+					"id": 5,
+					"name": "hotelDetail",
+					"pathName": "pages/hotelDetail/index",
+					"query": "id=11"
+				},
+				{
+					"id": 6,
+					"name": "campDetail",
+					"pathName": "pages/campDetail/index",
+					"query": "id=20"
+				},
+				{
+					"id": 7,
+					"name": "confirmRentOrder",
+					"pathName": "pages/confirmRentOrder/index",
+					"query": "id=62&leasetype=day"
+				},
+				{
+					"id": 8,
+					"name": "confirmOrder",
+					"pathName": "pages/confirmOrder/index",
+					"query": "id=57&orderType=hotel"
+				},
+				{
+					"id": 9,
+					"name": "commentList",
+					"pathName": "pages/commentList/index",
+					"query": "id=63&productType=rv_rent"
+				},
+				{
+					"id": -1,
+					"name": "myCenter",
+					"pathName": "pages/myCenter/index",
+					"query": ""
+				},
+				{
+					"id": 11,
+					"name": "myOrder",
+					"pathName": "pages/myOrder/index",
+					"query": ""
+				},
+				{
+					"id": 12,
+					"name": "orderDetail",
+					"pathName": "pages/orderDetail/index",
+					"query": "orderId=14999373156789&orderType=rv_rent"
+				},
+				{
+					"id": 13,
+					"name": "register",
+					"pathName": "pages/register/index",
+					"query": "orderId=14999371873895&shareUserId=31"
+				},
+				{
+					"id": -1,
+					"name": "login",
+					"pathName": "pages/login/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "resetMobile",
+					"pathName": "pages/resetMobile/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "myWallet",
+					"pathName": "pages/myWallet/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "myProfit",
+					"pathName": "pages/myProfit/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "accountDetail",
+					"pathName": "pages/accountDetail/index",
+					"query": ""
+				},
+				{
+					"id": 19,
+					"name": "subleaseAuditStatus",
+					"pathName": "pages/subleaseAuditStatus/index",
+					"query": ""
+				},
+				{
+					"id": 20,
+					"name": "withdraw",
+					"pathName": "pages/withdraw/index",
+					"query": "balance=11947403.40"
+				},
+				{
+					"id": -1,
+					"name": "myInfo",
+					"pathName": "pages/myInfo/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "changeMobile",
+					"pathName": "pages/changeMobile/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "search",
+					"pathName": "pages/search/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "setting",
+					"pathName": "pages/setting/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "storyCircle",
+					"pathName": "pages/storyCircle/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "share",
+					"pathName": "pages/share/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "roomList",
+					"pathName": "pages/roomList/index",
+					"query": "id=2"
+				},
+				{
+					"id": -1,
+					"name": "carList",
+					"pathName": "pages/carList/index",
+					"query": "id=11"
+				},
+				{
+					"id": 29,
+					"name": "confirmOrder",
+					"pathName": "pages/confirmOrder/index",
+					"query": "id=26&orderType=line"
+				},
+				{
+					"id": 30,
+					"name": "comment",
+					"pathName": "pages/comment/index",
+					"query": "orderId=14999381155106&orderType=hotel_product"
+				},
+				{
+					"id": -1,
+					"name": "subleaseInstructions",
+					"pathName": "pages/subleaseInstructions/index",
+					"query": "id=9&leasetype=day"
+				},
+				{
+					"id": -1,
+					"name": "commentList",
+					"pathName": "pages/commentList/index",
+					"query": "id=9&produttType=rv_rent"
+				},
+				{
+					"id": -1,
+					"name": "route",
+					"pathName": "pages/route/index",
+					"query": ""
+				},
+				{
+					"id": 34,
+					"name": "routeList",
+					"pathName": "pages/routeList/index",
+					"query": "id=1&name=国内"
+				},
+				{
+					"id": 35,
+					"name": "routeDetail",
+					"pathName": "pages/routeDetail/index",
+					"query": "id=1"
+				},
+				{
+					"id": 36,
+					"name": "confirmLineOrder",
+					"pathName": "pages/confirmLineOrder/index",
+					"query": "id=1&orderType=line&beginDate=2018-05-27"
+				},
+				{
+					"id": 37,
+					"name": "storyDetail",
+					"pathName": "pages/storyDetail/index",
+					"query": "id=3305&status=on"
+				},
+				{
+					"id": -1,
+					"name": "storyComment",
+					"pathName": "pages/storyComment/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "storyComment",
+					"pathName": "pages/storyComment/index",
+					"query": "id=4&commentType=add"
+				},
+				{
+					"id": 40,
+					"name": "storyCommentList",
+					"pathName": "pages/storyCommentList/index",
+					"query": "id=1"
+				},
+				{
+					"id": 41,
+					"name": "storySort",
+					"pathName": "pages/storySort/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "storyEdit",
+					"pathName": "pages/storyEdit/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "map",
+					"pathName": "pages/map/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "subleaseAuditSave",
+					"pathName": "pages/subleaseAuditSave/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "myStory",
+					"pathName": "pages/myStory/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "withdraw",
+					"pathName": "pages/withdraw/index",
+					"query": "balance=249.99"
+				},
+				{
+					"id": 47,
+					"name": "searchList",
+					"pathName": "pages/searchList/index",
+					"query": "keyWord=郑州"
+				},
+				{
+					"id": 48,
+					"name": "subleaseSettings",
+					"pathName": "pages/subleaseSettings/index",
+					"query": "id=113"
+				},
+				{
+					"id": -1,
+					"name": "pointDetail",
+					"pathName": "pages/pointDetail/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "changeMobile",
+					"pathName": "pages/changeMobile/index",
+					"query": "id=20"
+				},
+				{
+					"id": 51,
+					"name": "subleaseSettings",
+					"pathName": "pages/subleaseSettings/index",
+					"query": "id=1"
+				},
+				{
+					"id": -1,
+					"name": "agreement",
+					"pathName": "pages/agreement/index",
+					"query": "id=57&orderType=hotel"
+				},
+				{
+					"id": -1,
+					"name": "cityList",
+					"pathName": "pages/cityList/index",
+					"query": "id=3305&status=on"
+				},
+				{
+					"id": -1,
+					"name": "changeStyle",
+					"pathName": "pages/changeStyle/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "myAward",
+					"pathName": "pages/myAward/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "routeRecommended",
+					"pathName": "pages/routeRecommended/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "routeRecommended",
+					"pathName": "pages/routeRecommended/index",
+					"query": ""
+				}
+			]
+		}
+	}
+}

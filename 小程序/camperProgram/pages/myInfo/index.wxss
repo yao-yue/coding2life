@@ -1,0 +1,111 @@
+/* pages/myInfo/index.wxss */
+.container{
+  height: 100%;
+  padding:0 40rpx; 
+}
+.avatar{
+  margin: 80rpx auto;
+  height: 240rpx;
+  width: 240rpx;
+  position: relative;
+}
+.avatar .head{
+  width: 224rpx;
+  height: 224rpx;
+  border-radius: 50%;
+  border:10rpx solid  #f4f4f4;
+}
+.avatar .icon{
+  position: absolute;
+  right: 30rpx;
+  bottom: -10rpx;
+  border-radius:50%;
+  width: 48rpx;
+  height: 48rpx;
+  line-height: 48rpx;
+  text-align: center;
+}
+.avatar image{
+  width: 27rpx;
+  height: 22rpx;
+  display: inline-block;
+}
+
+
+.input_item{
+  display: -webkit-box;
+  display: box;
+  display: -moz-box;
+  /* 老版本 - 适配iOS 6-, Safari 3.1-6 */
+  display: -webkit-flex;
+  /* 新版本 - 适配Chrome */
+  display: flex;
+  -webkit-box-align: center;
+  -moz-align-items: center;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-box-justify-content: space-between;
+  -moz-align-justify-content: space-between;
+  -webkit-align-justify-content: space-between;
+  justify-content: space-between;
+  padding: 20rpx 0;
+  font-size:30rpx;
+  border-bottom: 1rpx solid #dedede;
+  height: 60rpx;
+}
+.item_key{
+  width: 150rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  color: #222;
+  font-weight: 600;
+}
+.item_value{
+  height: 60rpx;
+  line-height: 60rpx;
+  width: 420rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #999;
+  text-align: right;
+}
+.item_value input{
+  height:60rpx;
+  line-height: 60rpx;
+  text-align: right;
+  width: 420rpx;
+}
+
+/* picker  */
+.picker{
+  position: relative;
+  padding-right: 35rpx;
+  text-align: right;
+  /* height: 90rpx;
+  line-height: 90rpx; */
+}
+.picker:after{
+  content: '';
+  position: absolute;
+  width: 18rpx;
+  height: 18rpx;
+  border-top: 1rpx solid #666;
+  border-right: 1rpx solid #666;
+  transform: rotate(45deg);
+  -ms-transform:rotate(45deg); 	/* IE 9 */
+  -moz-transform:rotate(45deg); 	/* Firefox */
+  -webkit-transform:rotate(45deg); /* Safari 和 Chrome */
+  -o-transform:rotate(45deg); 
+  right:12rpx;
+  top: 22rpx;
+}
+.btn{
+  margin: 56rpx auto;
+  width: 670rpx;
+  height: 90rpx;
+  line-height: 90rpx;
+  text-align: center;
+  font-size: 36rpx;
+  border-radius: 10rpx;
+}

@@ -1,0 +1,33 @@
+<!--pages/mySubleaseList/index.wxml-->
+<view class='container'>
+  <!-- <view class="placeholder"></view> -->
+  <scroll-view  scroll-y
+      style="height:{{scrollHeight}}px;"  bindscrolltolower="searchScrollLower">
+  <view class='list'>
+    <view class='item box' wx:for="{{list}}" wx:for-item="e" wx:for-index="i" wx:key="{{e.id}}">
+      <view class="left-image">
+        <image src="{{e.images[0].fileUrl}}"></image>
+      </view>
+      <view class="right-info">
+        <view class="title over-hidden">{{e.name}}</view>
+        <view class="time over-hidden">时间：{{e.rangeDate}}</view>
+        <view class="operation">
+          <view class="price over-hidden">
+            价格：￥{{e.price}}
+          </view>
+          <view class="sublease-btn" bind:tap="toSublease" data-id="{{e.id}}">转租</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view  class="loading" hidden='{{loading}}'>
+      <image src="../../images/loading.png"></image>
+      加载中...
+    </view>
+    <view class='no-more' hidden ='{{noMoreShow}}'><text>没有更多数据了</text></view>
+    <view class='no-more' wx:if='{{!list.length && noMoreShow}}'>
+        <image src='../../images/logo.png'></image>
+        <view class='no-data'>暂无可转租的房车</view>
+    </view> 
+  </scroll-view>
+</view>

@@ -1,0 +1,7 @@
+<template name="loading">
+  <view class="page-loading">  
+    <view class="loading-content">  
+        <image src='../../images/loading-bg.png'></image> 
+    </view>  
+    </view>
+  </template>

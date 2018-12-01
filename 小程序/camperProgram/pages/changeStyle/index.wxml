@@ -1,0 +1,12 @@
+<!--pages/changeStyle/index.wxml-->
+<view class='container'>
+  <view class='tab' bindtap='changeStyle' data-style='normal'>
+    正常版
+    <image src='../../images/right.png' hidden='{{style == "large"}}'></image>
+  </view>
+  <view class='tab' bindtap='changeStyle' data-style='large'>
+    放大版
+    <image src='../../images/right.png'  hidden='{{style == "normal"}}'></image>
+  </view>
+  <view class='btn bgColor' bindtap='saveStyle'>保存</view>
+</view>

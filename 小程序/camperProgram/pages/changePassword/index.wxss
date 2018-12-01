@@ -1,0 +1,143 @@
+/* pages/changePassword/index.wxss */
+.container{
+  height: 100%;
+  background-color:#F2F2F2;
+  overflow: hidden;
+}
+.myself-center{
+  background-color: #fff;
+  border-bottom:1rpx solid #E5E5E5;
+}
+
+.myself-item{
+  background-color: #fff;
+  margin-top: 20rpx;
+  padding: 0 40rpx;
+}
+
+.date-picker{
+  position: absolute;
+  right: 50rpx;
+  top: 5rpx;
+  font-size: 30rpx;
+  color: #999;
+}
+
+.myself-item .item-list{
+  position: relative;
+  display: -webkit-box;
+  display: box;
+  display: -moz-box;
+  /* 老版本 - 适配iOS 6-, Safari 3.1-6 */
+  display: -webkit-flex;
+  /* 新版本 - 适配Chrome */
+  display: flex;
+  -webkit-box-align: center;
+  -moz-align-items: center;
+  -webkit-align-items: center;
+  align-items: center;
+  height: 100rpx;
+  font-size: 34rpx;
+  color: #333;
+  border-bottom: 1rpx solid #DEDEDE;
+  /* padding-left: 32rpx; */
+}
+
+.myself-item .item-list text{
+  display: inline-block;
+  width: 240rpx;
+}
+
+.myself-item .item-list:last-child{
+  border-bottom: 0rpx;
+}
+
+.myself-item .item-list image{
+  width: 82rpx;
+  height: 82rpx;
+  margin-right: 23rpx;
+}
+
+
+.arrow{
+  position: absolute;
+  right: 30rpx;
+  width: 16rpx;
+  height: 16rpx;
+  border-right:3rpx solid #999;
+  border-top: 3rpx solid #999;
+  transform:rotate(45deg);
+-ms-transform:rotate(45deg); 	/* IE 9 */
+-moz-transform:rotate(45deg); 	/* Firefox */
+-webkit-transform:rotate(45deg); /* Safari 和 Chrome */
+-o-transform:rotate(45deg); 
+  top:44rpx;
+}
+
+input{
+  position: relative;
+  top: 3rpx;
+  font-size: 30rpx;
+  text-align: right;
+  width: 420rpx;
+}
+
+input.code{
+  width: 390rpx;
+}
+
+.item-list .value{
+  position: absolute;
+  display: inline-block;
+  right: 30rpx;
+  top: 35rpx;
+  color: #999;
+  font-size: 30rpx;
+}
+
+.item-list .avatar{
+  position: absolute;
+  top: 12rpx;
+  right: 50rpx;
+}
+
+.info{
+  position: absolute;
+  right: 50rpx;
+  text-align: right;
+}
+
+picker{
+  height:98rpx;
+  line-height: 98rpx;
+  width: 750rpx;
+}
+
+.picker{
+  font-size: 30rpx;
+  color: #999;
+  position: absolute;
+  right: 50rpx;
+  top: 5rpx;
+}
+
+/*  footer  */
+.footer-submit{
+  width: 670rpx;
+  height: 88rpx;
+  line-height: 88rpx;
+  text-align: center;
+  font-size: 36rpx;
+  border-radius: 10rpx;
+  -webkit-border-radius: 10rpx;
+  margin: 50rpx auto 0;
+}
+
+.send-code{
+  width: 214rpx;
+  height: 70rpx;
+  text-align: center;
+  font-size: 30rpx;
+  line-height: 70rpx;
+  border-left: 1rpx solid #D1D1D1;
+}

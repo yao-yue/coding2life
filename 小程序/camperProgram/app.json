@@ -1,0 +1,96 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/rentDetail/index",
+    "pages/rentList/index",
+    "pages/hotelList/index",
+    "pages/campList/index",
+    "pages/hotelDetail/index",
+    "pages/campDetail/index",
+    "pages/confirmRentOrder/index",
+    "pages/confirmOrder/index",
+    "pages/commentList/index",
+    "pages/roomList/index",
+    "pages/search/index",
+    "pages/myCenter/index",
+    "pages/myOrder/index",
+    "pages/orderDetail/index",
+    "pages/myWallet/index",
+    "pages/myProfit/index",
+    "pages/accountDetail/index",
+    "pages/subleaseInstructions/index",
+    "pages/subleaseAuditSave/index",
+    "pages/subleaseDetail/index",
+    "pages/subleaseSettings/index",
+    "pages/mySubleaseList/index",
+    "pages/subleaseAuditStatus/index",
+    "pages/withdraw/index",
+    "pages/myInfo/index",
+    "pages/setting/index",
+    "pages/login/index",
+    "pages/register/index",
+    "pages/resetMobile/index",
+    "pages/changeMobile/index",
+    "pages/changePassword/index",
+    "pages/storyCircle/index",
+    "pages/myStory/index",
+    "pages/route/index",
+    "pages/cityList/index",
+    "pages/share/index",
+    "pages/carList/index",
+    "pages/comment/index",
+    "pages/pointDetail/index",
+    "pages/routeList/index",
+    "pages/routeDetail/index",
+    "pages/confirmLineOrder/index",
+    "pages/storyDetail/index",
+    "pages/storySort/index",
+    "pages/storySortList/index",
+    "pages/storyComment/index",
+    "pages/storyCommentList/index",
+    "pages/storyEdit/index",
+    "pages/map/index",
+    "pages/searchList/index",
+    "pages/agreement/index",
+    "pages/changeStyle/index",
+    "pages/myAward/index",
+    "pages/routeRecommended/index"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "驴道房车"
+  },
+  "tabBar": {
+    "color": "#999",
+    "selectedColor": "#F8B62B",
+    "borderStyle": "#f1f1f1",
+    "backgroundColor": "#fff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "images/icon_1.png",
+        "selectedIconPath": "images/icon_1_active.png"
+      },
+      {
+        "pagePath": "pages/route/index",
+        "text": "驴行社",
+        "iconPath": "images/icon_2.png",
+        "selectedIconPath": "images/icon_2_active.png"
+      },
+      {
+        "pagePath": "pages/storyCircle/index",
+        "text": "驴圈子",
+        "iconPath": "images/icon_3.png",
+        "selectedIconPath": "images/icon_3_active.png"
+      },
+      {
+        "pagePath": "pages/myCenter/index",
+        "text": "我的",
+        "iconPath": "images/icon_4.png",
+        "selectedIconPath": "images/icon_4_active.png"
+      }
+    ]
+  }
+}

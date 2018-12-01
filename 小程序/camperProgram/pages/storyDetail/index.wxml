@@ -1,0 +1,122 @@
+<!--pages/storyDetail/index.wxml-->
+<import src="../../wxParse/wxParse.wxml" />
+<view class='container'>
+  <swiper indicator-dots="{{indicatorDots}}"  indicator-color="rgba(255,255,255,0.6)"  indicator-active-color="#fff"
+       autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+    <block wx:for="{{detailInfo.images}}" wx:key='{{item.fileUrl}}' >
+      <swiper-item>
+        <image  wx:if="{{item.fileUrl}}" src="{{item.fileUrl}}"/>
+      </swiper-item>
+    </block>
+  </swiper>
+  <view class='main'>
+    <view class='title'>{{detailInfo.msgTitle}}</view>
+    <view class='user'>
+      <image  src="{{status == 'off'?detailInfo.headImage:'../../images/logo_active.png'}}" class='avatar'/>
+      <view class='user_name'>{{status == 'off'? detailInfo.userName:'驴道房车官方'}}</view>
+      <view class='time'>{{detailInfo.createTime}}</view>
+    </view>
+    <view class='{{status == "on"? "bottom":""}} content'>
+        <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+     <!-- {{detailInfo.msgContent}} -->
+    </view>
+    <view class='location' wx:if='{{status == "off"}}'>
+      <image  src="../../images/location.png"/>{{detailInfo.msgAddress}}
+    </view>
+    <view class='hit'>{{detailInfo.hitCount}}人已赞</view>
+    <view class='comment_list'>
+      <view class='comment_top'>
+        <view class='top_title'>热门评价</view>
+        <view class='top_more' bindtap='linkToComment' wx:if='{{detailInfo.replyList.length >= 3}}'>查看全部</view>
+      </view>
+      <view class='no-comment' wx:if='{{!detailInfo.replyList.length}}'>暂无评价</view>
+      <view class='comment_item'  wx:for='{{detailInfo.replyList}}' wx:key='{{item.userId}}' data-parentId='{{item.parentId}}'
+              bindtap='linkTo' data-index='{{index}}' data-id='{{item.id}}' data-name='{{item.userName}}' data-user='{{item.userId}}'
+              wx:if='{{index == 0 || index == 1 || index == 2}}'>
+          <view class='user'>
+            <image  src="{{item.parentId == 0 ?(item.userAvatarUrl?item.userAvatarUrl:'../../images/moren.png'):(item.replyAvatarUrl?item.replyAvatarUrl:'../../images/moren.png')}}" class='avatar'/>
+            <view class='user_name'>{{item.userName}}
+              <view class='reply' hidden ='{{item.parentId == 0 || item.parentId == null}}'>回复</view>
+              <text  hidden ='{{item.parentId == 0 || item.parentId == null}}'> {{item.replyName}}</text>
+            </view>
+            <view class='time'>{{item.sendTime}}</view>
+          </view>
+          <view class='comment_text'>{{item.replyInfo}}</view>
+          <view class='picture_list'>
+            <view class='picture_item' wx:for='{{item.images}}' wx:for-item="picItem" wx:key='{{picItem.fileUrl}}'>
+              <image src="{{picItem.fileUrl}}"  mode='aspectFill'/>
+            </view>
+          </view>
+      </view>
+        <!-- <view  wx:for='{{item.replyList}}' wx:for-item='replyItem' wx:for-index='replyIndex' 
+            data-level='child'  data-id='{{replyItem.id}}'  data-child='{{replyIndex}}'  data-index='{{index}}' 
+            data-user='{{replyItem.userId}}' data-parent='{{replyItem.parentId}}' data-name='{{replyItem.userName}}' bindtap ='linkTo'
+            class='{{ (index+1) == detailInfo.replyList.length && (replyIndex+1) == item.replyList.length?"last":"" }} comment_item' 
+            wx:key='{{replyItem.userId}}'  wx:if='{{replyIndex == 0 || replyIndex == 1 }}' >
+          <view class='user'>
+            <image  src="{{replyItem.userAvatarUrl?replyItem.userAvatarUrl:'../../images/moren.png'}}" class='avatar'/>
+            <view class='user_name'>{{replyItem.userName}}
+              <view class='reply' hidden ='{{replyItem.parentId == 0 || replyItem.parentId == null}}'>回复</view>
+              <text  hidden ='{{replyItem.parentId == 0 || replyItem.parentId == null}}'> {{replyItem.replyName}}</text>
+            </view>
+            <view class='time'>{{replyItem.sendTime}}</view>
+          </view>
+          <view class='comment_text'>{{replyItem.replyInfo}}</view>
+          <view class='picture_list'>
+            <view class='picture_item' wx:for='{{replyItem.images}}' wx:for-item="picItem" wx:key='{{picItem.fileUrl}}'>
+              <image src="{{picItem.fileUrl}}"  mode='aspectFill'/>
+            </view>
+          </view>
+        </view> -->
+      </view>
+    <view class='{{status == "off"? "add_border":""}} add_comment' bindtap='addComment' >添加评论</view>
+    <view class='other_story' wx:if='{{status == "off"}}'>
+      <view class='other_title'>相关故事</view>
+       <view class='list'>
+          <view class='item' wx:for='{{detailInfo.otherInfoSpaceMsg}}' wx:key='{{item.id}}' bindtap='linkToDetail' data-id='{{item.id}}'>
+            <view class='picture'>
+              <image src='{{item.coverImage}}' mode='aspectFill'></image>
+              <view class='tag'>{{item.msgTypeName}}</view>
+            </view>
+            <view class='detail'>
+              <view class='position'>{{item.msgCity}}  </view> 
+              <view class='intro'> {{item.msgTitle}}</view>
+            </view>
+            <view class='user_info'>
+              <image src='{{item.headImage?item.headImage:"../../images/moren.png"}}' mode='aspectFit' class='head'></image>
+              <view class='num'>{{item.hitCount}}<image src='../../images/thumb.png' mode='aspectFit' class='thumb'></image></view>
+              <view class='num'>{{item.replyCount}}
+                <image src='../../images/comment.png' mode='aspectFill' class='comment'></image>
+              </view>
+            </view>
+          </view>
+          <view class='no-more' wx:if='{{noMoreShow}}'><text>没有更多数据了</text></view>
+          <view class='no-more index_no_more' wx:if='{{!detailInfo.otherInfoSpaceMsg.length}}'>
+              <image src='../../images/logo.png'></image>
+              <view class='no-data'>暂时还没有数据哦~~</view>
+          </view> 
+        </view>
+    </view>
+  </view>
+  <view class='footer'>
+    <view class='footer_item' bindtap='hit'>
+      <image src='../../images/thumb.png' mode='aspectFit' hidden='{{detailInfo.isHit}}'></image>
+      <image src='../../images/thumbed.png' mode='aspectFit'  hidden='{{!detailInfo.isHit}}'></image>
+      {{detailInfo.hitCount}}
+    </view>
+    <view class='footer_item' bindtap='linkToComment'>
+      <image src='../../images/comment.png' mode='aspectFit'></image>{{detailInfo.replyCount}}
+    </view>
+    <view class='footer_item footer_write'  bindtap='addComment'>
+      <image src='../../images/write.png' mode='aspectFit'></image>写评论
+    </view>
+  </view>
+</view>
+
+<view class='cover' wx:if='{{dialogShow}}'></view>
+<view class='lease_dialog' wx:if='{{dialogShow}}' >
+  <view class='lease_list'>
+    <view class='lease_item' bindtap='handleReply'>{{dialogText}}</view>
+  </view>
+  <view class='cancel_btn' bindtap='cancel'>取消</view>
+</view>

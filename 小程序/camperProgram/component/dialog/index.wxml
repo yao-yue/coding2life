@@ -1,0 +1,8 @@
+<template name="dialog">
+  <view class="drawer_log">  
+    <view class="drawer_content">  
+        <image src='../../images/warn.png'></image> 
+        <view class='drawer_text'>{{text}}</view>  
+    </view>  
+  </view>
+</template>

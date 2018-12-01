@@ -1,0 +1,124 @@
+/* pages/commentList/index.wxss */
+.container{
+  padding-bottom:150rpx;
+}
+.main{
+  padding: 0 40rpx;
+}
+.comment_list{
+  margin-top: -3rpx;
+}
+.comment_item{
+  padding: 25rpx 0;
+  border-bottom: 1rpx solid #dedede;
+}
+
+.user{
+  position:relative;
+  padding-left: 100rpx;
+  height: 82rpx;
+  font-size: 28rpx;
+}
+.avatar{
+  position: absolute;
+  left: 0;
+  top:0;
+  width: 82rpx;
+  height: 82rpx;
+  border-radius: 50%;
+}
+.user_name{
+  color: #333;
+  margin-top: 5rpx;
+}
+.time{
+  color: #666;
+  margin-top: 5rpx;
+}
+.comment_text{
+  font-size: 30rpx;
+  color: #333;
+  padding:20rpx 0;
+}
+.picture_list .picture_item{
+  width: 126rpx;
+  height: 126rpx;
+  overflow: hidden;
+  margin-right: 10rpx;
+  display: inline-block;
+}
+.picture_list .picture_item:nth-child(5){
+  margin-right: 0rpx;
+}
+.picture_item image{
+  width: 100%;
+  height: 100%;
+}
+.all{
+  font-size: 36rpx;
+  color: #f8b62b;
+  letter-spacing: 1rpx;
+}
+.footer{
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  height: 156rpx;
+  width: 750rpx;
+  box-shadow: -2rpx -2rpx 3rpx #f1f1f1;
+  background-color: #fff;
+  z-index: 9;
+}
+.footer .price{
+  padding: 0 40rpx;
+  height: 156rpx;
+  line-height: 156rpx;
+  color: #333;
+  font-size: 40rpx;
+  position: relative;
+}
+.footer .price text{
+  display: inline-block;
+  margin-right: 40rpx;
+}
+.footer .price text:first-child{
+  font-weight: 600;
+}
+.btn{
+  position: absolute;
+  bottom: 35rpx;
+  text-align: center;
+  height: 84rpx;
+  line-height: 84rpx;
+  font-size: 38rpx;
+  border-radius: 10rpx;
+  padding: 0 
+}
+.btn_bg{
+  background-color: #f8b62b;
+  border:1rpx solid #f8b62b;
+  color: #fff;
+  right: 40rpx;
+  width: 200rpx;
+}
+.no_bg{
+  color: #666;
+  border:1rpx solid #bcbcbc;
+  width: 150rpx;
+  right:260rpx;
+}
+
+.tag_list{
+  padding: 30rpx 0rpx;
+}
+.tag_item{
+  padding: 0 20rpx;
+  height: 64rpx;
+  line-height: 62rpx;
+  border:1rpx solid #f8b62b;
+  color: #f8b62b;
+  display: inline-block;
+  margin-right: 30rpx;
+  border-radius: 10rpx;
+  margin-bottom: 20rpx;
+}

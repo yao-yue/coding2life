@@ -1,0 +1,37 @@
+<!--pages/routeRecommended/index.wxml-->
+<view class='container'>
+  <view class='selector'>
+    <view class='select_item' bindtap='chooseCity'>
+      {{cityName}} <image src='../../images/down.png' mode='aspectFill'></image>
+    </view>
+    <view class='select_item' bindtap='chooseDay'>
+      {{dayNum}} <image src='../../images/down.png' mode='aspectFill'></image>
+    </view>
+    <view class='day_content' hidden='{{!dayChooseShow}}'>
+      <view class='day_title'>行程天数</view>
+      <view class='day_list'> 
+        <view class='day_item {{item.active?"active":""}}' wx:for="{{dayList}}" wx:key="{{index}}" 
+              bindtap='selectDayItem' data-index='{{index}}'>{{item.name}}</view>
+      </view>
+    </view>
+  </view>
+  <view class='rent_list'>
+    <view class='rent_item' bindtap='linkTo' wx:for="{{dataList}}" wx:key="{{item.id}}" data-id='{{item.id}}'>
+        <image src='{{item.headImage?item.headImage:"../../images/car.png"}}' mode='aspectFill'></image>
+        <view class='title'>{{item.name}}</view>
+        <!-- <view class='price'>￥{{item.price}} <text>每人</text></view> -->
+        <view class='city'>{{item.tags}}</view>
+    </view>
+  </view>
+  <view class='no-more' wx:if='{{noMoreShow && dataList.length }}'><text>没有更多数据了</text></view>
+  <!-- <view class='no-more' wx:if='{{!dataList.length}}'><text>旅游路线列表为空</text></view> -->
+  <view class='no-more index_no_more' wx:if='{{!dataList.length && !noMoreShow}}'>
+      <image src='../../images/logo.png'></image>
+      <view class='no-data'>推荐路线列表为空~~</view>
+  </view>
+</view>
+<view class='cover' hidden='{{!dayChooseShow}}'></view>
+
+
+
+

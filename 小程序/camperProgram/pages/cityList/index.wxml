@@ -1,0 +1,15 @@
+<!--pages/cityList/index.wxml-->
+<view class='container'>
+  <view class='item'>
+    <view class='title'>当前</view>
+    <view class='wrap' bindtap='citySelect' data-code='' data-name='{{city?city:"全国"}}'>
+      <view class='city all'>{{city?city:'全国'}}</view>
+    </view>
+  </view>
+  <view bindtap='citySelect' data-code='{{item.cityCode}}' class='item' wx:for="{{dataList}}" data-name='{{item.cityName}}' wx:key="{{index}}">
+    <view class='title'>{{item.prefix}}</view>
+    <view class='wrap'>
+      <view class='city'>{{item.cityName}}</view>
+    </view>
+  </view>
+</view>
