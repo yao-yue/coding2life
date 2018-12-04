@@ -1,5 +1,5 @@
 // pages/accountDetail/index.js
-const API = require('../../common/constant.js');
+const API = require('../../common/constant.js');    //API的字符串接口 集合
 const util = require('../../utils/util');
 const app = getApp();
 Page({

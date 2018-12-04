@@ -1,6 +1,15 @@
 // pages/campList/index.js
 const API = require('../../common/constant.js');
 const util = require('../../utils/util');
+
+/*
+业务逻辑的打理   ：
+从API中取链接   
+设置好data
+问题：    提交表单的操作？
+          页面分页？
+          本地缓存的业务逻辑
+*/ 
 Page({
   data: {
     date: '日期',
@@ -43,6 +52,7 @@ Page({
       wx.setStorageSync('campkeyWord', options.keyWord);
     }
     if (options.date) {
+      // 存储到本地缓存
       wx.setStorageSync('campBeginDate', options.beginDate);
       wx.setStorageSync('campEndDate', options.endDate);
       wx.setStorageSync('campDate', options.date);
