@@ -19,16 +19,8 @@
                 console.log(xhr.responseText);
             }
         }
-        xhr.setRequestHeader("Access-Control-A");
-        
-        xhr.open("POST", "http://visney.icebartech.com/api/mini/product/findCategory", true);
-        var obj = {
-            "data": {},
-        "msg": "成功",
-        "status": 200
-        };
-        var json = JSON.stringify(obj);
-        xhr.send(json);
+        xhr.open("POST", "https://visney.icebartech.com/api/mini/userCore/saveMiniUserInfo", true);
+        xhr.send();
         });
         
     </script>
