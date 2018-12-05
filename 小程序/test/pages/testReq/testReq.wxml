@@ -1,2 +1,3 @@
 <!--pages/testReq/testReq.wxml-->
-<text>pages/testReq/testReq.wxml</text>
+<text>测试日历组件</text>
+<calendar></calendar>
