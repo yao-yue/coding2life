@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>服饰管理界面</title>
+    <style>
+        * {
+        margin: 0;
+        padding: 0;
+    }
+    .clothManage-wrapper {
+        height: 100%;
+        width: 100%;
+        background-color: #f6f6f6;
+    }
+    .slectBar {
+        box-sizing: border-box;
+        background-color: yellow;
+        line-height: 65px;
+        font-size: 20px;
+        width: 600px;
+    }
+    .slectBar > input {
+        height: 30px;
+        margin-bottom: 15px;
+    }
+    .slectBar > input:nth-of-type(3) {
+        background-color: red;
+        color: #fff;
+        font-weight: bold;
+        width: 60px;
+        border-style: none;
+    }
+    .clothDetail {
+        box-sizing: border-box;
+        text-align: center;
+        margin: 10px;
+        background-color: yellow;
+        height: 200px;
+        width: 280px;
+    }
+    .clothDetail-head {
+        height: 40px;
+        background-color:#2F4F4F;
+        color: #fff;
+        line-height: 40px;
+        text-align: center;
+        margin: 0 10px;
+        border-radius: 10px;
+    }
+    .clothDeatil-content {
+        font-size: 18px; 
+        height: 190px;
+        background-color: pink;
+    }
+    .contentForm {
+        float: left;
+        margin-left: 20px;
+    }
+    .contentForm > input {
+        margin: 6px;
+        height: 20px;
+    }
+    .clothDeatil-right {
+        background-color: green;
+        margin: 0 30px;
+        height: 190px;
+        width: 150px;
+        float: right;
+    }
+    #selectbtn {
+        text-decoration:none;
+        background-color: blue;
+        color: #fff;
+    }
+    #clothImg {
+        display: block;
+        background-color: black;
+        width: 150px;
+        height: 150px;
+    }
+    .footerBtn {
+        background-color: black;
+        height: 30px;
+    }
+    .clearfix {
+            *zoom: 1;
+    }
+    .clearfix:before,
+    .clearfix::after {
+        content: "";
+        display: block;
+        clear: both;
+    }
+    .footerBtn > span {
+        background-color: blue;
+        text-align: center;
+        float: right;
+        width: 50px;
+        line-height: 30px;
+        height: 30px;
+        color: #fff;
+        margin-left: 6px;
+        margin-right: 6px;
+    }
+    #goBack {
+        font-weight: bold;
+        height: 30px;
+        border-style: none;
+        width: 30px;
+        float: left;
+        color: #fff;
+        background-color: #8B008B;
+        margin-left: 6px;
+    }
+    /* 拖拽上传文件区域 */
+    .list-group {
+        background-color: yellow;
+        border: 2px dashed #CCC;
+        height: 108px;
+        width: 108px;
+        margin: 20px;
+    }
+    .list-group p {
+      
+        color: 	#FF00FF;
+        line-height: 100px;
+        font-size: 14px;
+        text-align: center;
+    }
+    .hidden {
+        display: none;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="clothManage-wrapper">
+        <div class="slectBar">性别: <input type="text">&ensp;服饰类别: <input type="text">&ensp;<input type="submit" value="查询"></div>
+        <div class="clothDetail">
+            <div class="clothDetail-head">服饰细目</div>
+            <div class="clothDeatil-content">
+                <form action="" class="contentForm">
+                    编号: <input type="text"> <br>
+                    名称: <input type="text"> <br>
+                    价格: <input type="text"> <br>
+                    性别: <input type="text"> <br>
+                    分类: <input type="text"> <br>
+                </form>
+                <div class="clothDeatil-right hidden" id="contentRight">
+                    <a href="javascript:;" id="selectbtn">点击添加文件</a>
+                    <div class="list-group">
+                        <input type="file" id="fileselect" style="display:none" accept="image/*" multiple />
+                    </div>
+                </div>
+
+            </div>
+            <div class="footerBtn clear-fix">
+                <button id="goBack">
+                    <</button> <span class="hidden" id="footRemove">删除</span>
+                        <span class="hidden" id="footSave">保存</span>
+                        <span id="footAdd">添加</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            let btn = false;
+            $('#footAdd').click(() => {
+                btn = true;
+                $('#footRemove,#footSave,#footAdd').toggleClass("hidden");
+                $('#contentRight').toggleClass("hidden");
+                $('.clothDetail').css("width", "470px");
+            })
+            $('#goBack').click(() => {
+                if (btn) {
+                    $('#footRemove,#footSave,#footAdd').toggleClass("hidden");
+                    $('#contentRight').toggleClass("hidden");
+                    $('.clothDetail').css("width", "280px");
+                }
+            })
+            $('#imgAdd').click(() => {
+                console.log('addimg')
+                dealSelectFiles();
+            })
+
+
+            // 文件上传
+            const fileselect = document.getElementById('fileselect');
+            const selectBtn = document.getElementById('selectbtn');
+            const listGroup = document.querySelector('.list-group');
+            fileselect.addEventListener('change', displayFileInfo, false);
+            selectBtn.addEventListener('click', function () {
+                fileselect.click();
+            })
+            listGroup.innerHTML = '<p class="hint">拖拽文件到这里</p>';
+            listGroup.addEventListener('dragover', onDragOver, false);
+            listGroup.addEventListener('drop', displayFileInfo, false);
+            function onDragOver(event) {
+                event.preventDefault();    //阻止浏览器默认行为
+                event.stopPropagation();    //阻止冒泡
+                $('.list-group p').html('放开上传')
+            }
+
+            function displayFileInfo(event) {
+                event.preventDefault();
+                event.stopPropagation();
+                listGroup.innerHTML = '';
+                //   对普通上传和拖拽式上传都统一了
+                const files = event.target.files || event.dataTransfer.files //传统文件上传以及拖拽上传
+                console.log(files);
+                for (let file of files) {
+                    img = document.createElement('img'),
+                        // 前端 文件到达后端之前先看到图片
+                        // url = ? 传统 文件上传到服务器才有url
+                        url = window.URL.createObjectURL(file),     //blob:http
+
+                        img.src = url;
+                    console.log(url);
+                    var imgPosX = 0;
+                    var imgWidth = 256;
+                    img.onload = function () {
+                        window.URL.revokeObjectURL(url);
+                    }
+                    listGroup.appendChild(img);
+
+                    $('img').css("width", "104px");
+                    $('img').css("height", "104px");
+                    $('img').css("background", "cover");
+                    console.log('success!')
+
+                    //文件读取
+                    const reader = new FileReader();
+                    reader.readAsArrayBuffer(file);
+
+                }
+            }
+
+
+
+        })
+    </script>
+</body>
+
+</html>
+
+<!-- 关于图片的读取可以自己百度一下   这里已经将文件转为base64格式 -->
