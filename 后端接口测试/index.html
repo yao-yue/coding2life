@@ -1,27 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
+
 <body>
 
-    
+
 </body>
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
-    <script>
-        $(document).ready(function(){
-            var xhr = new XMLHttpRequest();
-        xhr.onreadystatechange = function() {
-            if (xhr.readyState == 4 && xhr.status == 200) {
-                console.log(xhr.responseText);
+<script>
+    $(document).ready(function () {
+        var xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4) {
+                if (xhr.status == 200) {
+                    console.log(JSON.parse(xhr.responseText));
+                }
             }
         }
-        xhr.open("POST", "https://visney.icebartech.com/api/mini/userCore/saveMiniUserInfo", true);
+        xhr.open("POST", "https://visney.icebartech.com/api/mini/userCore/openIdLogin?code=081dSYK822ZApK0of6L82ducL82dSYK1", true);
         xhr.send();
-        });
-        
-    </script>
+    });
+
+</script>
+
 </html>

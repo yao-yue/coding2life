@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>着装展示页面</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .wrapper {
+            width: 100%;
+            height: 100%;
+        }
+
+        .cloth-show {
+            position: absolute;
+            top: 10%;
+            left: 3%;
+            width: 330px;
+            background-color: yellow;
+            display: grid;
+            grid-template-columns: repeat(2, 160px);
+            grid-auto-rows: minmax(40px, auto);
+            grid-column-gap: 10px;
+            grid-row-gap: 10px;
+        }
+
+        .cloth-item {
+            box-sizing: border-box;
+            padding: 4px;
+            height: 100px;
+            width: 160px;
+            background-color: #f6f6f6;
+            font-size: 14px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .cloth-item>div {
+            margin-bottom: 4px;
+        }
+
+        .cloth-item>div>span {
+            margin-left: 4px;
+            color: #ffffff;
+            display: inline-block;
+            border-radius: 8px;
+            padding: 0 6px;
+        }
+
+        .cloth-num>span {
+            background-color: red;
+        }
+
+        .cloth-name>span {
+            background-color: blue;
+        }
+
+        .cloth-price>span {
+            background-color: #2F4F4F;
+        }
+
+        .cloth-item-footer {
+            background-color: #e6e6e6;
+            position: relative;
+        }
+
+        .cloth-item-footer>img {
+            float: right;
+            width: 20px;
+            height: 20px;
+        }
+
+        #zIndex-icon {
+            margin-right: 20px;
+        }
+
+        #zIndex-num {
+            position: absolute;
+            right: 60px;
+            color: black;
+        }
+
+
+        /* 模特展示 */
+        .model-show {
+            position: fixed;
+            width: 440px;
+            height: 600px;
+            background-color: pink;
+            left: 400px;
+        }
+        .show-info {
+            position: absolute;
+            bottom: 0;
+            line-height: 24px;
+            z-index: 99;
+            height: 50px;
+            width: 90px;
+            right: 20px;
+            font-size: 14px;
+            text-align: center;
+            color: #ffffff;
+            background-color:#2F4F4F;
+        }
+        .show-info > .show-info-title {
+            color: #343434;
+            background-color: #f6f6f6;
+        }
+     
+        #show-bottom {
+            z-index: 0;
+            margin: 0 40px;
+            /* background-color: green; */
+            height: 300px;
+            width: 360px;
+            position: absolute;
+            bottom: 0;
+        }
+        #model-shadow {
+            z-index: 1;
+            position: absolute;
+            height: 240px;
+            width: 200px;
+            bottom: 60px;
+            left: 0;
+            left: 140px;
+        }
+        #model-body {
+            position: absolute;
+            z-index: 1;
+            background: cover;
+            height: 540px;
+            width: 360px;
+            margin: 0 40px;
+            bottom: 40px;
+            left: 20px;
+        }
+        #model-hat {
+            z-index: 2;
+            position: absolute;
+            top: 16px;
+            left: 88px;
+            width: 300px;
+            height: 600px;
+        }
+        #model-pack {
+            z-index: 3;
+            position: absolute;
+            top: 10px;
+            left: 80px;
+            width: 300px;
+            height: 600px;
+        }
+        #model-shoes {
+            z-index: 2;
+            position: absolute;
+            bottom: 28px;
+            left: 62px;
+            width: 340px;
+            height: 600px;
+        }
+        #model-yifu {
+            z-index: 2;
+            position: absolute;
+            top: 8px;
+            left: 60px;
+            width: 360px;
+            height: 600px;
+        }
+        #model-kuzi {
+            z-index: 2;
+            position: absolute;
+            top: 60px;
+            left: 60px;
+            width: 360px;
+            height: 600px;
+        }
+
+
+        /* 右侧选择框 */
+        .select-cloth {
+            position: absolute;
+            right: 0;
+            background-color: green;
+            width: 200px;
+            height: 100%;
+        }
+        .select-item > .right-top-icon {
+            float: right;
+            width: 60px;
+            height: 60px;
+            background-color: blue;
+        }
+        .top-panel {
+            display: block;
+            font-size: 14px;
+            line-height: 30px;
+            height: 30px;
+            background-color: gray;
+            padding-left:  10px;
+        }
+        .top-panel >input {
+            width: 80px;
+        }
+        .imgbox {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+        }
+        .select-item {
+            background-color: yellow;
+            height: 280px;
+            margin-bottom: 10px;
+        }
+        .cloth-info {
+            background-color: gray;
+            height: 80px;
+            width: 160px;
+            padding: 6px;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+        .cloth-info > div {
+            margin-bottom: 4px;
+        }
+        .cloth-info > div > span {
+            border-radius: 6px;
+            padding: 0 4px;
+            color: #ffffff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="cloth-show">
+            <div class="cloth-item">
+                <div class="cloth-num">编号: <span>wa14813</span></div>
+                <div class="cloth-name">名称: <span>项链</span></div>
+                <div class="cloth-price">单价: <span>￥1,000,00</span></div>
+                <div class="cloth-item-footer">
+                    <img src="images/ui/remove.png" alt="">
+                    <img src="images/ui/down.png" alt="">
+                    <img src="images/ui/up.png" alt="">
+                    <img id="zIndex-icon" src="images/ui/zIndex.png" alt="">
+                    <span id="zIndex-num">2</span>
+                </div>
+            </div>
+
+            <div class="cloth-item">
+                <div class="cloth-num">编号: <span>wa14813</span></div>
+                <div class="cloth-name">名称: <span>项链</span></div>
+                <div class="cloth-price">单价: <span>￥1,000,00</span></div>
+                <div class="cloth-item-footer">
+                    <img src="images/ui/remove.png" alt="">
+                    <img src="images/ui/down.png" alt="">
+                    <img src="images/ui/up.png" alt="">
+                    <img id="zIndex-icon" src="images/ui/zIndex.png" alt="">
+                    <span id="zIndex-num">2</span>
+                </div>
+            </div>
+
+            <div class="cloth-item">
+                <div class="cloth-num">编号: <span>wa14813</span></div>
+                <div class="cloth-name">名称: <span>项链</span></div>
+                <div class="cloth-price">单价: <span>￥1,000,00</span></div>
+                <div class="cloth-item-footer">
+                    <img src="images/ui/remove.png" alt="">
+                    <img src="images/ui/down.png" alt="">
+                    <img src="images/ui/up.png" alt="">
+                    <img id="zIndex-icon" src="images/ui/zIndex.png" alt="">
+                    <span id="zIndex-num">2</span>
+                </div>
+            </div>
+
+            <div class="cloth-item">
+                <div class="cloth-num">编号: <span>wa14813</span></div>
+                <div class="cloth-name">名称: <span>项链</span></div>
+                <div class="cloth-price">单价: <span>￥1,000,00</span></div>
+                <div class="cloth-item-footer">
+                    <img src="images/ui/remove.png" alt="">
+                    <img src="images/ui/down.png" alt="">
+                    <img src="images/ui/up.png" alt="">
+                    <img id="zIndex-icon" src="images/ui/zIndex.png" alt="">
+                    <span id="zIndex-num">2</span>
+                </div>
+            </div>
+
+            <div class="cloth-item">
+                <div class="cloth-num">编号: <span>wa14813</span></div>
+                <div class="cloth-name">名称: <span>项链</span></div>
+                <div class="cloth-price">单价: <span>￥1,000,00</span></div>
+                <div class="cloth-item-footer">
+                    <img src="images/ui/remove.png" alt="">
+                    <img src="images/ui/down.png" alt="">
+                    <img src="images/ui/up.png" alt="">
+                    <img id="zIndex-icon" src="images/ui/zIndex.png" alt="">
+                    <span id="zIndex-num">2</span>
+                </div>
+            </div>
+
+        </div>
+
+
+
+        <div class="model-show">
+            <div class="show-container">
+                <img id="model-hat" src="images/data/suits/wHat01.png" alt="">
+                <img id="model-pack" src="images/data/suits/wBag01.png" alt="">
+                <img id="model-shoes" src="images/data/suits/mShoe01.png" alt="">
+                <img id="model-yifu" src="images/data/suits/wShirt02.png" alt="">
+                <img id="model-kuzi" src="images/data/suits/wJean02.png" alt="">
+                <img id="model-shadow" src="images/data/model/modelShadow.png" alt="">
+                <img id="model-body" src="images/data/model/wheadAModel.png" alt="">
+                <img id="show-bottom" src="images/ui/ground.png" alt="">
+            </div>
+            <div class="show-info">
+                <div class="show-info-title">总价</div>
+                <div>￥1,248.00</div>
+            </div>
+        </div>
+
+
+
+
+
+
+        <div class="select-cloth">
+            <div class="top-panel">
+                选择分类: <input type="text" value="衬衫">
+            </div>
+
+            <div class="select-item">
+                <img class="right-top-icon" src="images/ui/add.png" alt="">
+                <div class="imgbox">
+                    <img src="" alt="">
+                </div>
+
+                <div class="cloth-info">
+                    <div class="cloth-num">编号: <span>wa14813</span></div>
+                    <div class="cloth-name">名称: <span>项链</span></div>
+                    <div class="cloth-price">单价: <span>￥1,000,00</span></div>
+                </div>
+            </div>
+
+
+            <div class="select-item">
+                <img class="right-top-icon" src="images/ui/add.png" alt="">
+                <div class="imgbox">
+                    <img src="" alt="">
+                </div>
+
+                <div class="cloth-info">
+                    <div class="cloth-num">编号: <span>wa14813</span></div>
+                    <div class="cloth-name">名称: <span>项链</span></div>
+                    <div class="cloth-price">单价: <span>￥1,000,00</span></div>
+                </div>
+            </div>
+
+
+
+        </div>
+
+
+    </div>
+</body>
+
+</html>

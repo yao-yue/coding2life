@@ -27,7 +27,7 @@ App({
             success: function (res) {
               console.log(res);
               let openId = res.data.data?res.data.data.bussData.openId:'';
-              wx.setStorage({
+              wx.setStorageSync({
                  key: "openId",
                  data: openId
               })
@@ -126,18 +126,3 @@ App({
     userInfo: {}
   }
 })
-
-/*
- {
-        "pagePath": "pages/route/index",
-        "text": "驴行社",
-        "iconPath": "images/icon_2.png",
-        "selectedIconPath": "images/icon_2_active.png"
-      },
-      {
-        "pagePath": "pages/storyCircle/index",
-        "text": "驴圈子",
-        "iconPath": "images/icon_3.png",
-        "selectedIconPath": "images/icon_3_active.png"
-      },
- */
