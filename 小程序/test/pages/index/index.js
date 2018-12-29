@@ -1,4 +1,4 @@
-
+const util = require('../../utils/util')
 const app = getApp()
 
 Page({
@@ -12,9 +12,15 @@ Page({
   },
   onLoad: function () {
   },
-  goReq: function() {
-    wx.navigateTo({
-      url: '/pages/testReq/testReq',
-    })
-  }
+  goReq() {
+    this.test()
+  },
+
+  test:  util.throttle(function (e) {
+      console.log('fuck!!!!')
+      // console.log(this)
+      // console.log(e)
+      // console.log((new Date()).getSeconds())
+    }, 5000)
+ 
 })
