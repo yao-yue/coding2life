@@ -16,7 +16,7 @@ Page({
     this.test()
   },
 
-  test:  util.throttle(function (e) {
+  test:  util.throttle(() => {
       console.log('fuck!!!!')
       // console.log(this)
       // console.log(e)
