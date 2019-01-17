@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/myListen/index",
     "pages/myQuestions/index",
     "pages/index/index",
     "pages/logs/logs",
@@ -7,7 +8,6 @@
     "pages/classicQA/index",
     "pages/emotionalCheats/index",
     "pages/modifyPhone/index",
-    "pages/myListen/index",
     "pages/myListenCard/index",
     "pages/myNews/index",
     "pages/newsDetail/index",
