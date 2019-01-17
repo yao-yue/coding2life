@@ -1,0 +1,26 @@
+{
+  "pages": [
+    "pages/myQuestions/index",
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/paySuccess/index",
+    "pages/classicQA/index",
+    "pages/emotionalCheats/index",
+    "pages/modifyPhone/index",
+    "pages/myListen/index",
+    "pages/myListenCard/index",
+    "pages/myNews/index",
+    "pages/newsDetail/index",
+    "pages/orderDetail/index",
+    "pages/recharge/index",
+    "pages/selfCenter/index",
+    "pages/test/index",
+    "pages/testResult/index"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  }
+}

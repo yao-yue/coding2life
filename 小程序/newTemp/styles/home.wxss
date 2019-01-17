@@ -1,0 +1,48 @@
+.container {
+  padding: 30rpx 30rpx 0;
+}
+
+.home__header-search {
+  display: inline-block;
+  background-color: #F1F1F1;
+  vertical-align: middle;
+  padding: 0 26rpx;
+  box-sizing: border-box;
+  height: 72rpx;
+  line-height: 72rpx;
+  border-radius: 10rpx;
+}
+
+.home__header-search image {
+  width: 30rpx;
+  height: 30rpx;
+  vertical-align: middle;
+}
+
+.home__header-search input {
+  display: inline-block;
+  vertical-align: middle;
+  width: 84%;
+  margin: 0 20rpx;
+}
+
+.swiper-tab {
+  margin: 0 -30px;
+  text-align: center;
+  height: 100rpx;
+  line-height: 100rpx;
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+}
+
+.swiper-tab-item {
+  color:#999999;
+  font-size: 30rpx;
+  margin: 0 90rpx;
+}
+
+.active {
+  color:#343434;
+  border-bottom: 4rpx solid #343434;
+}

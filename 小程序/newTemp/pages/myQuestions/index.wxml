@@ -1,0 +1,29 @@
+<view class="myQuestion-wrapper">
+    <view class="question bLine">
+        <view class="que-main">
+            χ脸丄ヘ冩着芜所谓嘴丄ヘ说着吥哉乎╪┈萁实い訫里﹎狠难过oo..”__┊感情...萁实ぺ莪ブ输吥起┊-古巷青磚趠凡兦聖↓厛颩淰舊↑櫻埖纞
+        </view>
+        <view class="que-info">
+            <span>2018-12-20 12:00</span>
+            <span class="info-right-tap" bind:tap="checkDetail">查看详情>></span>
+        </view>
+    </view>
+    <view class="question bLine">
+        <view class="que-main">
+            χ脸丄ヘ冩着芜所谓嘴丄ヘ说着吥哉乎╪┈萁实い訫里﹎狠难过oo..”__┊感情...萁实ぺ莪ブ输吥起┊-古巷青磚趠凡兦聖↓厛颩淰舊↑櫻埖纞
+        </view>
+        <view class="que-info">
+            <span>2018-12-20 12:00</span>
+            <span class="info-right-tap" bind:tap="checkDetail">查看详情>></span>
+        </view>
+    </view>
+    <view class="question bLine">
+        <view class="que-main">
+            χ脸丄ヘ冩着芜所谓嘴丄ヘ说着吥哉乎╪┈萁实い訫里﹎狠难过oo..”__┊感情...萁实ぺ莪ブ输吥起┊-古巷青磚趠凡兦聖↓厛颩淰舊↑櫻埖纞
+        </view>
+        <view class="que-info">
+            <span>2018-12-20 12:00</span>
+            <span class="info-right-tap" bind:tap="checkDetail">查看详情>></span>
+        </view>
+    </view>
+</view>
