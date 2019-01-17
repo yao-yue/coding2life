@@ -1,2 +1,25 @@
-<!--pages/myListenCard/index.wxml-->
-<text>pages/myListenCard/index.wxml</text>
+<view class="myListenCard-wrapper">
+    <view class="show-head">
+        <view class="head-title">偷听次数</view>
+        <view class="listen-time">10次</view>
+        <view class="listen-desc">4次偷听,6次快问快答</view>
+    </view>
+    <view class="center-bar"/>
+    <view class="show-list">
+        <view class="list-item bLine">
+            <view class="item-desc">充值钱包200元</view>
+            <view class="item-time">2018-12-21 10:01</view>
+            <view class="item-score color-gold">+4</view>
+        </view>
+         <view class="list-item bLine">
+            <view class="item-desc">经典题目偷听</view>
+            <view class="item-time">2018-12-21 10:01</view>
+            <view class="item-score ">+4</view>
+        </view>
+         <view class="list-item bLine">
+            <view class="item-desc">快速提问</view>
+            <view class="item-time">2018-12-21 10:01</view>
+            <view class="item-score ">+4</view>
+        </view>
+    </view>
+</view>

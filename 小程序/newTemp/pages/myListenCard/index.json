@@ -1,3 +1,6 @@
 {
+  "navigationBarTitleText": "我的偷听卡",
+  "navigationBarBackgroundColor": "#F2A678",
+  "navigationBarTextStyle": "#ffffff",
   "usingComponents": {}
 }
