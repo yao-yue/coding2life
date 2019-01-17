@@ -1,4 +1,0 @@
-
-<view class="container">
-  <button bindtap="goReq">clickMe</button>
-</view>
