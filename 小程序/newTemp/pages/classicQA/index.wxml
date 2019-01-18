@@ -1,2 +1,13 @@
-<!--pages/classicQA/index.wxml-->
-<text>pages/classicQA/index.wxml</text>
+<view class="classicQA-wrapper">
+    <view class="bule-select-wrapper">
+        <view class="nav-bar">
+            <span class="selected">脱单</span>
+            <span class="selected">恋爱</span>
+            <span class="selected">婚姻</span>
+            <span class="selected">其他</span>
+        </view>  
+        <styleQA class="1" />
+        <styleQA class="1" />
+        <styleQA class="1" />
+    </view>
+</view>

@@ -1,4 +1,4 @@
-@import '../../styles/line.wxss';
+
 .emotionalCheats-wrapper {
     margin-top: 20rpx;
 }

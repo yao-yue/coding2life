@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/classicQA/index",
     "pages/emotionalCheats/index",
     "pages/myListen/index",
     "pages/selfCenter/index",
@@ -14,7 +15,6 @@
     "pages/myQuestions/index",
     "pages/index/index",
     "pages/logs/logs",
-    "pages/classicQA/index",
     "pages/orderDetail/index"
   ],
   "window": {

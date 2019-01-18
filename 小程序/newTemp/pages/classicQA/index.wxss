@@ -1,1 +1,30 @@
-/* pages/classicQA/index.wxss */
+.classicQA-wrapper {
+    margin-top: 20rpx;
+}
+.bule-select-wrapper {
+    width: 690rpx;
+    margin: 30rpx;
+    box-sizing: border-box;
+    box-shadow: 0 0 20rpx 6rpx #D3D3D3;
+    background-color: #F5FBFE;
+    border-radius: 12rpx;
+}
+.nav-bar {
+    height: 60rpx;
+    width: 630rpx;
+    font-size: 26rpx;
+    display: flex;
+    justify-content: space-between;
+    padding: 34rpx 30rpx 0;   
+}
+.nav-bar > span {
+    width: 102rpx;
+    height: 40rpx;
+    text-align: center;
+    line-height: 40rpx;
+}
+.selected {
+    border-radius: 20rpx;
+    color: #ffffff;
+    background-color: #5EB7E4;
+}

@@ -3,7 +3,7 @@
         <view class="styleOnlyListen-title">吵架了怎么才能和好如初</view>
         <view class="answer-fixed-box">
             <view class="answer-content">
-                <span>偷听</span>
+                <span>收听</span>
                 <image class="listenIcon" />
             </view>
             <view class="answer-time">1.43"</view>

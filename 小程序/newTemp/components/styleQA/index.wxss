@@ -1,1 +1,129 @@
-/* components/styleQA/index.wxss */
+@import '../../styles/line.wxss';
+
+.styleQA-block {
+    width: 630rpx;
+    margin: 0 auto;
+}
+
+.block-question {
+    padding: 30rpx 0 20rpx;
+    font-size: 28rpx;
+    color: #333333;
+    line-height: 44rpx;
+}
+.block-info {
+    /* padding: 0 20rpx; */
+    height: 50rpx;
+    line-height: 50rpx;
+    display: flex;
+    justify-content: start;
+}
+.block-info .info-avatar {
+    height: 50rpx;
+    width: 50rpx;
+    background-color: yellow;
+    border-radius: 26rpx;
+    margin-right: 14rpx;
+}
+.block-info .info-name {
+    font-size: 26rpx;
+    color: #5EB7E4;
+    width: 140rpx;
+    overflow: hidden;
+    margin-right: 12rpx;
+    /* text-overflow:ellipsis;
+    white-space: nowrap; */
+}
+.block-info .info-main {
+    font-size: 24rpx;
+    color: #999999;
+    width: 340rpx;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+}
+.block-info .info-tag {
+    height: 40rpx;
+    width: 102rpx;
+    background-color: #5EB7E4;
+    border-radius: 20rpx;
+    font-size: 26rpx;
+    color: #ffffff;
+    line-height: 40rpx;
+    text-align: center;
+    margin-top: 4rpx;
+}
+.block-answer {
+    padding: 30rpx 0;
+}
+.answer-tip {
+    font-size: 26rpx;
+    color: #333333;
+    line-height: 26rpx;
+}
+.answer-tip .tipFor {
+    font-size: 24rpx;
+    color: #999999;
+    margin-left: 16rpx;
+}
+.answer-content {
+    margin-top: 20rpx;
+    background-color: #fff;
+    width: 386rpx;
+    height: 64rpx;
+    border-radius: 10rpx;
+    font-size: 24rpx;
+    line-height: 64rpx;
+    padding-left: 28rpx;
+    box-sizing: border-box;
+}
+.listenIcon {
+    margin-bottom: -6rpx;
+    margin-left: 20rpx; 
+    width: 26rpx;
+    height: 34rpx;
+    background-color: yellow;
+}
+.answer-fixed-box {
+    position: relative;
+    padding-bottom: 16rpx;
+}
+.answer-time {
+    position: absolute;
+    left: 410rpx;
+    top: 0;
+    height: 64rpx;
+    line-height: 64rpx;
+    width: 40rpx;
+    font-size: 16rpx;
+    color: #999999;
+}
+.answer-like {
+    position: absolute;
+    height: 64rpx;
+    width: 100rpx;
+    right: 0;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-size: 20rpx;
+    text-align: center;
+}
+.like-icon {
+    display: inline-block;
+    margin: 0 auto;
+    background: yellow;
+    width: 32rpx;
+    height: 32rpx;
+}
+.demo-2 {
+    background-color: #FEF5F1;
+    padding: 30rpx 20rpx 20rpx;
+}
+.block-question-style2 {
+    padding: 0 8rpx 10rpx;
+    font-size: 28rpx;
+    color: #333333;
+    line-height: 44rpx;
+}
