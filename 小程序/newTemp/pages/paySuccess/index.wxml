@@ -1,2 +1,5 @@
-<!--pages/paySuccess/index.wxml-->
-<text>pages/paySuccess/index.wxml</text>
+<view class="paySuccess-wrapper">
+    <image class="success-icon" mode="aspectFill" />
+    <span>支付成功</span>
+    <view class="goHome">回首页</view>
+</view>

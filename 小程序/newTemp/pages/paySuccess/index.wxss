@@ -1,1 +1,37 @@
-/* pages/paySuccess/index.wxss */
+.paySuccess-wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+}
+.success-icon {
+    display: inline-block;
+    padding-top: 86rpx;
+    height: 150rpx;
+    width: 150rpx;
+    background-color: yellow;
+    margin: 0 auto;
+}
+.paySuccess-wrapper span {
+    display: inline-block;
+    padding-top: 26rpx;
+    line-height: 30rpx;
+    font-size: 30rpx;
+    color: #333333;
+    margin: 0 auto;
+}
+.goHome {
+    height: 64rpx;
+    width: 146rpx;
+    box-sizing: border-box;
+    border: 1rpx solid #F2A678;
+    text-align: center;
+    line-height: 60rpx;
+    font-size: 28rpx;
+    color: #F2A678;
+    background-color: #ffffff;
+    border-radius: 32rpx;
+    margin: 0 auto;
+    margin-top: 54rpx;
+}
