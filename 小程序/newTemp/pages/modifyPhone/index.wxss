@@ -1,1 +1,55 @@
-/* pages/modifyPhone/index.wxss */
+@import '../../styles/line.wxss';
+
+.modifyPhone-wrapper {
+    height: 100%;
+    width: 100%;
+}
+.top-tip {
+    color: #333333;
+    padding: 30rpx;
+    font-size: 30rpx;
+    line-height: 34rpx;
+}
+.input-form {
+    padding: 40rpx 30rpx;
+    box-sizing: border-box;
+    color: #333333;
+    font-size: 28rpx;
+    line-height: 110rpx;
+}
+.input-form .item-1, .item-2, .item-3 {
+    height: 110rpx;
+    width: 100%;
+    margin-top: 2rpx;
+    display: flex;
+}
+span {
+    width: 190rpx;
+}
+input {
+    width: 200rpx;
+    height: 110rpx;
+}
+.tap-getCode {
+    position: absolute;
+    right: 0;
+    /* background-color: yellow; */
+    text-align: center;
+    z-index: 2;
+    color: #F2A678;
+    font-size: 30rpx;
+}
+.bottom-tap {
+    position: absolute;
+    bottom: 38rpx;
+    left: 76rpx;
+    width: 600rpx;
+    height: 98rpx;
+    text-align: center;
+    line-height: 98rpx;
+    font-size: 30rpx;
+    color: #ffffff;
+    background-color: #F2A678;
+    border-radius: 50rpx;
+    box-shadow: 6rpx 6rpx 6rpx 1rpx #d3d3d3;
+}
