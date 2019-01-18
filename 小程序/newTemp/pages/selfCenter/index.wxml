@@ -1,2 +1,17 @@
-<!--pages/selfCenter/index.wxml-->
-<text>pages/selfCenter/index.wxml</text>
+<view class="selfCenter-wrapper">
+    <view class="avatar bLine">
+        <span>头像</span>
+        <image class="avatar-img" />
+    </view>
+    <view class="name bLine">
+        <span>昵称</span>
+        <text class="name-text">二哈</text>
+    </view>
+    <view class="phone bLine">
+        <span>手机号</span>
+        <text class="phone-text">1348451123</text>
+        <image class="right-arrow-icon" />
+    </view>
+    <view class="save-btn">保存</view>
+</view>
+

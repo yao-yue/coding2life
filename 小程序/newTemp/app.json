@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/selfCenter/index",
     "pages/recharge/index",
     "pages/testResult/index",
     "pages/test/index",
@@ -14,8 +15,7 @@
     "pages/logs/logs",
     "pages/classicQA/index",
     "pages/emotionalCheats/index",
-    "pages/orderDetail/index",
-    "pages/selfCenter/index"
+    "pages/orderDetail/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

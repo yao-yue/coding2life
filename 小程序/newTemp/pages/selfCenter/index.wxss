@@ -1,1 +1,49 @@
-/* pages/selfCenter/index.wxss */
+@import '../../styles/line.wxss';
+.selfCenter-wrapper {
+    width: 100%;
+    height: 100%;
+    padding: 0 30rpx;
+    box-sizing: border-box;
+    color: #333333;
+}
+.avatar, 
+.phone,
+.name {
+    height: 110rpx;
+    font-size: 28rpx;
+    line-height: 110rpx;
+    display: flex;
+    justify-content: space-between;
+}
+.avatar-img {
+    height: 80rpx;
+    width: 80rpx;
+    border-radius: 40rpx;
+    background-color: yellow;
+    margin-top: 16rpx;
+}
+.right-arrow-icon {
+    position: absolute;
+    right: 0;
+    top: 40rpx;
+    width: 16rpx;
+    height: 30rpx;
+    background-color: yellow;
+}
+.phone-text {
+    padding-right: 26rpx;
+}
+.save-btn {
+    position: absolute;
+    bottom: 38rpx;
+    left: 76rpx;
+    width: 600rpx;
+    height: 98rpx;
+    text-align: center;
+    line-height: 98rpx;
+    font-size: 30rpx;
+    color: #ffffff;
+    background-color: #F2A678;
+    border-radius: 50rpx;
+    box-shadow: 6rpx 6rpx 6rpx 1rpx #d3d3d3;
+}
