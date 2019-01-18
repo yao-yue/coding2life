@@ -1,8 +1,8 @@
 {
   "pages": [
+    "pages/myListen/index",
     "pages/classicQA/index",
     "pages/emotionalCheats/index",
-    "pages/myListen/index",
     "pages/selfCenter/index",
     "pages/recharge/index",
     "pages/testResult/index",

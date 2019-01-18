@@ -1,4 +1,7 @@
 {
   "navigationBarTitleText": "我的偷听",
-  "usingComponents": {}
+  "usingComponents": {
+    "styleOnlyListen": "../../components/styleOnlyListen/index",
+    "styleQA": "../../components/styleQA/index"
+  }
 }

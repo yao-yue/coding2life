@@ -1,47 +1,17 @@
 <view class="myListen-wrapper">
-    <view class="listen-block">
-        <view class="block-question">
-            想要摆脱单身,遇到自己喜欢的人就要勇敢,勇敢的去追喜欢的人.如果没有喜欢的人就慢慢等待,
-            这样可以脱单嘛?
-        </view>
-        <view class="block-info">
-            <image class="info-avatar" />
-            <span class="info-name">空井苍老师</span>
-            <span class="info-main">关注自己比关注对方更重要</span>
-            <span class="info-tag">脱单</span>
-        </view>
-        <view class="block-answer">
-            <view class="answer-tip">
-                <span>回答</span>
-                <span class="tipFor">杨超越提问</span>
-            </view>
-            <view class="answer-fixed-box">
-                <view class="answer-content">
-                    <span>偷听</span>
-                    <image class="listenIcon" />
-                </view>
-                <view class="answer-time">1.43"</view>
-                <view class="answer-like">
-                    <image class="like-icon" />
-                    <span class="like-num">1220</span>
-                </view>
-            </view>
-        </view>
+    <view class="bule-wrapper">
+        <styleQA class="1" />
     </view>
-    <view class="listen-block demo-2">
-        <view class="block-question-style2">想要摆脱单身,遇到自己喜欢的人就要勇敢</view>
-        <view class="answer-fixed-box">
-            <view class="answer-content">
-                <span>偷听</span>
-                <image class="listenIcon" />
-            </view>
-            <view class="answer-time">1.43"</view>
-            <view class="answer-like">
-                <image class="like-icon" />
-                <span class="like-num">1220</span>
-            </view>
-        </view>
-
-       
+    <view class="bule-wrapper">
+        <styleQA class="1" />
+    </view>
+    <view class="bule-wrapper">
+        <styleQA class="1" />
+    </view>
+    <view class="pink-wrapper">
+       <styleOnlyListen class="1" />
+    </view>
+     <view class="pink-wrapper">
+       <styleOnlyListen class="1" />
     </view>
 </view>
