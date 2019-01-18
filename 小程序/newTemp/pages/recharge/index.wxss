@@ -1,1 +1,72 @@
-/* pages/recharge/index.wxss */
+@import '../../styles/line.wxss';
+.recharge-wrapper {
+    margin: 30rpx;
+    box-shadow: 0 0 20rpx 8rpx #d3d3d3;
+    width: 690rpx;
+    height: 668rpx;
+    box-sizing: border-box;
+    border-radius: 12rpx;
+    padding: 30rpx;
+}
+.head-tip {
+    font-size: 30rpx;
+    line-height: 30rpx;
+    margin-bottom: 30rpx;
+    font-weight: 600;
+}
+.recharge-form {
+    width: 570rpx;
+    height: 64rpx;
+    line-height: 40rpx;
+    padding: 30rpx;
+    display: flex;
+}
+.RMB-icon {
+    background-color: yellow;
+    height: 60rpx;
+    width: 44rpx;
+    margin-right: 50rpx;
+}
+.recharge-form > input {
+    width: 360rpx;
+    font-size: 28rpx;
+    margin-top: 20rpx;
+}
+.footer-tip {
+    font-size: 22rpx;
+    color: #999999;
+    margin-top: 20rpx;
+}
+.recharge-type {
+    margin-top: 74rpx;
+}
+.type-tip {
+    font-size: 30rpx;
+    font-weight: 600;
+}
+.type-content {
+    height: 80rpx;
+    width: 570rpx;
+}
+.wx-type-icon {
+    width: 50rpx;
+    height: 44rpx;
+    margin-right: 20rpx;
+    margin-bottom: -12rpx;
+    background-color: yellow;
+}
+.type-content > span {
+    font-size: 28rpx;
+    line-height: 80rpx;
+}
+.recharge-btn {
+    background-color: #5EB7E4;
+    text-align: center;
+    line-height: 98rpx;
+    border-radius: 50rpx;
+    width: 600rpx;
+    font-size: 28rpx;
+    color: #ffffff;
+    box-shadow: 6rpx 6rpx 6rpx 1rpx #d3d3d3;
+    margin: 60rpx auto;
+}

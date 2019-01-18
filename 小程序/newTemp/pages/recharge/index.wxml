@@ -1,2 +1,16 @@
-<!--pages/recharge/index.wxml-->
-<text>pages/recharge/index.wxml</text>
+<view class="recharge-wrapper">
+    <view class="head-tip">充值金额</view>
+    <view class="recharge-form bLine">
+        <image class="RMB-icon" />
+        <input type="number" placeholder="请输入充值金额" />
+    </view>
+    <view class="footer-tip">充xx元xx次偷听,送xx个快问快答充值更多,送得更多哦</view>    
+    <view class="recharge-type">
+        <view class="type-tip">充值方式</view> 
+        <view class="type-content">
+            <image class="wx-type-icon" />
+            <span>微信支付</span>
+        </view>   
+    </view>
+    <view class="recharge-btn">充值</view>
+</view>
