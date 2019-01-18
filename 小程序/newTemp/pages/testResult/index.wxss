@@ -1,1 +1,33 @@
-/* pages/testResult/index.wxss */
+page {
+    width: 100%;
+    height: 100%;
+}
+.testResult-wrapper {
+    width: 100%;
+    min-height: 100%;
+    padding-bottom: 330rpx; 
+    box-sizing: border-box;
+}
+.footer-btn-share {
+    background-color: #F2A678;
+    text-align: center;
+    line-height: 98rpx;
+    border-radius: 50rpx;
+    width: 600rpx;
+    margin: -278rpx auto 30rpx;
+    font-size: 28rpx;
+    color: #ffffff;
+    box-shadow: 6rpx 6rpx 6rpx 1rpx #d3d3d3;
+}
+.footer-btn-save {
+    background-color: #ffffff;
+    text-align: center;
+    line-height: 94rpx;
+    border: #d3d3d3 solid 2rpx;
+    color: #333333;
+    font-size: 28rpx;
+    border-radius: 50rpx;
+    width: 600rpx;
+    margin: 0 auto;
+    box-shadow: 6rpx 6rpx 6rpx 1rpx #d3d3d3;
+}

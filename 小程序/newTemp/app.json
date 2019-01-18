@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/testResult/index",
     "pages/test/index",
     "pages/paySuccess/index",
     "pages/modifyPhone/index",
@@ -14,8 +15,7 @@
     "pages/emotionalCheats/index",
     "pages/orderDetail/index",
     "pages/recharge/index",
-    "pages/selfCenter/index",
-    "pages/testResult/index"
+    "pages/selfCenter/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
