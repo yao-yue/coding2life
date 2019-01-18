@@ -1,1 +1,52 @@
-/* pages/test/index.wxss */
+@import '../../styles/line.wxss';
+page {
+    height: 100%;
+    width: 100%;
+}
+.test-wrapper {
+    width: 100%;
+    min-height: 100%;
+    padding-bottom: 198rpx; 
+    box-sizing: border-box;
+    padding-top: 30rpx;
+}
+.test-box {
+    box-shadow: 0 0 12rpx 8rpx #d3d3d3;
+    border-radius: 10rpx;
+    width: 690rpx;
+    margin: 0 30rpx;
+}
+.test-item {
+    box-sizing: border-box;
+    margin: 0 30rpx;
+    padding-top: 40rpx;
+    padding-bottom: 2rpx;
+    font-size: 26rpx;
+    color: #333333;
+}
+.item-question {
+    font-weight: 600;
+    font-size: 30rpx;
+}
+.answer {
+    margin: 40rpx 0;
+    line-height: 28rpx;
+    display: flex;
+    justify-content: space-between;
+}
+.select-icon {
+    width: 28rpx;
+    height: 28rpx;
+    background-color: yellow;
+}
+.footer-btn {
+    background-color: #F2A678;
+    text-align: center;
+    line-height: 98rpx;
+    border-radius: 50rpx;
+    width: 600rpx;
+    margin: -146rpx auto 0;
+    font-size: 28rpx;
+    color: #ffffff;
+    box-shadow: 6rpx 6rpx 6rpx 1rpx #d3d3d3;
+}

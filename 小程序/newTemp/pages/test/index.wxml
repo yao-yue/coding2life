@@ -1,2 +1,44 @@
-<!--pages/test/index.wxml-->
-<text>pages/test/index.wxml</text>
+<view class="test-wrapper">
+        <view class="test-box">
+            <view class="test-item bLine">
+                <view class="item-question">1.你常常会后悔之前做过的决定吗？</view>
+                <view class="answer">
+                    <span>A.不会,决定了就不后悔</span>
+                    <image class="select-icon" />
+                </view>
+                <view class="answer">
+                    <span>B.不会,决定了就不后悔</span>
+                    <image class="select-icon" />
+                </view>
+                <view class="answer">
+                    <span>C.不会,决定了就不后悔</span>
+                    <image class="select-icon" />
+                </view>
+                <view class="answer">
+                    <span>D.不会,决定了就不后悔</span>
+                    <image class="select-icon" />
+                </view>
+            </view>
+            <view class="test-item bLine">
+                <view class="item-question">1.你常常会后悔之前做过的决定吗？</view>
+                <view class="answer">
+                    <span>A.不会,决定了就不后悔</span>
+                    <image class="select-icon" />
+                </view>
+                <view class="answer">
+                    <span>B.不会,决定了就不后悔</span>
+                    <image class="select-icon" />
+                </view>
+                <view class="answer">
+                    <span>C.不会,决定了就不后悔</span>
+                    <image class="select-icon" />
+                </view>
+                <view class="answer">
+                    <span>D.不会,决定了就不后悔</span>
+                    <image class="select-icon" />
+                </view>
+            </view>
+    
+        </view>
+</view>
+ <view class="footer-btn">提交测试</view>
