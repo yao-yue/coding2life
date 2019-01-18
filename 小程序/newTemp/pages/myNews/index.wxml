@@ -1,2 +1,17 @@
-<!--pages/myNews/index.wxml-->
-<text>pages/myNews/index.wxml</text>
+<view class="myNews-wrapper">
+    <view class="news-item bLine">
+        <view class="item-content">你已经成功充值,快快快快继续收听是大陆就是东京暗鸦迪欧石楠撒爱心组织神马看当年实际困难</view>
+        <view class="item-time">2018-12-21 10:01</view>
+        <image class="right-arrow-icon"/>
+    </view>
+     <view class="news-item bLine">
+        <view class="item-content clicked-color">你已经成功充值,快快快快继续收听是大陆就是东京暗鸦迪欧石楠撒爱心组织神马看当年实际困难</view>
+        <view class="item-time">2018-12-21 10:01</view>
+        <image class="right-arrow-icon"/>
+    </view>
+     <view class="news-item bLine">
+        <view class="item-content clicked-color">你已经成功充值,快快快快继续收听是大陆就是东京暗鸦迪欧石楠撒爱心组织神马看当年实际困难</view>
+        <view class="item-time">2018-12-21 10:01</view>
+        <image class="right-arrow-icon"/>
+    </view>
+</view>
