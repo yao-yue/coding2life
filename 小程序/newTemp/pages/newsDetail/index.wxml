@@ -1,2 +1,5 @@
-<!--pages/newsDetail/index.wxml-->
-<text>pages/newsDetail/index.wxml</text>
+<view class="newsDetail-wrapper">
+    <view class="news-time">2018-12-21 10:01</view>
+    <view class="news-content">谈恋爱经常吵架要分手怎么回事?要想清楚是什么导致了你们的爱情走向了危机?内在原因还是外在原因?是什么导致了你们之间矛盾的彻底爆发?还有，现在你们对于彼此的态度是什么，已经相看两厌了，还是单方面的抗拒。即使说了分手他还对你有感情吗?
+　　这点很重要，如果闹到分手的地步你却还不明白你们之间的问题，只要知道这些问题都将是横在你们爱情之间的鸿沟，视而不见只不过是掩耳盗铃，当有一天积累的问题全面爆发，可能你们之间连挽回的余地都没有了。</view>
+</view>

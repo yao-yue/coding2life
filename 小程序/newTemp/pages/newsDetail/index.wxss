@@ -1,1 +1,20 @@
-/* pages/newsDetail/index.wxss */
+.newsDetail-wrapper {
+    height: 100%;
+    width: 100%;
+}
+.news-time {
+    width: 100%;
+    text-align: center;
+    color: #999999;
+    font-size: 20rpx;
+    line-height: 20rpx;
+    margin-top: 30rpx;
+}
+.news-content {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 56rpx 36rpx;
+    font-size: 30rpx;
+    line-height: 50rpx;
+    color: #333333;
+}
