@@ -1,2 +1,17 @@
-<!--pages/orderDetail/index.wxml-->
-<text>pages/orderDetail/index.wxml</text>
+<view class="orderDetail-wrapper">
+    <view class="top-item bLine">
+        <span>订单编号</span>
+        <text>2018448451231</text>
+    </view>
+    <view class="top-item bLine">
+        <span>支付方式</span>
+        <text>钱包余额</text>
+    </view>
+    <view class="blue-wrapper">
+        <styleQA class="1" />
+    </view>
+    <view class="footer-info">
+        <span>费用</span>
+        <text>100</text>
+    </view>
+</view>

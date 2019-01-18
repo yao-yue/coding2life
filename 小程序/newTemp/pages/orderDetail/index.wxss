@@ -1,1 +1,38 @@
-/* pages/orderDetail/index.wxss */
+@import '../../styles/line.wxss';
+
+.orderDetail-wrapper {
+    margin-top: 20rpx;
+}
+.top-item {
+    height: 90rpx;
+    width: 690rpx;
+    margin: 0 30rpx;
+    box-sizing: border-box;
+    line-height: 90rpx;
+    font-size: 28rpx;
+    color: #333333;
+}
+.top-item > span:nth-of-type(1) {
+    color: #999999;
+    margin-right: 78rpx;
+}
+.blue-wrapper {
+    width: 690rpx;
+    margin: 30rpx;
+    box-sizing: border-box;
+    /* box-shadow: 0 0 20rpx 6rpx #D3D3D3; */
+    background-color: #F5FBFE;
+    border-radius: 12rpx;
+}
+.footer-info {
+    width: 690rpx;
+    margin: 0 30rpx; 
+    box-sizing: border-box;
+    font-size: 28rpx;
+    color: #999999;
+    display: flex;
+    justify-content: space-between;
+}
+.footer-info > text {
+    color: #333333;
+}
