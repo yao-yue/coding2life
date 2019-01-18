@@ -13,18 +13,6 @@
     border-bottom: 1rpx solid #E1E1E1;
 }
 
-.left-dot {
-    position: relative;
-}
-.left-dot::before {
-    position: absolute;
-    content: "";
-    top: 22rpx;
-    left: 8rpx;
-    width: 100%;
-    height: 90%;
-    border-left: 4rpx dotted #E8E8E8;
-}
 
 .tLine {
     position: relative;
@@ -40,3 +28,4 @@
     transform-origin: 0 0;
     border-top: 1rpx solid #E1E1E1;
 }
+

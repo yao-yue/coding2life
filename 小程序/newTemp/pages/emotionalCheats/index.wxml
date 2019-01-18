@@ -1,2 +1,9 @@
-<!--pages/emotionalCheats/index.wxml-->
-<text>pages/emotionalCheats/index.wxml</text>
+
+<view class="emotionalCheats-wrapper">
+    <view class="pink-wrapper">
+        <styleOnlyListen class="1" />
+         <styleOnlyListen class="1" />
+          <styleOnlyListen class="1" />
+           <styleOnlyListen class="1" />
+    </view>
+</view>

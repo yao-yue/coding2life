@@ -29,19 +29,19 @@
         </view>
     </view>
     <view class="listen-block demo-2">
-         <view class="block-question-style2">
-            想要摆脱单身,遇到自己喜欢的人就要勇敢
-        </view>
+        <view class="block-question-style2">想要摆脱单身,遇到自己喜欢的人就要勇敢</view>
         <view class="answer-fixed-box">
-                <view class="answer-content">
-                    <span>偷听</span>
-                    <image class="listenIcon" />
-                </view>
-                <view class="answer-time">1.43"</view>
-                <view class="answer-like">
-                    <image class="like-icon" />
-                    <span class="like-num">1220</span>
-                </view>
+            <view class="answer-content">
+                <span>偷听</span>
+                <image class="listenIcon" />
             </view>
+            <view class="answer-time">1.43"</view>
+            <view class="answer-like">
+                <image class="like-icon" />
+                <span class="like-num">1220</span>
+            </view>
+        </view>
+
+       
     </view>
 </view>
