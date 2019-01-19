@@ -1,7 +1,7 @@
 .classicQA-wrapper {
     margin-top: 20rpx;
 }
-.bule-select-wrapper {
+.blue-wrapper {
     width: 690rpx;
     margin: 30rpx;
     box-sizing: border-box;

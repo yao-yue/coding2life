@@ -1,16 +1,5 @@
-<view class="testResult-wrapper">
-    <view class="top-tip">感谢您的测试,您当前处于</view>
-    <view class="res-class">感情流浪汉阶段</view>
-    <view class="main-tip">对于此次测试结果的文字描述</view>
-    <span>描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述
-        描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述
-        描述描述描述描述描述描述描述描述描述
-        描述描述描述描述描述描述描述描述描述
-        描述描述描述描述描述描述描述描述描述
-        描述描述描述描述描述描述描述描述描述
-        描述描述描述描述描述描述描述描述描述
-        描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述
-        </span>
-</view>
-<view class="footer-btn-share">分享给好友</view>
-<view class="footer-btn-save">保存图片</view>
+
+<canvas id="resCanvas" canvas-id="resCanvas"></canvas>
+<button open-type="share" class="footer-btn-share">分享给好友</button>
+<view class="footer-btn-save clicked" bind:tap="saveImg">保存图片</view>
+

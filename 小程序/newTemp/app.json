@@ -1,12 +1,12 @@
 {
   "pages": [
+    "pages/testResult/index",
     "pages/orderDetail/index",
     "pages/myListen/index",
     "pages/classicQA/index",
     "pages/emotionalCheats/index",
     "pages/selfCenter/index",
     "pages/recharge/index",
-    "pages/testResult/index",
     "pages/test/index",
     "pages/paySuccess/index",
     "pages/modifyPhone/index",

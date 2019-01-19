@@ -1,5 +1,5 @@
 <view class="classicQA-wrapper">
-    <view class="bule-select-wrapper">
+    <view class="blue-wrapper">
         <view class="nav-bar">
             <span class="selected">脱单</span>
             <span class="selected">恋爱</span>

@@ -1,0 +1,17 @@
+.blue-wrapper {
+    width: 690rpx;
+    margin: 30rpx;
+    box-sizing: border-box;
+    box-shadow: 0 0 20rpx 6rpx #D3D3D3;
+    background-color: #F5FBFE;
+    border-radius: 12rpx;
+}
+.pink-wrapper {
+    width: 690rpx;
+    margin: 30rpx;
+    border-radius: 12rpx;
+    box-shadow: 0 0 20rpx 6rpx #D3D3D3;
+    box-sizing: border-box;
+    background-color: #FEF5F1;
+    padding: 0 20rpx 0;
+}
