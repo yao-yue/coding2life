@@ -6,7 +6,6 @@ import "./scroll.styl"
 class Scroll extends React.Component {
   constructor(props) {
     super(props);
-
     this.scrollViewRef = React.createRef();
   }
   componentDidUpdate() {

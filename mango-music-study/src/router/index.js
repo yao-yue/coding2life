@@ -25,7 +25,7 @@ const router = [
     component: Recommend,
     routes: [
       {
-        path: "/recommend/:id",
+        path: "/recommend/:id",    //path 前面加：:paramName匹配URL的一个部分，直到遇到下一个/、?、#为止
         component: Album
       }
     ]
