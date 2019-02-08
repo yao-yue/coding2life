@@ -9,7 +9,6 @@ import "./musicalnote.styl"
 class MusicalNote extends React.PureComponent {
   constructor(props) {
     super(props);
-
     this.musicIcos = [];
   }
   componentDidMount() {

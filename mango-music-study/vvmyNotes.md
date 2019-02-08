@@ -18,6 +18,6 @@ Let me analyze it.
 
 
 **明日计划：** 
-1. react redux的数据c
-2. react的生命周期
-3. 关于react的 ref
+1. react redux的数据   Ok! finish
+2. react的生命周期    Ok! finish
+3. 关于react的 ref   ref={(Input) => { this.Input = Input}}
