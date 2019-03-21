@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/KL.css"/>
+		<script type="text/javascript" src="js/jquery.min.js" ></script>
+		<script type="text/javascript" src="js/echarts.js" ></script>
+		<script type="text/javascript" src="js/KL.js" ></script>
+		<script type="text/javascript" src="js/ecStat.min.js" ></script>
+		
+		<script src="js/ParticleDeclare.js"></script>
+		<link rel="stylesheet" href="css/dynamicBackground.css" />
+		<link rel="stylesheet" href="css/fonts.css" />
+		<link rel="stylesheet" href="css/loading.css" />
+		<link rel="stylesheet" href="css/menuMask.css" />
+		<script src="js/dark.js"></script>
+		<script type="text/javascript" src="js/menuMask.js" ></script>
+		
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+				border: none;
+				font-family: "Gilroy";
+				text-decoration: none;
+			}
+			body{
+				overflow: hidden;
+				background: #000000;
+				width: 100vw;
+				height: 100vh;
+				
+			}
+			#displayZone{
+				width: 100vw;
+				height: 100vh;
+				background: rgba(255,255,255,1);
+				background: -webkit-linear-gradient(left,rgb(40,85,150),rgb(90,128,205),rgb(110,150,230));
+				background: rgba(255,255,255,1);
+				position: absolute;
+				top: 0;
+				left: 0;
+				/*overflow-y: scroll;*/
+			}
+			#realTimeUpdate{
+				position: absolute;
+				top: 0;
+				right: 0;
+				cursor: pointer;
+				font-size: 0.8vw;
+				color: rgb(230,230,230);
+			}
+			#realTimeUpdate img{
+				width: 3vw;
+				height: 3vw;
+			}
+			.blocks{
+				/*width: 30.33vw;
+				height: 30vh;
+				line-height: 30vh;*/
+				/*box-shadow: 1px 3px 8px rgba(0,0,0,.3);*/
+				margin: 1.5vh 1vw;
+				text-align: center;
+				float: left;
+				box-sizing: border-box;
+				transition: 1s transform ease-in-out;
+				/*background: rgba(255,255,255,.95);*/
+				border-radius: 7px;
+				
+			}
+			 .blocks:before{
+				content: "";
+				width: 10%;
+				height: 10%;
+				position: absolute;
+				top: -3px;
+				left: -3px;
+				border-top: 3px solid rgba(255,255,255,.8);
+				border-left: 3px solid rgba(255,255,255,.8);
+				border-radius: 7px 0 0 0;
+				opacity: 1;
+			}
+			.blocks:after{
+				content: "";
+				width: 10%;
+				height: 10%;
+				position: absolute;
+				bottom: -3px;
+				right: -3px;
+				border-bottom: 3px solid rgba(255,255,255,.8);
+				border-right: 3px solid rgba(255,255,255,.8);
+				border-radius: 0 0 7px 0;
+				opacity: 1;
+			} 
+			#displayTitle{
+				width: 100vw;
+				height: 10vh;
+				line-height: 10vh;
+				text-align: center;
+				font-size: 30px;
+				color: rgb(255,255,255,.8);
+				font-weight: bold;
+				text-shadow: 0 0 2vw rgb(100,100,255);
+				text-shadow: 
+               0 0 10px  #fff,
+               0 0 20px  #228DFF,
+               0 0 30px  #228DFF;
+			}
+			canvas{
+				width: 100vw;
+				height: 100vh;
+			}
+			#preferenceZone{
+				width: 100vw;
+				height: 100vh;
+			}
+			#displayBackground{
+				width: 100vw;
+				height: 100vh;
+				/*background: red;*/
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+			.layout21{
+				width: 25vw;
+				height: 60vh;
+				float: left;
+			}
+			#fullScreen{
+				width: 3vw;
+				height: 3vw;
+				cursor: pointer;
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+			#fullScreen img{
+				width: 3vw;
+				height: 3vw;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="a"> </canvas>
+<!--		<canvas id="b"> </canvas>-->
+		
+		<div id="menuMaskOuter">
+			<div id="menuMaskInner">
+				<div id="mmBlockCenter"><div id="mmBlockCenterInner"><a>CLOSE</a></div></div>
+				<div id="mmBlockOne" class="mmIngredient"><div style="width:300px;height:300px;margin-top:calc(70.7vw - 301px);margin-left:calc(70.7vw - 301px);border: none;border-bottom: 1px solid white;border-right: 1px solid white;"><a href="http://47.101.190.24:8873/upload">数据上传</a></div></div>
+				<div id="mmBlockTwo" class="mmIngredient"><div style="width:300px;height:300px;margin-top:calc(70.7vw - 301px);border: none;border-bottom: 1px solid white;border-left: 1px solid white;"><a href="http://47.101.190.24:8989/Downloads/Word">数据分析报告下载WORD</a></div></div>
+				<div id="mmBlockThree" class="mmIngredient"><div style="width:300px;height:300px;margin-left:calc(70.7vw - 301px);border: none;border-top: 1px solid white;border-right: 1px solid white;"><a href="http://47.101.190.24:8989/Downloads/Txt">数据分析报告下载TXT</a></div></div>
+				<div id="mmBlockFour" class="mmIngredient"><div style="width:300px;height:300px;border: none;border-top: 1px solid white;border-left: 1px solid white;"><a href="http://47.101.190.24:8989/Downloads/Excel">源数据下载EXCEL</a></div></div>
+			</div>
+		</div>
+		<div id="displayBackground">
+			<div id="loading" class='sk-wave'>
+			    <div class='sk-rect sk-rect-1'></div>
+			    <div class='sk-rect sk-rect-2'></div>
+			    <div class='sk-rect sk-rect-3'></div>
+			    <div class='sk-rect sk-rect-4'></div>
+			    <div class='sk-rect sk-rect-5'></div>
+			</div>
+			<!--<div id="preferenceZone">
+			<div id="progressBar"></div>
+			<div id="projectTitle">Data Visualization.</div>
+			<div id="fillZone">
+				<div id="fillZoneInner">
+					<div class="fillBlocks">
+						<div class="fillQs">选数据</div>
+						<div class="fillAs"></div>
+					</div>
+					<div class="fillBlocks">
+						<div class="fillQs">选排版</div>
+						<div class="fillAs"></div>
+					</div>
+					<div class="fillBlocks">
+						<div class="fillQs">选主题</div>
+						<div class="fillAs"></div>
+					</div>
+				</div>
+			</div>
+			<div id="preferenceButton" func="0">Continue</div>
+			<div id="fillPage">
+					<div class="dot activeDot"></div>
+					<div class="dot oriDot"></div>
+					<div class="dot oriDot"></div>
+			</div>
+		</div>-->
+		<div id="displayZone">
+			<div id="realTimeUpdate"><a>Real-Time-Update On</a><img src="img/realTimeOff.png"></div>
+			<div id="fullScreen"><img src="img/fullScreenOn.png"></div>
+			<div id="displayInner">
+				
+			</div>
+		</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="js/assembleCharts.js" ></script>
+	<script type="text/javascript">
+		var intervalDataUpdate;
+		var backgroundColor="rgba(0,0,0,0)";
+		var fontsize=30;
+		$("#realTimeUpdate").on("click","img",function(){
+			if($(this).attr("src")=="img/realTimeOn.png"){
+				$("#realTimeUpdate a").text("Real-Time-Update On");
+				$(this).attr("src","img/realTimeOff.png");
+				clearInterval(intervalDataUpdate);
+				intervalDataUpdate = setInterval(function(){
+					putUpRequest();
+				},60000);
+			}else if($(this).attr("src")=="img/realTimeOff.png"){
+				$("#realTimeUpdate a").text("Real-Time-Update Off");
+				$(this).attr("src","img/realTimeOn.png");
+				clearInterval(intervalDataUpdate);
+			}
+				
+		})
+		var ani=null;
+		var canvas=null;
+		var ctx=null;
+		var n=0;
+		var blockList=[0,1,2,3];
+		var chartTypeList=[0,4,7,9,8,5,3,3,6];
+		var argList=["","","",""];
+		var requestCommandList=[];
+		var formation=3;
+		var blockCount=0;
+//		for(var i=0;i<9;i++){
+//			var requestCommand=new Object();
+//			requestCommand.dataType="计算机硬件信息";
+//			requestCommand.arg="cpuProcessCount&cpuLoads";
+//			requestCommand.amount=1+i;
+//			requestCommandList[i]=requestCommand;
+//		}
+		var requestCommand=new Object();
+			requestCommand.dataType="计算机硬件信息";
+			requestCommand.arg="cpuUserPer&cpuSystemPer";
+			requestCommand.amount=10;
+			requestCommandList[0]=requestCommand;
+			requestCommand=new Object();
+			requestCommand.dataType="计算机硬件信息";
+			requestCommand.arg="cpuUserPer&cpuSystemPer";
+			requestCommand.amount=10;
+			requestCommandList[1]=requestCommand;
+			requestCommand=new Object();
+			requestCommand.dataType="计算机硬件信息";
+			requestCommand.arg="cpuLoads&cpuProcessCount";
+			requestCommand.amount=10;
+			requestCommandList[2]=requestCommand;
+			requestCommand=new Object();
+			requestCommand.dataType="计算机硬件信息";
+			requestCommand.arg="cpuIdlePer";
+			requestCommand.amount=10;
+			requestCommandList[3]=requestCommand;
+			requestCommand=new Object();
+			requestCommand.dataType="计算机硬件信息";
+			requestCommand.arg="cpuSystemPer&cpuCombinedPer";
+			requestCommand.amount=8;
+			requestCommandList[4]=requestCommand;
+			requestCommand=new Object();
+			requestCommand.dataType="计算机硬件信息";
+			requestCommand.arg="cpuProcessCount&cpuLoads";
+			requestCommand.amount=1;
+			requestCommandList[5]=requestCommand;
+			requestCommand=new Object();
+			requestCommand.dataType="计算机硬件信息";
+			requestCommand.arg="cpuProcessCount&cpuLoads";
+			requestCommand.amount=1;
+			requestCommandList[6]=requestCommand;
+			requestCommand=new Object();
+			requestCommand.dataType="计算机硬件信息";
+			requestCommand.arg="cpuProcessCount";
+			requestCommand.amount=1;
+			requestCommandList[7]=requestCommand;
+			requestCommand=new Object();
+			requestCommand.dataType="计算机硬件信息";
+			requestCommand.arg="cpuProcessCount&cpuLoads";
+			requestCommand.amount=1;
+			requestCommandList[8]=requestCommand;
+		var isAnimated=false;
+		var theme=0;
+		var displayBac;
+		$("#displayZone").hide();
+		$("#loading").hide();
+		var dataArray=new Array();
+		var requestFlag=true;
+		var isRequestDone="";
+		function request(method,url,data,dataType,successCallBack,errorCallBack,async,chartNo){
+			    $.ajax({
+			        url: url,
+			        async:async,
+			        data: data,
+			        dataType:dataType,
+			        contentType:"application/json;charset=UTF-8",
+			        method: method
+			    }).done(function(data){
+			    	dataArray[chartNo]=data;
+			    	isRequestDone+="1";
+			    	
+			    }).fail(errorCallBack);
+		};
+//			function call(){
+//				console.log(dataArray[0]);
+//				console.log(dataArray[1]);
+//				console.log(dataArray[2]);
+//				console.log(dataArray[3]);
+//			}
+			function requestSuccess(){
+//				call();
+				setTimeout(function(){
+					$("#loading").hide();
+					
+					$("#displayZone").show();
+					if(!isAnimated){
+						showAnimation_CHVR("#displayZone","rotateZ_300deg","rotateZ_360deg","rgba(0,0,0,0)");
+						isAnimated=true;
+					}
+					
+					getChart();
+				},100)//时间可改，无关紧要
+			};
+			
+			function b(a){
+				requestFlag=false;
+			};
+			var themeCount=0;
+			function getTheme(){
+				$("script[src='js/dynamicBac2.js']").remove();
+				$("script[src='js/dynamicBackground.js']").remove(); 
+				$("script[src='js/aSkyFullOfStars.js']").remove(); 
+				$("script[src='js/aSkyFullOfStars2.js']").remove(); 
+				if(ani!=null){
+						window.cancelAnimationFrame(ani);
+				}
+				if(theme==3){
+//						$.getScript('js/dynamicBac2.js',function(){console.log("dynamicBac2.js")});
+						displayBac="rgb(2,56,67)";
+						$(".blocks").css({"border": "3px solid rgb(0,255,245)",
+							"box-shadow": "0 -0.05vw 0vw rgba(255,255,255,.9)",
+							"background": "-webkit-linear-gradient(top,rgba(32,109,121,1),rgba(27,88,105,1),rgba(20,64,85,1))",
+							"border-image":"-webkit-linear-gradient(top,rgb(0,204,198),  rgba(0,204,198,.3) , rgba(0,204,198,0))1 10 1",
+						"border-bottom":"none"});
+						$('<style>.blocks:before{opacity:0;} .blocks:after{opacity:0;} </style>').appendTo('head');
+					}else if(theme==0){
+						
+						$.getScript('js/dynamicBackground.js',function(){console.log("dynamicBackground.js")});
+						displayBac="rgba(0,0,0,.7)";
+						$(".blocks").css({'border': "1px solid rgb(255,255,255)",
+							'box-shadow': "inset 0 0 1vw rgb(255,255,255), 0 0 1vw rgb(255,255,255)",
+						"background": "rgba(255,255,255,.1)","border-image":"none"});
+						$('<style>.blocks:before{opacity:0;} .blocks:after{opacity:0;} </style>').appendTo('head');
+					}else if(theme==1){
+						$.getScript('js/aSkyFullOfStars.js',function(){console.log("aSkyFullOfStars.js")});
+						displayBac="rgba(0,37,73,.4)";
+						$(".blocks").css({"border": "1px solid rgb(1,109,133)",
+							"box-shadow": "inset 0 0 2vw rgb(1,109,133), 0 0 2vw rgb(1,109,133)",
+							"background": "rgba(0,74,120,.3)","border-image":"none"});
+							$('<style>.blocks:before{opacity:0;} .blocks:after{opacity:0;} </style>').appendTo('head');
+					}else if(theme==2){
+						$.getScript('js/aSkyFullOfStars2.js',function(){console.log("aSkyFullOfStars2.js")});
+						displayBac="rgba(0,37,73,.7)";
+						$(".blocks").css({"border": "1px solid rgb(1,109,133)",
+							"box-shadow": "inset 0 0 2vw rgb(1,109,133), 0 0 1vw #fff, 0 0 3vw rgb(1,109,133)",
+							"background": "rgba(0,74,120,.5)","border-image":"none"});
+							$('<style>.blocks:before{opacity:1;} .blocks:after{opacity:1;} </style>').appendTo('head');
+					}
+					$("#displayBackground").css({"background":displayBac});
+			}
+			
+			function loadDisplayZone(){
+//				$("#preferenceZone").animate({left:"-100vw"},1000);
+				if(formation==3){
+					blockCount=9;
+					createMatrix(4,3);
+				}else{
+					blockCount=(formation+1)*(formation+1);
+					createMatrix(formation+1,formation+1);
+				}
+				
+				getTheme();
+				setTimeout(function(){
+					$("#loading").show();
+					putUpRequest();
+					clearInterval(intervalDataUpdate);
+					intervalDataUpdate = setInterval(function(){
+						putUpRequest();
+					},60000);
+				},1000);
+			}
+			function putUpRequest(){
+					
+					isRequestDone="";
+					for(var i=0;i<blockCount;i++){
+						request("POST","http://47.101.190.24:8456/findZXData",JSON.stringify(requestCommandList[i]),'JSON',requestSuccess,b,true,i);
+					}
+					var checkRequest=setInterval(function(){
+						if(isRequestDone.length==blockCount){
+							clearInterval(checkRequest);
+							requestSuccess();
+							var mydate = new Date();
+					console.log(mydate.toLocaleString());
+						}
+					},500);
+			}
+//			showAnimation_Center_Horizon_Vertical(displayZone);
+			
+			function createMatrix(m,n){
+				$("#displayInner div").remove();
+				$("#displayInner").prepend("<div id='displayTitle'>Data Visualization Platform</div>");
+				if(m==4&&n==3){
+					$("#displayInner").append('<div class="layout21"><div class="blocks simBlock"></div><div class="blocks simBlock"></div></div><div class="blocks specBlock"></div><div class="layout21"><div class="blocks simBlock"></div><div class="blocks simBlock"></div></div><div class="blocks simBlock"></div><div class="blocks simBlock"></div><div class="blocks simBlock"></div><div class="blocks simBlock"></div>');
+//					$("#zone").append(layoutContent);
+					$(".simBlock").css({
+						width:"23vw",
+						height:"27vh",
+					});
+					$(".specBlock").css({
+						width:"48vw",
+						height:"57vh",
+					});
+				}else{
+					var width=100/m-2;
+					var height=90/n-3;
+					var block = $('<div class="blocks"></div>');
+					block.css({
+						width:width+"vw",
+						height:height+"vh",
+					});
+					var cloneBlock;
+					for(var i=0;i<m*n;i++){
+						cloneBlock=block.clone();
+						$("#displayInner").append(cloneBlock);
+					}
+				}
+			}
+			var optionArray=new Array();
+			var chartArray=new Array();
+			function getChart(){
+				
+				var mn=$(".blocks").length;
+				for(var i=0;i<mn;i++){
+					var chart;
+					chartArray[i]=chart;
+					optionArray[i]=assembleChart(chartTypeList[i],dataArray[i]);
+				}
+				setTimeout(function(){
+					for(var i=0;i<mn;i++){
+						chartArray[i] = echarts.init(document.getElementsByClassName("blocks")[i],'dark');
+						chartArray[i].clear();
+						chartArray[i].setOption(optionArray[i]);
+					}
+					window.addEventListener("resize", function () { 
+						for(var i=0;i<mn;i++){
+							chartArray[i].resize(); 
+						}
+			     	});
+//			     	$(".blocks").eq(0).height("20vh");
+				},2000);
+			}
+			function changeTheme(themeNo){
+				theme=themeNo;
+				getTheme();
+			}
+			loadDisplayZone();
+//			changeTheme(2);
+			
+	</script>
+	<script src="js/webSocketRec.js"></script> 
+	<script src="js/fullScreen.js"></script> 
+	<!--<script type="text/javascript" src="js/dynamicBackground.js" ></script>-->
+</html>

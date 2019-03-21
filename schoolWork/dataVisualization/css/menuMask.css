@@ -1,0 +1,96 @@
+#menuMaskOuter{
+				width: 100vw;
+				height: 100vh;
+				overflow: hidden;
+				/*background: url(img/093654vjkz6ev6z47edf64.jpg);*/
+				background-size: contain;
+				display: none;
+				position: absolute;
+				top: 0;
+				left: 0;
+				z-index: 9999;
+			}
+			#menuMaskInner{
+				width: 141.4vw;
+				height: 141.4vw;
+				transform-style: preserve-3d;
+				transform: rotateZ(45deg);
+				transform-origin: 50% 50%;
+				margin-top:  calc(50vh - 70.7vw);
+				margin-left: -20.7vw;
+				position: relative;
+			}
+			#mmBlockCenter{
+				width: 150px;
+				height: 150px;
+				position: absolute;
+				top: calc(70.7vw - 75px);
+				left: calc(70.7vw - 75px);
+				background: rgba(255,255,255,.7);
+				border-radius: 100px;
+				border: 2px solid white;
+			}
+			#mmBlockCenterInner{
+				width: 130px;
+				height: 130px;
+				background: white;
+				margin: 10px 10px;
+				border-radius: 75px;
+				line-height: 130px;
+				text-align: center;
+				color: white;
+				font-size: 40px;
+				font-weight: bolder;
+				font-family:"Gilroy";
+				overflow: hidden;
+				cursor: pointer;
+			}
+			#mmBlockCenterInner:hover{
+				width: 130px;
+				height: 130px;
+				background: rgba(234,32,0,1);
+				margin: 10px 10px;
+				border-radius: 75px;
+			}
+			#mmBlockCenterInner a{
+				display: block;
+				margin-top: 45px;
+				width: 130px;
+				height: 40px;
+				line-height: 40px;
+				text-align: center;
+			}
+			#mmBlockCenterInner:hover a{
+				background: white;
+				color: rgb(234,32,0);
+			}
+			.mmIngredient{
+				width: 70.7vw;
+				height: 70.7vw;
+				float: left;
+				cursor: pointer;
+				background: rgba(23,27,38,.7);
+			}
+			.mmIngredient div a{
+				text-align: center;
+				line-height: 300px;
+				display: block;
+				width: 300px;
+				height: 300px;
+				transform: rotateZ(-45deg);
+				color: white;
+				font-family: "微软雅黑";
+				font-size: 18px;
+			}
+			#mmBlockOne:hover{
+				background: linear-gradient(to top left, rgba(40,80,135,.9) , rgb(255,255,255,0.5));;
+			}
+			#mmBlockTwo:hover{
+				background: linear-gradient(to top right, rgba(40,80,135,.9) , rgb(255,255,255,0.5));;
+			}
+			#mmBlockThree:hover{
+				background: linear-gradient(to bottom left, rgba(40,80,135,.9) , rgb(255,255,255,0.5));;
+			}
+			#mmBlockFour:hover{
+				background: linear-gradient(to bottom right, rgba(40,80,135,.9) , rgb(255,255,255,0.5));;
+			}

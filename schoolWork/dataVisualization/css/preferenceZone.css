@@ -1,0 +1,98 @@
+			#preferenceZone{
+				width: 100vw;
+				height: 100vh;
+				background: rgba(0,0,0,0);
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+			#projectTitle{
+				width: 90vw;
+				height: 10vh;
+				margin: 5vh 0 0 5vw;
+				line-height: 10vh;
+				font-size: 6vh;
+				color: rgba(255,255,255,.9);
+			}
+			#fillZone{
+				width: 70vw;
+				height: 80vh;
+				margin: 0vh 0 0 15vw;
+				overflow: hidden;
+			}
+			#fillZoneInner{
+				width: 70vw;
+				height: 240vh;
+			}
+			.fillBlocks{
+				width: 70vw;
+				height: 50vh;
+				/*border: 1px solid red;*/
+				margin: 10vh 0 20vh 0;
+				float: left;
+			}
+			.fillQs{
+				width: 70vw;
+				height: 10vh;
+				line-height: 10vh;
+				color: white;
+				font-size: 6vh;
+				margin-top: 5vh;
+				font-weight: bold;
+			}
+			.fillAs{
+				width: 70vw;
+				height: 25vh;
+				margin: 5vh 0;
+				border-bottom:1px solid white;
+				box-sizing: border-box;
+			}
+			#fillPage{
+				position: absolute;
+				right: 3vw;
+				top: 42.5vh;
+			}
+			.dot{
+				width: 2vh;
+				height: 2vh;
+				border-radius: 2vh;
+				margin: 2vh 0;
+				cursor: pointer;
+				transition: all .5s;
+			}
+			.oriDot{
+				background: white;
+			}
+			.activeDot{
+				background: rgb(128,191,160);
+				transform: rotateY(180deg);
+			}
+			#preferenceButton{
+				width: 12vw;
+				height: 4vw;
+				line-height: 3.6vw;
+				border-radius: 2vw;
+				text-align: center;
+				color: white;
+				border: 0.2vw solid white;
+				font-size: 1.4vw;
+				box-sizing: border-box;
+				position: absolute;
+				right: 3vw;
+				bottom: 10vh;
+				cursor: pointer;
+				transition: all .5s;
+			}
+			#preferenceButton:hover{
+				border: 0.2vw solid rgb(128,191,160);
+				color: rgb(128,191,160);
+				border: 0.2vw solid rgb(128,191,160);
+				color: rgb(128,191,160);
+			}
+			#progressBar{
+				position: absolute;
+				top: 0;
+				left: 0;
+				height: 1vh;
+				background: rgb(128,191,160);
+			}

@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <div id="main" style="height:400px"></div>
+    <div id="main" style="height:400px;background: green;z-index: 2;"></div>
     <!-- //模块化单文件引入 -->
     <!-- <script src="http://echarts.baidu.com/build/dist/echarts.js"></script> -->
 
@@ -25,17 +25,13 @@
             tooltip: {
                 trigger: 'item'
             },
-            legend: {
-                x: 'right',
-                selectedMode: false,
-                data: ['北京', '上海', '广东']
-            },
             dataRange: {
                 orient: 'verital',
                 min: 0,
                 max: 55000,
                 text: ['高', '低'],           // 文本，默认为数值文本
-                splitNumber: 0
+                splitNumber: 6,
+                itemGap: 0.1,
             },
             toolbox: {
                 show: false,
@@ -95,47 +91,9 @@
                         { name: '香港', value: 666}
                     ]
                 },
-                {
-                    name: '2011全国GDP对比',
-                    type: 'pie',
-                    roseType: 'area',
-                    tooltip: {
-                        trigger: 'item',
-                        formatter: "{a} <br/>{b} : {c} ({d}%)"
-                    },
-                    center: [document.getElementById('main').offsetWidth - 250, 225],
-                    radius: [30, 120],
-                    data: [
-                        { name: '北京', value: 16251.93 },
-                        { name: '上海', value: 19195.69 },
-                        { name: '广东', value: 53210.28 }
-                    ]
-                }
             ],
             animation: false
         };
-        // var ecConfig = require('echarts/config');
-        // myChart.on(ecConfig.EVENT.MAP_SELECTED, function (param) {
-        //     var selected = param.selected;
-        //     var mapSeries = option.series[0];
-        //     var data = [];
-        //     var legendData = [];
-        //     var name;
-        //     for (var p = 0, len = mapSeries.data.length; p < len; p++) {
-        //         name = mapSeries.data[p].name;
-        //         //mapSeries.data[p].selected = selected[name];
-        //         if (selected[name]) {
-        //             data.push({
-        //                 name: name,
-        //                 value: mapSeries.data[p].value
-        //             });
-        //             legendData.push(name);
-        //         }
-        //     }
-        //     option.legend.data = legendData;
-        //     option.series[1].data = data;
-        //     myChart.setOption(option, true);
-        // })
 
         // 为echarts对象加载数据 
         myChart.setOption(option); 

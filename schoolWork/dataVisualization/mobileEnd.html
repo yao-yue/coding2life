@@ -1,0 +1,1093 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+		<script src="js/classie.js"></script>
+		<!--<script src="js/selectFx.js"></script>-->
+		
+		<link rel="stylesheet" type="text/css" href="css/cs-select.css" />
+		<link rel="stylesheet" type="text/css" href="css/cs-select-1.css" />
+		<link rel="stylesheet" type="text/css" href="css/cs-skin-elastic.css" />
+		<link rel="stylesheet" type="text/css" href="css/cs-skin-slide.css" />
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+				outline: none;
+				-webkit-tap-highlight-color:rgba(0,0,0,0);
+			}
+			
+			body {
+				width: 100vw;
+				height: 100vh;
+				overflow: hidden;
+				background: #000014;
+				color: #fff;
+				font-weight: 400;
+				font-size: 1em;
+				font-family: 'Raleway', Arial, sans-serif;
+			}
+			
+			@font-face {
+				font-weight: normal;
+				font-style: normal;
+				font-family: 'codropsicons';
+			}
+			
+			*,
+			*:after,
+			*:before {
+				-webkit-box-sizing: border-box;
+				box-sizing: border-box;
+			}
+			
+			.clearfix:before,
+			.clearfix:after {
+				content: '';
+				display: table;
+			}
+			
+			.clearfix:after {
+				clear: both;
+			}
+			
+			a {
+				color: #1e6fa4;
+				text-decoration: none;
+				outline: none;
+			}
+			
+			a:hover, a:focus {
+				color: #125480;
+				outline: none;
+			}
+			
+			/* Demo themes */
+			
+			.color-3 { color: #fff; }
+			.color-3 a { color: #04706b; }
+			.color-3 a:hover, .color-3 a:focus { color: #03514d; }
+			.color-4 {  color: #f9f9f9; }
+			.color-4 a { color: #eb7e7f; }
+			.color-4 a:hover, .color-4 a:focus { color: #c56667; }
+			
+			label.select-label {
+				display: block;
+				text-transform: uppercase;
+				padding: 1em 0 1.5em;
+				font-size: 75%;
+				letter-spacing: 1px;
+				font-weight: 700;
+				width: 300px;
+				margin: 0 auto;
+				color: #c0c6c4;
+			}
+			
+			 label.select-label {
+				color: white;
+				font-size: 1em;
+				text-align: center;
+			}
+			
+			
+			section {
+				padding: 4% 1em 10%;
+				text-align: center;
+			}
+			
+			#switchContainer {
+				width: 100vw;
+				height: 100vh;
+				overflow: hidden;
+				position: relative;
+			}
+			
+			#switchInner {
+				width: 300vw;
+				height: 100vh;
+				transition: all;
+			}
+			
+			.switchBlocks {
+				width: 100vw;
+				height: 100vh;
+				margin: 0 0;
+				box-shadow: inset 0px 0px 28px rgb(0, 0, 0, .7);
+				float: left;
+				position: relative;
+				/*background: #000014;
+				background: #229dfc;
+				background: rgb(85, 120, 155);
+				background: rgb(188, 201, 215);*/
+				/*background: red;*/
+				
+			}
+			.switchBlocks_pic{
+				margin-top: 5vh;
+			}
+			.switchBlocks img {
+				width: 60vw;
+				height: 60vw;
+				max-width: 355px;
+				max-height: 355px;
+				display: block;
+				margin: 0 auto;
+			}
+			
+			#setCharts {
+				width: 70vw;
+				margin: 0 auto;
+				color: black;
+			}
+			
+			#setCharts_title {
+				font-size: 1.5em;
+				font-family: 'Raleway', Arial, sans-serif;
+				width: 70vw;
+				font-weight: bold;
+				margin-bottom: 2vh;
+				text-align: center;
+			}
+			
+			#setCharts_content {
+				width: 70vw;
+				height: 27vh;
+				font-size: 1em;
+				font-family: "comic sans ms";
+				background: navajowhite;
+				border-radius: 1em;
+				box-sizing: border-box;
+			}
+			
+			#setCharts_content ul,
+			li {
+				list-style: none;
+				margin: 0;
+				padding: 0;
+			}
+			
+			#setCharts_content_1 {
+				margin-left: 2.5vw;
+				margin-top: 5vh;
+			}
+			
+			.setCharts_content_3 {
+				width: 70vw;
+				height: 5vh;
+			}
+			
+			.setCharts_content_3 li {
+				float: left;
+				width: 30vw;
+				margin: 1vh 2.5vw;
+			}
+			
+			input[type="checkbox"]+label::before {
+				content: "\a0";
+				/*不换行空格*/
+				display: inline-block;
+				vertical-align: .2em;
+				width: .8em;
+				height: .8em;
+				margin-right: .2em;
+				border-radius: .2em;
+				background-color: silver;
+				text-indent: .15em;
+				line-height: .65;
+				margin-top: 15px;
+				/*行高不加单位，子元素将继承数字乘以自身字体尺寸而非父元素行高*/
+			}
+			
+			input[type="checkbox"]:checked+label::before {
+				content: "\2713";
+				background-color: yellowgreen;
+			}
+			
+			input {
+				position: absolute;
+				clip: rect(0, 0, 0, 0);
+			}
+			
+			input[type="checkbox"]:focus+label::before {
+				box-shadow: 0 0 .1em .1em #58a;
+			}
+			
+			input[type="checkbox"]:disabled+label::before {
+				background-color: gray;
+				box-shadow: none;
+				color: #555;
+			}
+			
+			#tabBlock {
+				width: 100vw;
+				height: 10vh;
+				background: rgb(235, 235, 235);
+				box-shadow: 3px 3px 8px rgba(0, 0, 0, .4), 0 -2px 0 white;
+				border-radius: 5vh 5vh 0vh 0vh;
+				/* float: left; */
+				position: absolute;
+				bottom: 0;
+				left: 0;
+			}
+			
+			#tabBlockInner {
+				width: 90vw;
+				height: 10vh;
+				margin-left: 5vw;
+				position: relative;
+			}
+			
+			.tabs {
+				width: 30vw;
+				height: 10vh;
+				text-align: center;
+				line-height: 10vh;
+				float: left;
+				color: rgb(85, 120, 145);
+			}
+			
+			.tabs img {
+				width: 32px;
+				height: 32px;
+				display: block;
+				margin: calc(5vh - 16px) auto;
+			}
+			
+			#scrollTab {
+				position: absolute;
+				width: 15vh;
+				height: 15vh;
+				top: -7.5vh;
+				left: calc(15vw - 7.5vh);
+				background: #000014;
+				background: #229dfc;
+				background: rgb(85, 120, 145);
+				background: rgb(188, 201, 215);
+				border-radius: 7.5vh;
+				transition: background .5s ease-in-out;
+				animation-duration: 1.5s;
+			}
+			
+			#scrollTabInner {
+				width: 12vh;
+				height: 12vh;
+				border-radius: 6vh;
+				margin: 1.5vh auto;
+				background: rgb(235, 235, 235);
+				box-shadow: 5px 5px 8px rgba(0, 0, 0, .4), 0 -2px 0 white;
+				overflow: hidden;
+			}
+			
+			#scrollTabInner i {
+				line-height: 12vh;
+				width: 12vh;
+				text-align: center;
+				transition: all 0.25s ease-in-out;
+				color: rgb(50, 50, 50);
+			}
+			
+			#scrollTabInner img {
+				width: 5vh;
+				height: 5vh;
+				display: block;
+				margin: 3.5vh auto;
+			}
+			
+			.one {
+				left: calc(45vw - 7.5vh);
+			}
+			
+			@-webkit-keyframes customizedBounce {
+				from,
+				20%,
+				53%,
+				80%,
+				to {
+					-webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+					animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+					-webkit-transform: translate3d(0, 0, 0);
+					transform: translate3d(0, 0, 0);
+				}
+				40%,
+				43% {
+					-webkit-animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+					animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+					-webkit-transform: translate3d(0, -10vh, 0);
+					transform: translate3d(0, -10vh, 0);
+				}
+				70% {
+					-webkit-animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+					animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+					-webkit-transform: translate3d(0, -5vh, 0);
+					transform: translate3d(0, -5vh, 0);
+				}
+				90% {
+					-webkit-transform: translate3d(0, -1vh, 0);
+					transform: translate3d(0, -1vh, 0);
+				}
+			}
+			
+			@keyframes customizedBounce {
+				from,
+				20%,
+				53%,
+				80%,
+				to {
+					-webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+					animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+					-webkit-transform: translate3d(0, 0, 0);
+					transform: translate3d(0, 0, 0);
+				}
+				40%,
+				43% {
+					-webkit-animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+					animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+					-webkit-transform: translate3d(0, -10vh, 0);
+					transform: translate3d(0, -10vh, 0);
+				}
+				70% {
+					-webkit-animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+					animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+					-webkit-transform: translate3d(0, -5vh, 0);
+					transform: translate3d(0, -5vh, 0);
+				}
+				90% {
+					-webkit-transform: translate3d(0, -1vh, 0);
+					transform: translate3d(0, -1vh, 0);
+				}
+			}
+			
+			.customizedBounce {
+				-webkit-animation-name: customizedBounce;
+				animation-name: customizedBounce;
+				-webkit-transform-origin: center bottom;
+				transform-origin: center bottom;
+			}
+			#thumbnailsContainer{
+				width: 80vw;
+				height: 30vh;
+				background: white;
+				margin: 0 auto;
+			}
+			.blocksThumbnails{
+				float: left;
+				cursor: pointer;
+				box-shadow: 0px 0px 8px rgba(88,140,117,.95);
+/*				background:red;*/
+				margin: 1vh 2vw 1vh 2vw;
+				box-sizing: border-box;
+				color: white;
+			}
+			.layout22{
+				width: 20vw;
+				height: 20vh;
+				float: left;
+			}
+			.regu{
+				width: 16vw;
+				height: 8vh;
+			}
+			.uni{
+				width: 36vw;
+				height: 18vh;
+			}
+			#chartSelectForm{
+				display: none; 
+				height: 100vh;
+				background:rgb(240,240,240);
+				transition: all 1s ease-in-out;
+				position: absolute;
+				box-shadow: 0px 3px 8px rgba(0,0,0,.5);
+				animation-duration: 1.5;
+				overflow-y: scroll;
+				box-sizing: border-box;
+			}
+			.chartSelectFormOri{
+				width: 0;
+				left: 50vw;
+				top: calc(5px - 100vh);
+				padding: 0vh 0vw;
+			}
+			.chartSelectFormMid{
+				width: 100vw;
+				left: 0;
+				top: calc(5px - 100vh);
+				padding: 0vh 5vw;
+			}
+			.chartSelectFormThird{
+				width: 100vw;
+				left: 0;
+				top: 0;
+				padding: 0vh 5vw;
+			}
+				.multipleChoices{
+		height: 50px;
+		border-radius: 25px;
+		cursor: pointer;
+		margin: 5px;
+		line-height: 50px;
+		box-sizing: border-box;
+		transition: all .5s;
+		text-align: center;
+		float: left;
+	}
+	.multipleChoices a{
+		margin: 0 10px;
+	}
+	.multipleChoicesOri{
+		background: rgb(246,248,249);
+		color: rgb(121,121,121);
+		border: 2px solid rgb(151,151,151);
+	}
+	.multipleChoicesActive{
+		background: rgb(5,192,150);
+		color: white;
+		border: 2px solid rgb(5,192,150);
+	}
+	.multipleChoicesOri a{
+		color: rgb(121,121,121);
+	}
+	.multipleChoicesActive a{
+		color: white;
+	}
+	.monoChoice{
+		height: 50px;
+		border-radius: 7px;
+		border: 2px dashed rgb(151,151,151);
+		margin: 5px;
+		text-align: center;
+		box-sizing: border-box;
+		float: left;
+		line-height: 50px;
+		cursor: pointer;
+		transition: all 0.5s;
+	}
+	.monoChoice a{
+		margin: 0 10px;
+	}
+	.monoChoiceOri{
+		background: rgb(246,248,249);
+		border: 2px dashed rgb(151,151,151);
+		color: rgb(121,121,121);
+	}
+	.monoChoiceActive{
+		box-shadow: 0 3px 20px rgba(156, 86, 241, 0.43);
+		background: #9c56f1;
+		border: 2px solid #9c56f1;
+		color: white;
+	}
+	.monoChoiceOri a{
+		color: rgb(121,121,121);
+	}
+	.monoChoiceActive a{
+		color: white;
+	}
+	#formSubmit{
+		width: 90vw;
+		height: 50px;
+		background: black;
+		color: white;
+		border-radius: 7px;
+		line-height: 50px;
+		text-align: center;
+		cursor: pointer;
+		margin: 30px auto;
+		float: left;
+	}
+	.formLabel{
+		width: 90vw;
+		height: 40px;
+		line-height: 40px;
+		float: left;
+		padding-left: 40px;
+		position: relative;
+		/*background: rgb(181,181,181);*/
+		margin: 20px 0;
+		color: white;
+		
+	}
+	.formLabel_1{
+		background: #9c56f1;
+	}
+	.formLabel_2{
+		background: rgb(5,192,150);
+	}
+	.formLabel_3{
+		background: rgb(181,181,181);
+	}
+	.formLabel:before{
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 5px;
+		height: 40px;
+		background: #533379;
+	}
+	#chartDataNumSelect{
+		width: 240px;
+		height: 40px;
+		margin: 0 auto;
+	}
+	#sub{
+		width: 40px;
+		height: 40px;
+		/*background: rgb(49,149,254);*/
+		color: rgb(121,121,121);
+		font-weight: bolder;
+		float: left;
+		text-align: center;
+		line-height: 40px;
+		border: 1px solid rgb(121,121,121);
+		box-sizing: border-box;
+		border-left: none;
+	}
+	#doubleSub{
+		width: 40px;
+		height: 40px;
+		/*background: rgb(49,149,254);*/
+		color: rgb(121,121,121);
+		font-weight: bolder;
+		float: left;
+		text-align: center;
+		line-height: 40px;
+		border: 1px solid rgb(121,121,121);
+		box-sizing: border-box;
+		border-radius: 5px 0 0 5px;
+	}
+	#plus{
+		width: 40px;
+		height: 40px;
+		/*background: rgb(49,149,254);*/
+		color: rgb(121,121,121);
+		font-weight: bolder;
+		float: left;
+		text-align: center;
+		line-height: 40px;
+		border: 1px solid rgb(121,121,121);
+		box-sizing: border-box;
+		border-right: none;
+	}
+	#doublePlus{
+		width: 40px;
+		height: 40px;
+		/*background: rgb(49,149,254);*/
+		color: rgb(121,121,121);
+		font-weight: bolder;
+		float: left;
+		text-align: center;
+		line-height: 40px;
+		border: 1px solid rgb(121,121,121);
+		box-sizing: border-box;
+		border-radius: 0 5px 5px 0;
+	}
+	#dataNum{
+		width: 80px;
+		height: 40px;
+		text-align: center;
+		line-height: 40px;
+		border-top: 1px solid rgb(181,181,181);
+		border-bottom: 1px solid rgb(181,181,181);
+		float: left;
+		box-sizing: border-box;
+		color: rgb(121,121,121);
+	}
+	#closeBtn{
+		width: 60px;
+		height: 60px;
+		/*float: left;*/
+		margin: 0 auto;
+		margin-top: 10px;
+		border: 1px solid rgb(51,51,51);
+		border-radius: 30px;
+		box-sizing: border-box;
+		transition: all 1s;
+	}
+	#closeBtn img{
+		cursor: pointer;
+		width: 40px;
+		height: 40px;
+		margin: 10px auto;
+		/*position: absolute;
+		top: 0;
+		right: 0;*/
+		
+	}
+	.imgOri{
+		transform: rotateZ(-765deg);
+		background: rgba(0,0,0,1);
+	}
+	.imgActive{
+		transform: rotateZ(0deg);
+		background: rgba(51,51,51,0);
+	}
+	#dataTypeSelect{
+		width: 100vw;
+		height: 100vh;
+		background: rgba(0,0,0,.8);
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: 9999;
+	}
+	#dataTypeSelectInner{
+		margin: 0 auto;
+	}
+	#dataTypeSelectInner section{
+		margin-top: 42vh;
+	}
+	.download{
+/*		padding: 4% 1em 10%;*/
+		width: 60vw;
+		height: 10vw;
+		margin: 1px auto;
+		line-height: 10vw;
+		font-size: 1em;
+		text-align: center;
+		color: whitesmoke;
+		font-weight: bold;
+	}
+	.download img{
+		width: 10vw;
+		height: 10vw;
+		max-width: 64px;
+		max-height: 64px;
+		float: left;
+		margin: 0 5vw;
+	}
+		</style>
+	</head>
+
+	<body>
+		<div id="dataTypeSelect">
+			<div id="dataTypeSelectInner">
+				<section>
+					<select id="dataTypeSelectSelect" class="cs-select cs-skin-elastic">
+						<!--<option value="" disabled selected>Select DataType</option>
+						<option value="dataType">计算机硬件信息</option>
+						<option value="dataType">计算机硬件信息1</option>-->
+					</select>
+				</section>
+			</div>
+		</div>
+		<div id="switchContainer" dataType="计算机硬件信息">
+			<div id="switchInner">
+				<div class="switchBlocks">
+					<div class="switchBlocks_pic"><img src="img/a2.png"></div>
+					<div class="color-3">
+						<div class="container">
+							<section>
+								<select class="cs-select cs-skin-elastic">
+									<option value="" disabled selected>选择大屏布局</option>
+									<option value="layout1">1*1</option>
+									<option value="layout2">2*2</option>
+									<option value="layout3">3*3</option>
+									<option value="layout4">4*3</option>
+								</select>
+							</section>
+							<div class="download">下载分析报告</div>
+							<div class="download"><a href="http://47.101.190.24:8989/Downloads/Word"><img src="img/word.png"/></a><a href="http://47.101.190.24:8989/Downloads/Txt"><img src="img/txt.png"/></a><a href="http://47.101.190.24:8989/Downloads/Excel"><img src="img/EXCEL.png"/></a></div>
+						</div>
+					</div>
+				</div>
+				<div class="switchBlocks">
+					<div class="switchBlocks_pic"><img src="img/a3.png"></div>
+					<div class="color-4">
+					
+							<div class="container">
+								<section>
+					
+									<label class="select-label">切换大屏主题样式</label>
+					
+									<select class="cs-select-1 cs-skin-slide">
+					
+										<option value="Theme1" data-class="icon-camera">黑色极简</option>
+					
+										<option value="Theme2" data-class="icon-money">未来科技</option>
+					
+										<option value="Theme3" data-class="icon-heart">星途</option>
+					
+										<option value="Theme4" data-class="icon-food">简约商务</option>
+					
+										<!--<option value="Theme5" data-class="icon-shirt">Theme5</option>-->
+					
+									</select>
+					
+								</section>
+					
+							</div>
+					
+							
+					</div>
+				</div>
+				<div class="switchBlocks" >
+					<div class="switchBlocks_pic"><img src="img/a4.png"></div>
+					
+					<div id="thumbnailsContainer">
+						
+					</div>
+					<label class="select-label">选择一个图表设定图表类型及数据项</label>
+					<div id="chartSelectForm" class="chartSelectFormOri">
+						<div id="closeBtn" class="imgOri"><img src="img/close.png"></div>
+						<!--<div class="formLabel formLabel_0">Select the dataType.</div>
+						<div id="chartDataTypeSelect">
+							
+						</div>-->
+						<div class="formLabel formLabel_1">选择该图表类型.</div>
+						<div id="chartTypeSelect">
+							<div class="monoChoice monoChoiceOri" type="0">
+								<a>折线图</a>
+							</div>
+							<div class="monoChoice monoChoiceOri" type="1">
+								<a>柱形图</a>
+							</div>
+							<div class="monoChoice monoChoiceOri" type="2">
+								<a>正负条形图</a>
+							</div>
+							<div class="monoChoice monoChoiceOri" type="3">
+								<a>仪表盘</a>
+							</div>
+							<div class="monoChoice monoChoiceOri" type="4">
+								<a>堆叠区域图</a>
+							</div>
+							<div class="monoChoice monoChoiceOri" type="5">
+								<a>饼状图</a>
+							</div>
+							<div class="monoChoice monoChoiceOri" type="6">
+								<a>环形图</a>
+							</div>
+							<div class="monoChoice monoChoiceOri" type="7">
+								<a>数据集对比图</a>
+							</div>
+							<div class="monoChoice monoChoiceOri" type="8">
+								<a>堆叠条形图</a>
+							</div>
+							<div class="monoChoice monoChoiceOri" type="9">
+								<a>线性回归分析图</a>
+							</div>
+						</div>
+						<div class="formLabel formLabel_2">挑选该图表数据项</div>
+						<div id="chartDataSelect">
+							
+						</div>
+						<div class="formLabel formLabel_3">选择该图表的数据量</div>
+						<div id="chartDataNumSelect">
+							<div id="doubleSub">--</div>
+							<div id="sub">-</div>
+							<div id="dataNum">0</div>
+							<div id="plus">+</div>
+							<div id="doublePlus">++</div>
+						</div>
+						<div id="formSubmit">Submit</div>
+					</div>
+				</div>
+				<div id="tabBlock">
+					<div id="tabBlockInner">
+						<div class="tabs"><img src="img/layout.png"></div>
+						<div class="tabs"><img src="img/theme.png"></div>
+						<div class="tabs"><img src="img/Datastatistics.png"></div>
+						<div id="scrollTab">
+							<div id="scrollTabInner">
+								<img src="img/layout.png">
+								<!--<i class="fa fa-plus active"></i>-->
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript">
+		
+//			function sendMsg(msg){
+//				send(msg);
+//			};
+//			$("#submit").click(function(){
+//				sendMsg();
+//			});
+//          $("#input").keydown(function(event){
+//			if (event.keyCode === 13){ 
+//				event.preventDefault();
+//		        sendMsg();} 
+//			});
+
+		</script>
+		<script type="text/javascript">
+			var initData=null;/*存储数据库所有数据类型和属性*/
+			function request(method,url,data,dataType,async){
+			    $.ajax({
+			        url: url,
+			        async:async,
+			        data: data,
+			        dataType:dataType,
+			        contentType:"application/json;charset=UTF-8",
+			        method: method
+			    }).done(function(data){
+			    	initData=data;
+			    	$("#dataTypeSelectSelect").empty();
+			    	var content='<option value="" disabled selected>请先选择数据类型</option>';
+			    	for(var i=0;i<data.length;i++){
+			    		content+='<option value="data'+i+'">'+data[i].dataType+'</option>';
+			    	}
+			    	$("#dataTypeSelectSelect").append(content);
+			    	$.getScript('js/selectFx.js',function(){console.log("selectFx.js")});
+			    }).fail(function(data){console.log(data)});
+			};
+			request("get","http://47.101.190.24:8989/data",null,'JSON',true);
+			var formation=3;
+			function appendChartDataSelect(){
+				for(var i=0;i<initData.length;i++){
+					if(initData[i].dataType==$("#switchContainer").attr("dataType")){
+						var content="";
+						for(var j=0;j<initData[i].argList.length;j++){
+							if(initData[i].argList[j]!='ip')
+								content+='<div class="multipleChoices multipleChoicesOri"><a>'+initData[i].argList[j]+'</a></div>';
+						}
+						$("#chartDataSelect").html(content);
+					}
+				}
+			}
+			function formatThumbnails(){
+				$("#thumbnailsContainer div").remove();
+				if(formation==3){
+					$("#thumbnailsContainer").append('<div class="layout22"><div class="blocksThumbnails regu">0</div><div class="blocksThumbnails regu">1</div></div><div class="blocksThumbnails uni">2</div><div class="layout22"><div class="blocksThumbnails regu">3</div><div class="blocksThumbnails regu">4</div></div><div class="blocksThumbnails regu">5</div><div class="blocksThumbnails regu">6</div><div class="blocksThumbnails regu">7</div><div class="blocksThumbnails regu">8</div>');
+				}else{
+					var width=80/(formation+1)-4;
+					var height=30/(formation+1)-2;
+					var block = $('<div class="blocksThumbnails"></div>');
+					block.css({
+						width:width+"vw",
+						height:height+"vh",
+					});
+					var cloneBlock;
+					for(var i=0;i<(formation+1)*(formation+1);i++){
+						cloneBlock=block.clone();
+						cloneBlock.html(i);
+						$("#thumbnailsContainer").append(cloneBlock);
+					}
+				}
+			}
+			$("#thumbnailsContainer").on("click",".blocksThumbnails",function(){
+				$("#formSubmit").attr("chartId",$(this).text());
+				$("#chartSelectForm").children().hide();
+				$("#chartSelectForm").show();
+				setTimeout(function(){
+					$("#chartSelectForm").removeClass("chartSelectFormOri").toggleClass("chartSelectFormMid");
+					$("#tabBlock").animate({bottom:"-20vh"},800);
+				},0);
+				
+				setTimeout(function(){
+					$("#chartSelectForm").removeClass("chartSelectFormMid").toggleClass("chartSelectFormThird");
+					$("#chartSelectForm").children().show();
+				},1000);
+				setTimeout(function(){
+					$(".imgOri").removeClass("imgOri").toggleClass("imgActive");
+				},2200);
+				
+		});
+		$("body").on("click",".multipleChoicesOri",function(){
+			$(this).removeClass("multipleChoicesOri").toggleClass("multipleChoicesActive");
+		});
+		$("body").on("click",".multipleChoicesActive",function(){
+			$(this).removeClass("multipleChoicesActive").toggleClass("multipleChoicesOri");
+		});
+		$("body").on("click",".monoChoiceOri",function(){
+			$(".monoChoiceActive").removeClass("monoChoiceActive").toggleClass("monoChoiceOri");
+			$(this).removeClass("monoChoiceOri").toggleClass("monoChoiceActive");
+		});
+		$("body").on("click",".monoChoiceActive",function(){
+			$(this).removeClass("monoChoiceActive").toggleClass("monoChoiceOri");
+		});
+		$("body").on("click","#formSubmit",function(){
+			var multipleLength=$(".multipleChoicesActive").length;
+			var reviseCommand=new Object();
+			reviseCommand.code=2;
+			reviseCommand.dataType=$("#switchContainer").attr("dataType");
+			reviseCommand.chartId=parseInt($("#formSubmit").attr("chartId"));
+			reviseCommand.chartType=parseInt($(".monoChoiceActive").eq(0).attr("type"));
+			reviseCommand.chartDatas="";
+			while(multipleLength--){
+				reviseCommand.chartDatas+=$(".multipleChoicesActive").eq(multipleLength).find("a").text();
+				if(multipleLength>0){
+					reviseCommand.chartDatas+="&";
+				}
+			}
+			reviseCommand.dataNum=parseInt($("#dataNum").text());
+			console.log(JSON.stringify(reviseCommand));
+			sendCommand(JSON.stringify(reviseCommand));
+		});
+		$("body").on("click","#closeBtn",function(){
+			$(".imgActive").removeClass("imgActive").toggleClass("imgOri");
+			setTimeout(function(){
+					$("#chartSelectForm").removeClass("chartSelectFormThird").toggleClass("chartSelectFormMid");
+				},1200);
+			setTimeout(function(){
+					$("#chartSelectForm").removeClass("chartSelectFormMid").toggleClass("chartSelectFormOri");
+					$("#tabBlock").animate({bottom:"0vh"},800);
+				},2200);
+			setTimeout(function(){
+				$("#chartSelectForm").hide();
+			},2600);
+			$(".monoChoiceActive").removeClass("monoChoiceActive").toggleClass("monoChoiceOri");
+			$(".multipleChoicesActive").removeClass("multipleChoicesActive").toggleClass("multipleChoicesOri");
+			$("#dataNum").text("0");
+		})
+		$("#chartDataNumSelect").on("click","#sub",function(){
+			var num=parseInt($("#dataNum").text());
+			if(num>0){
+				$("#dataNum").text(num-1);
+			}
+		});
+		$("#chartDataNumSelect").on("click","#plus",function(){
+			var num=parseInt($("#dataNum").text());
+			if(num<50){
+				$("#dataNum").text(num+1);
+			}
+		});
+		$("#chartDataNumSelect").on("click","#doubleSub",function(){
+			var num=parseInt($("#dataNum").text());
+			if(num>=10){
+				$("#dataNum").text(num-10);
+			}
+		});
+		$("#chartDataNumSelect").on("click","#doublePlus",function(){
+			var num=parseInt($("#dataNum").text());
+			if(num<=40){
+				$("#dataNum").text(num+10);
+			}
+		});
+			
+			var colorList = ["rgb(17,85,114)", "rgb(243,91,104)", "#b0c47f"];
+			colorList = ["rgb(240,175,20)", "rgb(243,91,104)", "rgb(88,140,117)"];
+			for(var i = 0; i < 3; i++) {
+				$(".switchBlocks").eq(i).css({
+					"background": colorList[i]
+				});
+			}
+
+			var wrapper = $("#switchContainer");
+			var startX = null;
+			var startY = null;
+			var spIndex = 0;
+			var imgSrc = ["img/layout.png", "img/theme.png", "img/Datastatistics.png"];
+			$("#scrollTab").css({
+				"background": colorList[spIndex]
+			});
+			$("#scrollTabInner img").attr("src", spIndex + imgSrc[spIndex]);
+
+			function switchAnimate(direction, d) {
+				$("#scrollTab").css({
+					"background": colorList[spIndex]
+				});
+				$("#switchInner").animate({
+					marginLeft: "-" + spIndex * 100 + "vw"
+				}, 500);
+				//tab内图片下降
+				$("#scrollTabInner img").animate({
+					marginTop: "12vh"
+				}, 400);
+				$(".tabs img").show();
+				$("#scrollTab").animate({
+					left: direction + "=" + d + "vw"
+				}, 400);
+				setTimeout(function() {
+					$("#scrollTabInner img").attr("src", spIndex + imgSrc[spIndex]);
+					$(".tabs").eq(spIndex).find("img").hide();
+					//tab内图片上升
+					$("#scrollTabInner img").animate({
+						marginTop: "3.5vh"
+					}, 200);
+				}, 300);
+
+				$("#scrollTab").toggleClass("animated customizedBounce");
+				setTimeout(function() {
+					$("#scrollTab").removeClass("customizedBounce");
+				}, 1500);
+			}
+			$("#tabBlock").on("click", ".tabs", function() {
+				var tabIndex = $(this).index();
+				if(tabIndex > spIndex) {
+					var m = tabIndex - spIndex;
+					spIndex = tabIndex;
+					switchAnimate("+", m * 30);
+				} else if(tabIndex < spIndex) {
+					var m = spIndex - tabIndex;
+					spIndex = tabIndex;
+					switchAnimate("-", m * 30);
+				} else {
+					switchAnimate("", tabIndex - spIndex);
+				}
+			})
+
+			function touchStartFunc(evt) {
+				try {
+					if(event.cancelable) {
+						if(!event.defaultPrevented) {
+							event.preventDefault();
+						}
+					}
+					var touch = evt.touches[0]; //获取第一个触点
+					var x = Number(touch.pageX); //页面触点X坐标
+					var y = Number(touch.pageY); //页面触点Y坐标
+					//记录触点初始位置
+					startX = x;
+					startY = y;
+				} catch(e) {
+					alert('touchSatrtFunc：' + e.message);
+				}
+			}
+
+			function touchMoveFunc(evt) {
+				try {} catch(e) {
+					alert('touchMoveFunc：' + e.message);
+				}
+			}
+
+			function touchEndFunc(evt) {
+				try {
+					var x, y;
+					x = evt.changedTouches[0].pageX;
+					y = evt.changedTouches[0].pageY;
+					if(x < startX - 120) {
+
+						if(spIndex < 2) {
+							spIndex++;
+							switchAnimate("+", 30);
+						}
+					}
+					if(x > startX + 120) {
+
+						if(spIndex > 0) {
+							spIndex--;
+							switchAnimate("-", 30);
+						}
+					}
+				} catch(e) {
+					alert('touchEndFunc：' + e.message);
+				}
+			}
+
+			function bindEvent() {
+				$("body").on("touchstart", "#switchContainer", touchStartFunc);
+				$("body").on("touchmove", "#switchContainer", touchMoveFunc);
+				$("body").on("touchend", "#switchContainer", touchEndFunc);
+			}
+			$(document).ready(function() {
+				bindEvent();
+			});
+		</script>
+		<script src="js/webSocket.js"></script> 
+		<script>
+			
+		</script>
+		<script>
+			
+							
+		</script>
+	</body>
+
+</html>
