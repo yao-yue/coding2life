@@ -49,7 +49,8 @@
 				right: 0;
 				cursor: pointer;
 				font-size: 0.8vw;
-				color: rgb(230,230,230);
+				/* color: rgb(230,230,230); */
+				color: #000000;
 			}
 			#realTimeUpdate img{
 				width: 3vw;
@@ -366,6 +367,13 @@
 							"box-shadow": "inset 0 0 2vw rgb(1,109,133), 0 0 1vw #fff, 0 0 3vw rgb(1,109,133)",
 							"background": "rgba(0,74,120,.5)","border-image":"none"});
 							$('<style>.blocks:before{opacity:1;} .blocks:after{opacity:1;} </style>').appendTo('head');
+					}else if(theme==4) {
+						// $.getScript('js/aSkyFullOfStars2.js',function(){console.log("aSkyFullOfStars2.js")});
+						// displayBac="rgba(0,37,73,.7)";
+						$(".blocks").css({"border": "1px solid pink",
+							"box-shadow": "inset 0 0 2vw green, 0 0 1vw #fff, 0 0 3vw yellow",
+							"background": "#e6e6e6","border-image":"none"});
+							$('<style>.blocks:before{opacity:1;} .blocks:after{opacity:1;} </style>').appendTo('head');
 					}
 					$("#displayBackground").css({"background":displayBac});
 			}
@@ -391,7 +399,7 @@
 				},1000);
 			}
 			function putUpRequest(){
-					
+					//websocket拉数据------
 					isRequestDone="";
 					for(var i=0;i<blockCount;i++){
 						request("POST","http://47.101.190.24:8456/findZXData",JSON.stringify(requestCommandList[i]),'JSON',requestSuccess,b,true,i);
@@ -402,6 +410,7 @@
 							requestSuccess();
 							var mydate = new Date();
 					console.log(mydate.toLocaleString());
+					console.log('invoked websocket -----')
 						}
 					},500);
 			}
