@@ -18,7 +18,7 @@ window.onload = function() {
     function addMessage(from, text) {
         var li = document.createElement('li');
         li.className = 'message';
-        li.innerHTML = '<br>' + form + '</br>:' + text;
+        li.innerHTML = '<br>' + from + '</br>:' + text;
         document.getElementById('messages').appendChild(li);
     }
 
