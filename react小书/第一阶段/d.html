@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>组件测试</title>
+</head>
+
+<body>
+    <div class='wrapper'>
+
+    </div>
+</body>
+<script>
+    // string => dom
+    const createDOMFromString = (domString) => {
+        const div = document.createElement('div')
+        div.innerHTML = domString
+        return div
+    }
+    class LikeButton {
+        constructor() {
+            this.state = { isLiked: false }
+        }
+        setState(state) {
+            const oldEl = this.el
+            this.state = state
+            this.el = this.render()   //渲染出的新元素
+            if (this.onStateChange) this.onStateChange(oldEl, this.el)
+        }
+        changeLikeText() {
+            this.setState({
+                isLiked: !this.state.isLiked
+            })
+        }
+        render() {
+            this.el = createDOMFromString(`
+        <button class='like-button'>
+          <span class='like-text'>${this.state.isLiked ? '取消' : '点赞'}</span>
+          <span>👍</span>
+        </button>
+      `)
+            //bind 防止this丢失  用箭头函数也可以
+            this.el.addEventListener('click', this.changeLikeText.bind(this), false)
+            return this.el
+        }
+    }
+    const wrapper = document.querySelector('.wrapper')
+
+    const likeButton1 = new LikeButton()
+    wrapper.appendChild(likeButton1.render())
+
+    likeButton1.onStateChange = (oldEl, newEl) => {
+        wrapper.insertBefore(newEl, oldEl) // 插入新的元素
+        wrapper.removeChild(oldEl) // 删除旧的元素
+    }
+</script>
+
+</html>
