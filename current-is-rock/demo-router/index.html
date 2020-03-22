@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Home</title>
+    <link rel="stylesheet" href="/common.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <ul class="nav">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="fluffy.html">Fluffy</a></li>
+            <li><a href="socks.html">Socks</a></li>
+            <li><a href="whiskers.html">Whiskers</a></li>
+        </ul>
+        <p class="content">
+            Welcome to Kittens! Home of Fluffy, Socks, and Whiskers. If you're not suffering from a cute overdose
+            within the hour, then you really are a heartless bugger! Now lets look at some cats!
+        </p>
+        <div class="media">
+            <img src="http://www.ichong123.com/uploads/2014/08/m1.jpg" alt="" class="photo">
+        </div>
+    </div>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js">
+
+    </script>
+
+    <script>
+        $(function () {
+            //选中整个html的a标签
+            $(document).on('click', 'a', function (e) {
+                e.preventDefault();
+                var url = event.target.href;
+                var req = $.ajax(url);
+                req.done(data => {
+                    console.log($(data).find('.content').text());
+                    console.log($(data).find('.media > img').attr('src'));
+                    console.log($(data));
+
+                    let content = $(data).find('.content').text();
+                    let photo = $(data).find('.media > img').attr('src')
+                    let matches = data.match(/<title>(.+?)</);
+                    let title = matches[1];
+                    let state = {
+                        content,
+                        photo,
+                        title
+                    }
+                    displayContent(state);
+                    // history.replaceState(null, null, '');//抹干净历史
+                    history.pushState(state, state.title, url);
+                });
+            });
+            //浏览器点击回退时触发的事件
+            window.onpopstate = event => {
+                if (event.state) {
+                    var state = event.state;
+                    displayContent(state);
+                }
+            };
+            function displayContent(state) {
+                $('.photo').attr('src', state.photo);
+                $('.content').html(state.content);
+                document.title = state.title;
+            }
+        })
+    </script>
+</body>
+
+</html>
