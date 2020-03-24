@@ -1,0 +1,27 @@
+{
+  "name": "node-music",
+  "version": "1.0.0",
+  "description": "learn a project of kaikeba",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "node",
+    "learn"
+  ],
+  "author": "hbw",
+  "license": "ISC",
+  "dependencies": {
+    "art-template": "^4.13.2",
+    "captchapng2": "^1.0.3",
+    "koa": "^2.11.0",
+    "koa-art-template": "^1.1.1",
+    "koa-bodyparser": "^4.3.0",
+    "koa-formidable": "^1.1.0",
+    "koa-router": "^8.0.8",
+    "koa-session": "^5.13.1",
+    "koa-static": "^5.0.0",
+    "mysql": "^2.18.1"
+  }
+}

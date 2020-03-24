@@ -1,0 +1,72 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>我的音乐</title>
+    <link href="../public/img/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" href="../public/vender/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="../public/css/icon.css" />
+    <link href="../public/css/common.css" rel="stylesheet" type="text/css" />
+    <link href="../public/css/link.css" rel="stylesheet" type="text/css" />
+    <link href="../public/css/style.css" rel="stylesheet" type="text/css" />
+    <script src="../public/vender/jquery/dist/jquery.js" type="text/javascript"></script>
+    <script src="../public/vender/bootstrap/dist/js/bootstrap.js"></script>
+</head>
+
+<body>
+    <div class="aw-top-menu-wrap">
+        <div class="container">
+            <!-- 用户栏 -->
+            <div class="aw-user-nav">
+                <a href="" class="aw-user-nav-dropdown">
+                </a>
+                <div class="aw-dropdown dropdown-list pull-right">
+                    <ul class="aw-dropdown-list">
+                        <li><a href="/logout"><i class="icon icon-logout"></i> 退出</a></li>
+                    </ul>
+                </div>
+                <!-- 登陆&注册栏 -->
+                <span>
+        <a class="register btn btn-normal btn-success" href="">注册</a>
+        <a class="login btn btn-normal btn-primary" href="">登录</a>
+      </span>
+                <!-- end 登陆&注册栏 -->
+            </div>
+            <!-- end 用户栏 -->
+        </div>
+    </div>
+    <div class="container">
+        <form id="form" method="post" action="/">
+            <div class="form-group">
+                <label for="">歌曲编号</label>
+                <input type="text" name="id" class="form-control" placeholder="请输入歌曲编号">
+            </div>
+            <div class="form-group">
+                <label for="">歌曲标题</label>
+                <input type="text" name="title" class="form-control" placeholder="请输入歌曲标题">
+            </div>
+            <div class="form-group">
+                <label for="">歌曲时长</label>
+                <input type="text" name="time" class="form-control" placeholder="请输入歌曲时长">
+            </div>
+            <div class="form-group">
+                <label for="">歌手</label>
+                <input type="text" name="singer" class="form-control" placeholder="请输入歌手姓名">
+            </div>
+            <div class="form-group">
+                <label for="">歌曲文件</label>
+                <input type="file" name="file">
+                <p class="help-block">请上传歌曲文件.</p>
+            </div>
+            <button type="submit" class="btn btn-success">点击添加</button>
+        </form>
+    </div>
+    <div class="aw-footer-wrap">
+        <div class="aw-footer">
+            Copyright © 2016, All Rights Reserved
+            
+        </div>
+    </div>
+</body>
+
+</html>
