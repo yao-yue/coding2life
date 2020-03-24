@@ -23,3 +23,24 @@ npm i  koa  koa-router koa-art-template art-template  koa-bodyparser  koa-static
 8. 处理文件上传的 请求体数据  koa-formidable
 9. 连接数据库  mysql
    1. 查找结果是数组![52759876950](assets/1527598769506.png)
+
+
+## 模板拆分引用及继承
+中部留坑
+```
+main.html
+{{block 'content'}}
+默认内容
+{{/block}}
+    
+{{extend './layout/main.html'}}
+{{block 'content'}}
+子页面内容
+{{/block}}
+```
+
+
+### MVC
+C：接收数据 生成视图
+路由： url --> 做什么事（controller来安排，业务经理）
+controller： 接收数据 响应页面

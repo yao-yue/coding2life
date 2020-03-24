@@ -1,19 +1,6 @@
-<html>
+{{extend './layout/main.html'}}
 
-<head>
-    <meta charset="UTF-8">
-    <title>我的音乐</title>
-    <link href="/public/img/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-    <link rel="stylesheet" type="text/css" href="/public/vender/bootstrap/dist/css/bootstrap.css" />
-    <link rel="stylesheet" type="text/css" href="/public/css/icon.css" />
-    <link href="/public/css/common.css" rel="stylesheet" type="text/css" />
-    <link href="/public/css/link.css" rel="stylesheet" type="text/css" />
-    <link href="/public/css/style.css" rel="stylesheet" type="text/css" />
-    <script src="/public/vender/jquery/dist/jquery.js" type="text/javascript"></script>
-    <script src="/public/vender/bootstrap/dist/js/bootstrap.js"></script>
-</head>
-
-<body>
+{{block 'content'}}
     <div class="aw-top-menu-wrap">
         <div class="container">
             <!-- 用户栏 -->
@@ -68,14 +55,4 @@
 
         </form>
     </div>
-
-<div class="aw-footer-wrap">
-    <div class="aw-footer">
-        Copyright © 2016, All Rights Reserved
-    </div>
-</div>
-
-
-
-</body>
-</html>
+{{/block}}

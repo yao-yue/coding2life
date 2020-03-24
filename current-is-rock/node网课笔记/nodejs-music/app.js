@@ -1,6 +1,7 @@
 const Koa = require('koa')
 const path = require('path')
 let app = new Koa()
+const bodyParser = require('koa-bodyparser')
 
 //引入router
 const musicRouter = require('./routes/music')
@@ -20,8 +21,6 @@ render(app, {
 }) 
 
 
-
-
 //使用中间件
 
 //为了给static重写URL
@@ -36,6 +35,9 @@ app.use(async (ctx, next) => {
 
 //处理静态资源
 app.use(require('koa-static')(path.resolve('./public')))
+
+/* 处理请求体 */
+app.use(bodyParser)
 
 app.use(musicRouter.routes())
 app.use(userRouter.routes())
