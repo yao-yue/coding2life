@@ -1,12 +1,6 @@
 const mysql = require('mysql')
-let pool = mysql.createPool({
-    connectionLimit: 10,
-    host: 'loaclhost',
-    port: '3306',
-    user: 'redqueen',
-    password: '112233',
-    database: 'node_music'
-})
+const {dbConfig} = require('../utils/dbConfig')
+let pool = mysql.createPool(dbConfig)
 
 let db = {}
 
@@ -15,15 +9,15 @@ db.query = function (sql, params) {
     return new Promise((resolve, reject) => {
         pool.getConnection(function (err, conn) {
             if (err) {
-                reject(err)
+                reject(err+'连接出错')
                 return;
             }
 
-            conn.query(sql, params, function (err, res, fields) {
+            conn.query(sql, params, function (error, res, fields) {
                 console.log(`${sql}=>${params}`);
                 conn.release()
-                if (err) {
-                    reject(err)
+                if (error) {
+                    reject(error+'查询出错')
                 }
                 resolve(res)
             })

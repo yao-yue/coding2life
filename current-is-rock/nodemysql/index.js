@@ -3,14 +3,14 @@ var connection = mysql.createConnection({
     host: 'localhost',
     user: 'redqueen',
     password: '112233',
-    database: 'book-self'
+    database: 'node_music'
 })
 // console.log(connection)
 
 
-connection.query('SELECT * FROM js',function(err,res,fields) {
+connection.query('SELECT * FROM users',function(err,res,fields) {
     if(err) throw err;
-    console.table( res)
+    console.table(res)
 })
 
 connection.end()

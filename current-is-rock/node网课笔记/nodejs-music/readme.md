@@ -44,3 +44,15 @@ main.html
 C：接收数据 生成视图
 路由： url --> 做什么事（controller来安排，业务经理）
 controller： 接收数据 响应页面
+
+
+### api流程
+router注册 --> controller逻辑  ---> models弄数据库搞数据
+
+
+### 关于formidable处理文件及字符串
+用bodyParser不太好处理文件
+
+### 写出来的bug真的搞笑😀
+localhost  写成 loaclhost
+from   写成  form

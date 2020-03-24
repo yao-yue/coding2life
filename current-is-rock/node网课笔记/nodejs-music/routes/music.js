@@ -1,13 +1,12 @@
 //引入路由中间件
 const Router = require('koa-router')
 let musicRouter = new Router()
+const musicController = require('../controllers/music')
 
-musicRouter.get('/music/index', async => {
+musicRouter.get('/music/index', async ctx=> {
     ctx.render('index')
 })
-.get('/music/add', async ctx=> {
-    ctx.render('add')
-})
+.post('/music/add', musicController.addMusic)
 .get('/music/edit', async ctx=> {
     ctx.render('edit')
 })
