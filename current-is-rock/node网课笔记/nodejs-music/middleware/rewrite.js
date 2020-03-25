@@ -2,8 +2,10 @@
  * 需求: 1:以/public开头,使用其他部分（正则）
  *       2:精确:/ 或者 /abc  要替换成 /xxx
  *       2.2:模糊: /xxx 开头 替换成/aaa
- * @param  {[type]} options [description]
- * @return {[type]}         [description]
+ *  {regex:/\/abc/,dist:'/user/login'},
+    {regex:/\/public(.*)/,dist:null }, // dist:null 则使用.*的内容
+    {src:'/',dist:'/user/login'}
+    重写url要在路由处理之前
  */
 module.exports = (rules)=>{  
 // 一个ctx.url 对应多条规则的匹配

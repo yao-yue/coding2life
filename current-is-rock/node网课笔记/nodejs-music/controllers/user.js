@@ -50,5 +50,29 @@ module.exports = {
             ctx.throw(error)
         }
         
+    },
+    doLogin: async (ctx, next) => {
+        //1.接收对应的参数
+        let {username, password} = ctx.request.body
+        //2.查询用户名相关的用户
+        let users = await userModel.findUserDataByUsername(username)
+        //3.对比密码是否一致
+        if(username.length === 0) {
+            ctx.body = {
+                code: '002',msg: '用户名或密码不正确',
+            }
+            return 
+        }
+        let user = users[0];
+        if(user.password === password) {
+            ctx.body = {
+                code: '001',
+                msg: '登录成功'
+            }
+            //挂在session用于用户认证判断
+            ctx.session.user = user
+            return
+        }
+        ctx.body = {code: '002', msg:'用户名或密码不正确'}
     }
 }

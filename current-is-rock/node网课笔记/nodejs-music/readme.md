@@ -53,17 +53,31 @@ router注册 --> controller逻辑  ---> models弄数据库搞数据
 ### 关于formidable处理文件及字符串
 用bodyParser不太好处理文件
 数据库里面存的是路径，而不是存文件
+配置
+ // 设置上传目录，否则在用户的temp目录下
+    uploadDir:uploadDir,
+    // 默认根据文件算法生成hash字符串（文件名），无后缀
+    keepExtensions:true
 
 
 ### 重定向和重写URL
 重定向：响应浏览器，让其再请求
-重写URL：服务器内部的调用(首页跳转)
+重写URL：服务器内部的调用(首页跳转),静态资源也要重写，过滤掉public,要在路由处理前
 
 ### 中间件
 中间件改写传参
 module.exports = (options) => {
    return async () => {}
 }
+
+### 数据库相关
+result.affectedRows !== 1    判断是否操作成功
+
+### 加密
+后端加密是王道，注册登录同算法，前端加密不靠谱
+npm找个包就可以的
+
+### 一个问题？ 为什么要有静态资源处理中间件，他是干什么的
 
 ### 写出来的bug真的搞笑😀
 localhost  写成 loaclhost

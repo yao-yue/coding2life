@@ -38,6 +38,8 @@ app.use(rewriteUrl(require('./utils/rewriteUrlConfig')));
 
 //处理静态资源
 app.use(require('koa-static')(staticDir));
+
+// 处理session
 let store = {
   storage:{},
   set(key,session) {
@@ -50,9 +52,7 @@ let store = {
     delete this.storage[key];
   }
 }
-app.keys = ['test'];
-// 基于test字符串进行签名的运算，为的是保证数据不被串改
-// 处理session
+app.keys = ['test']; // 基于test字符串进行签名的运算，为的是保证数据不被串改，类似加密串把
 app.use(session({store:store},app))
 
 /* 处理请求体 bodyParser引入的时候执行一下 require('koa-bodyparser')()*/

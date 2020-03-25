@@ -1,10 +1,10 @@
+//没有复用获取保存对象的之前版本
+
 const musicModel = require('../models/music.js');
 const path = require('path');
 module.exports = {
   /**
    * 添加音乐
-   * @param {[type]}   ctx  [description]
-   * @param {Function} next [description]
    */
   async addMusic(ctx,next){
     // 接收请求数据 

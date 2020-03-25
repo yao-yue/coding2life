@@ -2,9 +2,8 @@ const musicModel = require('../models/music.js');
 const path = require('path');
 /**
  * 没有获取id
- * @param  {[type]} ctx [description]
- * @return {[type]}     [description]
  */
+//复用 把逻辑抽离 
 function optUpload(ctx) {
     // 接收请求数据 
     // console.log(ctx.request.files); // 文件，根据key名
