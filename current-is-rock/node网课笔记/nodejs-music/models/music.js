@@ -1,9 +1,6 @@
-const db = require('./db.js')
-
-
-// mysql sql查询语句里面的？,也就是后面传值的占位符
-//Object.values()  把对象转为数组
+const db = require('./db.js');
 module.exports = {
-   addMusicObj: async sing => await db.query(`insert into musics (title,
-    singer, time,filelrc,file,uid) values (?,?,?,?,?,?)`, Object.values(sing))
+  // xxx:()=> db.q('ssxx');
+  addMusicByObj:async sing => await db.query('insert into musics (title,singer,time,filelrc,file,uid) values (?,?,?,?,?,?)',Object.values(sing)),
+  updateMusic:async music => await db.query('update musics set title=?,singer=?,time=?,filelrc=?,file=?,uid=? where id=?',Object.values(music))
 }

@@ -52,6 +52,18 @@ router注册 --> controller逻辑  ---> models弄数据库搞数据
 
 ### 关于formidable处理文件及字符串
 用bodyParser不太好处理文件
+数据库里面存的是路径，而不是存文件
+
+
+### 重定向和重写URL
+重定向：响应浏览器，让其再请求
+重写URL：服务器内部的调用(首页跳转)
+
+### 中间件
+中间件改写传参
+module.exports = (options) => {
+   return async () => {}
+}
 
 ### 写出来的bug真的搞笑😀
 localhost  写成 loaclhost
