@@ -19,18 +19,18 @@ module.exports = (rules)=>{
         if(result) {
             // 判断是直接赋值。还是取分组的内容
             if(!rule.dist) {
-               console.log(ctx.url,'分组正则字符串，最终改为:' + result[1])
+              //  console.log(ctx.url,'分组正则字符串，最终改为:' + result[1])
               // 还是取分组的内容
               ctx.url = result[1];
             } else {
-               console.log(ctx.url,'精确正则字符串，最终改为:' + rule.dist)
+              //  console.log(ctx.url,'精确正则字符串，最终改为:' + rule.dist)
               ctx.url = rule.dist;
             }
         }
       }
       // 字符串精确匹配的
       if(rule.src === ctx.url) {
-        console.log(ctx.url,'精确匹配字符串，最终改为:' + rule.dist)
+        // console.log(ctx.url,'精确匹配字符串，最终改为:' + rule.dist)
         ctx.url = rule.dist;
       }
     }

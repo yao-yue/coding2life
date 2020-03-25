@@ -11,6 +11,7 @@ userRouter.get('/user/register', userController.showRegister)
 .get('/user/login', async ctx=> {
     ctx.render('login')
 })
+.get('/user/get-pic', userController.getPic)
 
 module.exports = userRouter
 

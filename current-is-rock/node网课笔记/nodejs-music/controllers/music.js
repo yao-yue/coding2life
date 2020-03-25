@@ -80,5 +80,41 @@ module.exports = {
         code:'001',msg:'更新成功'
       }
      
+  },
+  async deleteMusic(ctx, next) {
+    //接收请求url中的查询字符串
+    let id = ctx.query.id;
+    //删除音乐
+    let res = await musicModel.deleteMusic(id)
+    if(res.affectedRows === 0) {
+      ctx.throw(res.message)
+      return 
+    }
+    ctx.body = {
+      code: '001',
+      msg: '删除成功'
+    }
+  },
+  async showEdit(ctx, next) {
+    let id = ctx.query.id
+    let musics = await musicModel.findMusicById(id)
+    //判断是否有该歌曲
+    if(musics.length === 0) {
+      ctx.throw('歌曲存在')
+      return
+    }
+    let music = musics[0]
+    ctx.render('edit', {
+      music
+    })
+  },
+  async showIndex(ctx, next) {
+    //根据用户的session中的uid来查询数据  ==待完成===  
+    let uid = 1;
+    //根据id查询歌曲
+    let musics = await musicModel.findMusicByUid(uid)
+    ctx.render('index', {
+      musics
+    })
   }
 }

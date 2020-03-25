@@ -1,5 +1,5 @@
 const userModel = require('../models/user')
-
+const captchapng = require('captchapng2')
 
 module.exports = {
     showRegister: async (ctx, next) => {
@@ -74,5 +74,10 @@ module.exports = {
             return
         }
         ctx.body = {code: '002', msg:'用户名或密码不正确'}
+    },
+    getPic: async (ctx, next) => {
+        let rand = parseInt(Math.random() * 9000 + 1000)
+        let png = new captchapng(80,30, rand)
+        ctx.body = png.getBuffer()
     }
 }
