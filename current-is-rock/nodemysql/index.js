@@ -1,14 +1,14 @@
 var mysql = require('mysql')
 var connection = mysql.createConnection({
-    host: 'localhost',
+    host: '182.92.184.154',
     user: 'redqueen',
-    password: '112233',
-    database: 'node_music'
+    password: 'iGtsAmc4zpfKm5NN',
+    database: 'book-shelf'
 })
 // console.log(connection)
 
 
-connection.query('SELECT * FROM users',function(err,res,fields) {
+connection.query('SELECT * FROM history',function(err,res,fields) {
     if(err) throw err;
     console.table(res)
 })
