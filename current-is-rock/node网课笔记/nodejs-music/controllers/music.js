@@ -110,7 +110,7 @@ module.exports = {
   },
   async showIndex(ctx, next) {
     //根据用户的session中的uid来查询数据  ==待完成===  
-    let uid = 1;
+    let uid = ctx.session.user.id;
     //根据id查询歌曲
     let musics = await musicModel.findMusicByUid(uid)
     ctx.render('index', {

@@ -23,6 +23,15 @@ module.exports = {
     },
     doRegister: async (ctx, next) => {
         let { username, password, email, v_code} = ctx.request.body
+        //比较v_code如果不等于session中的v_code
+        if(v_code !== ctx.session.v_code) {
+            ctx.body = {
+                code : '002', msg:'验证码不正确'
+            }
+            return 
+        }
+        
+        
         //判断用户名是否存在
         let users = await userModel.findUserByUsername(username)
         if(users.length !== 0) {
@@ -77,7 +86,16 @@ module.exports = {
     },
     getPic: async (ctx, next) => {
         let rand = parseInt(Math.random() * 9000 + 1000)
+        //区分不同用户的答案，并分配session,响应cookie
+        //cookie是服务器先发过来的，然后浏览器携带着去请求服务器
+        ctx.session.v_code = rand
         let png = new captchapng(80,30, rand)
         ctx.body = png.getBuffer()
+    },
+    async logout() {
+        // 1.清除session 上user
+        // 2.重定向页面到login
+        ctx.session.user = null
+        ctx.redirect('/user/login')
     }
 }

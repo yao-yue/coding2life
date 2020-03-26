@@ -55,6 +55,14 @@ let store = {
 app.keys = ['test']; // 基于test字符串进行签名的运算，为的是保证数据不被串改，类似加密串把
 app.use(session({store:store},app))
 
+//必须在每次请求挂载新的数据与试图桥梁
+app.use(async (ctx,next) => {
+  //如果是express 就是app.locals保存一些变量
+  ctx.state.user = ctx.session.user  
+  await next()
+})
+
+
 /* 处理请求体 bodyParser引入的时候执行一下 require('koa-bodyparser')()*/
 app.use(bodyParser)
 

@@ -3,64 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <title>我的音乐</title>
-    <!-- 引包（包含其他页面include） -->
-    {{include '../particals/linker.html'}}
+
+<!-- 引包(包含其他页面include) -->
+  {{include '../particals/linker.html'   }}
 </head>
 <body>
-    <!-- 头部（包含其他页面include） -->
-    {{include '../particals/header.html'}}
 
-    <!-- 中部变化(留坑) -->
-    {{block 'content'}}
-    默认内容
-    {{/block}}
-    
-    
-    <!-- 底部（包含其他页面include）-->
-    {{include '../particals/footer.html'}}
+<!-- 头部(包含其他页面include)-->
+  {{ include '../particals/header.html'}}
+<!-- 中部变化(留坑) -->
+  {{block 'content'  }}
+    默认模板
+  {{/block}}
 
+
+<!-- 底部(包含其他页面include) -->
+  {{include '../particals/footer.html' }}
 </body>
-
 </html>
-
-
-
-
-
-<!-- <link href="/public/css/login.css" rel="stylesheet" type="text/css" />
-    <div id="wrapper">
-        <div class="aw-login-box">
-            <div class="mod-body clearfix">
-                <div class="content pull-left">
-                    <h1 class="logo"><a href=""></a></h1>
-                    <h2></h2>
-                    <form action="/" method="post" id="login_form">
-                        <ul>
-                            <li>
-                                <input type="text" id="aw-login-user-name" class="form-control" placeholder="用户名" name="username" value="" />
-                            </li>
-                            <li>
-                                <input type="password" id="aw-login-user-password" class="form-control" placeholder="密码" name="password" value="" />
-                            </li>
-                            <li class="alert alert-danger hide error_message">
-                                <i class="icon icon-delete"></i> <em></em>
-                            </li>
-                            <li class="last">
-                                <input type="submit" class="pull-right btn btn-large btn-primary" value="登录">
-                                <label>
-                                    <input type="checkbox" value="1" name="remember_me" /> 记住我 </label>
-                                <a href="http://wenda.golaravel.com/account/find_password/">&nbsp;&nbsp;忘记密码</a>
-                            </li>
-                        </ul>
-                    </form>
-                </div>
-                <div class="side-bar pull-left">
-                    <img src="/public/img/a.png" style="width: 160px">
-                </div>
-            </div>
-            <div class="mod-footer">
-                <span>还没有账号?</span>&nbsp;&nbsp;
-                <a href="/register">立即注册</a>&nbsp;&nbsp;•&nbsp;&nbsp;
-            </div>
-        </div>
-    </div> -->

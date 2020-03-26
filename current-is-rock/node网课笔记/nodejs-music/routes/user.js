@@ -8,6 +8,7 @@ userRouter.get('/user/register', userController.showRegister)
 .post('/user/check-username', userController.checkUsername )
 .post('/user/do-register',userController.doRegister)
 .post('/user/do-login', userController.doLogin)
+.get('/user/logout', userController.logout)
 .get('/user/login', async ctx=> {
     ctx.render('login')
 })

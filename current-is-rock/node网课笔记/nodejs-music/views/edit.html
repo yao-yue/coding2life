@@ -1,5 +1,5 @@
-{{extend './layout/main.html'}}
-
+{{ extend './layout/main.html'}}
+   
 {{block 'content'}}
     <div class="container">
         <div class="page-header">
@@ -8,13 +8,13 @@
     </div>
     <div class="container">
         <form id="form" method="post" action="">
-           <!-- 隐藏域数据 -->
-        <input type="hidden" name="id" value="{{music.id}}">
-            
-        
-        <div class="form-group">
+        <!-- 隐藏域数据传递 -->
+                <input type="hidden" name="id" 
+                value="{{music.id}}" >
+
+            <div class="form-group">
                 <label for="">歌曲标题</label>
-                <input type="text" name="title" class="form-control" placeholder="请输入歌曲标题" value="{{music.title}}">
+                <input type="text" name="title" class="form-control" placeholder="请输入歌曲标题" value="{{music.title}}" >
             </div>
             <div class="form-group">
                 <label for="">歌曲时长</label>
@@ -22,16 +22,16 @@
             </div>
             <div class="form-group">
                 <label for="">歌手</label>
-                <input type="text" name="singer" class="form-control" placeholder="请输入歌手姓名" value="{{music.singer}}">
+                <input type="text" name="singer" class="form-control" placeholder="请输入歌手姓名" value="music.singer" >
             </div>
             <div class="form-group">
                 <label for="">歌曲文件</label>
-                <input type="file" name="file" value="{{music.file}}">
+                <input type="file" name="file" value="{{music.file}}" >
                 <p class="help-block">请上传歌曲文件.</p>
             </div>
             <div class="form-group">
                 <label for="">歌词文件</label>
-                <input type="file" name="filelrc" value="{{music.filelrc}}">
+                <input type="file" name="filelrc" value="{{music.filelrc}}" >
                 <p class="help-block">请上传歌词文件.</p>
             </div>
             <button type="submit" class="btn btn-success">完成编辑</button>

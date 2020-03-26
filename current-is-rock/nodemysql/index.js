@@ -7,6 +7,7 @@ var connection = mysql.createConnection({
 })
 // console.log(connection)
 
+connection.query(`update history set price=${10} where id=${2}`)
 
 connection.query('SELECT * FROM history',function(err,res,fields) {
     if(err) throw err;
