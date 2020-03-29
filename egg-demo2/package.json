@@ -1,0 +1,23 @@
+{
+  "name": "egg-demo2",
+  "version": "1.0.0",
+  "description": "学习demo",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "egg-bin dev"
+  },
+  "keywords": [
+    "egg"
+  ],
+  "author": "hbw",
+  "license": "MIT",
+  "dependencies": {
+    "egg": "^2.26.0",
+    "egg-view-nunjucks": "^2.2.0",
+    "moment": "^2.24.0"
+  },
+  "devDependencies": {
+    "egg-bin": "^4.14.1"
+  }
+}
