@@ -7,6 +7,8 @@ getJs = (req, res) => {
         if(err) {
             console.log('connect error')
         } else {
+            res.set('Access-Control-Allow-Origin', '*')
+            console.log('跨域？')
             res.send({
                 'list': data
             })
@@ -14,6 +16,8 @@ getJs = (req, res) => {
     }
     db.sqlConnect(sql, sqlArr, callBack)
 }
+
+
 
 module.exports = {
     getJs

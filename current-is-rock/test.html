@@ -6,6 +6,10 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <script>
+        fetch(`http://127.0.0.1:3000/book/getJsBook`).then(res => {
+            console.log(res)
+        })
+    </script>
 </body>
 </html>
