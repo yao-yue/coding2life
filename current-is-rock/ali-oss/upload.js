@@ -1,7 +1,7 @@
 
-accessid= '6MKOqxGiGU4AUk44';
-accesskey= 'ufu7nS8kS59awNihtjSonMETLI0KLy';
-host = 'http://post-test.oss-cn-hangzhou.aliyuncs.com';
+accessid= 'LTAI4G9RKoGn14ht7Y4eDWLE';
+accesskey= '7UzJ1p2YhKTpCxXAOpB9Z3yaNbpwFR';
+host = 'http://en-source.oss-cn-beijing.aliyuncs.com';
 
 g_dirname = ''
 g_object_name = ''
@@ -9,7 +9,7 @@ g_object_name_type = ''
 now = timestamp = Date.parse(new Date()) / 1000; 
 
 var policyText = {
-    "expiration": "2020-01-01T12:00:00.000Z", //设置该Policy的失效时间，超过这个失效时间之后，就没有办法通过这个policy上传文件了
+    "expiration": "2020-08-01T12:00:00.000Z", //设置该Policy的失效时间，超过这个失效时间之后，就没有办法通过这个policy上传文件了
     "conditions": [
     ["content-length-range", 0, 1048576000] // 设置上传文件的大小限制
     ]
