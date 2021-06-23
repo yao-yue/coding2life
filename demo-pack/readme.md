@@ -94,3 +94,9 @@ peerDependency   同代
 场景： 如果使用者已经安装过一个库我们就应该把他外部化   
 consumer(使用者) 应该已经安装过 lodash 。因此，你就可以放弃控制此外部 library ，而是将控制权让给使用 library 的 consumer。   
 使用 externals 配置来完成 
+
+
+
+## 第一印象
+loader：  因为webpack只能理解js和json,loader让webpack去处理其他类型的文件，并将他们有效转化为模块  
+插件：   负责转化某些类型，执行更广的任务，包括打包优化，资源管理，注入环境变量
